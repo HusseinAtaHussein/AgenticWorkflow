@@ -1,0 +1,12 @@
+{
+  "total": 53,
+  "valid_in_scope": 52,
+  "out_of_scope": 1,
+  "invalid_or_blank_scope": 0,
+  "passed": 47,
+  "failed": 3,
+  "blocked": 2,
+  "not_executed": 1,
+  "pass_rate": 94.0,
+  "execution_rate": 100.0
+}

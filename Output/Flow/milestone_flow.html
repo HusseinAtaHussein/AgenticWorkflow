@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test Automation Milestone Flow</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.1/mermaid.min.js"></script>
+<style>
+  :root{
+    --bg:#f6f7fb;
+    --panel:#ffffff;
+    --border:#dbe1ea;
+    --text:#1e2430;
+    --muted:#64748b;
+    --accent:#2563eb;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+  }
+  header{
+    padding:20px 28px 14px 28px;
+    background:linear-gradient(135deg,#1e293b,#334155);
+    color:#f8fafc;
+  }
+  header h1{
+    margin:0 0 4px 0;
+    font-size:22px;
+    letter-spacing:.2px;
+  }
+  header p{
+    margin:0;
+    font-size:13.5px;
+    color:#cbd5e1;
+    max-width:900px;
+    line-height:1.5;
+  }
+  .layout{
+    display:flex;
+    gap:16px;
+    padding:16px;
+    align-items:flex-start;
+  }
+  .diagram-card{
+    flex:1 1 auto;
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:10px;
+    min-width:0;
+  }
+  .toolbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:4px 10px 10px 10px;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .toolbar .hint{
+    font-size:12.5px;
+    color:var(--muted);
+  }
+  .zoom-controls button{
+    border:1px solid var(--border);
+    background:#f1f5f9;
+    color:var(--text);
+    border-radius:6px;
+    width:30px;
+    height:28px;
+    font-size:15px;
+    cursor:pointer;
+    margin-left:4px;
+  }
+  .zoom-controls button:hover{ background:#e2e8f0; }
+  #diagram-viewport{
+    width:100%;
+    overflow:auto;
+    border:1px solid var(--border);
+    border-radius:8px;
+    background:
+      linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px) 0 0/24px 24px,
+      linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px) 0 0/24px 24px,
+      #fbfcfe;
+    max-height:78vh;
+  }
+  #diagram-inner{
+    transform-origin:top left;
+    padding:18px;
+    display:inline-block;
+    min-width:100%;
+  }
+  .side{
+    flex:0 0 320px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    position:sticky;
+    top:16px;
+  }
+  .panel{
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:14px 16px;
+  }
+  .panel h2{
+    font-size:14px;
+    margin:0 0 10px 0;
+    text-transform:uppercase;
+    letter-spacing:.5px;
+    color:var(--muted);
+  }
+  .legend-row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:13px;
+    margin-bottom:9px;
+  }
+  .legend-row:last-child{ margin-bottom:0; }
+  .swatch{
+    flex:0 0 auto;
+    width:26px;
+    height:18px;
+    border-radius:4px;
+    border:2px solid transparent;
+  }
+  .swatch.diamond{
+    width:18px;height:18px;border-radius:3px;
+    transform:rotate(45deg);
+    margin:0 4px;
+  }
+  .swatch.parallelogram{
+    width:26px;height:16px;
+    transform:skewX(-18deg);
+  }
+  .sw-doc{ background:#ede9fe; border-color:#7c3aed; }
+  .sw-write{ background:#dbeafe; border-color:#2563eb; }
+  .sw-run{ background:#dcfce7; border-color:#16a34a; }
+  .sw-decision{ background:#fee2e2; border-color:#dc2626; }
+  .sw-input{ background:#eef2f7; border-color:#64748b; }
+  .sw-output{ background:#fef9c3; border-color:#ca8a04; }
+  #detail-content{
+    font-size:13px;
+    line-height:1.55;
+    color:var(--text);
+  }
+  #detail-content .placeholder{
+    color:var(--muted);
+    font-style:italic;
+  }
+  #detail-content h3{
+    margin:0 0 6px 0;
+    font-size:14.5px;
+    color:#0f172a;
+  }
+  #detail-content .tag{
+    display:inline-block;
+    font-size:10.5px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.4px;
+    padding:2px 7px;
+    border-radius:20px;
+    margin-bottom:8px;
+  }
+  #detail-content .tag.doc{ background:#ede9fe; color:#4c1d95; }
+  #detail-content .tag.write{ background:#dbeafe; color:#1e3a8a; }
+  #detail-content .tag.run{ background:#dcfce7; color:#14532d; }
+  #detail-content .tag.decision{ background:#fee2e2; color:#7f1d1d; }
+  #detail-content ul{
+    margin:4px 0 10px 0;
+    padding-left:18px;
+  }
+  #detail-content .section-label{
+    font-weight:700;
+    font-size:11.5px;
+    text-transform:uppercase;
+    letter-spacing:.4px;
+    color:var(--muted);
+    margin-top:8px;
+  }
+  footer{
+    text-align:center;
+    font-size:11.5px;
+    color:var(--muted);
+    padding:6px 16px 20px 16px;
+  }
+  @media (max-width:980px){
+    .layout{ flex-direction:column; }
+    .side{ position:static; flex:1 1 auto; width:100%; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Reusable Test-Automation Solutions &mdash; Milestone Flow</h1>
+  <p>Interactive map of how <strong>prd-generator</strong>, <strong>ui-explorer</strong>, <strong>test-designer</strong>,
+  <strong>test-automation-builder</strong>, <strong>test-executor</strong>, and <strong>test-runner-healer</strong>
+  connect across a project's lifecycle. Click any skill or decision box in the diagram for its inputs, decision
+  logic, and outputs.</p>
+</header>
+
+<div class="layout">
+
+  <div class="diagram-card">
+    <div class="toolbar">
+      <span class="hint">Click a box to inspect it &middot; scroll to pan &middot; use +/&minus; to zoom</span>
+      <span class="zoom-controls">
+        <button id="zoom-out" title="Zoom out">&minus;</button>
+        <button id="zoom-reset" title="Reset zoom">&#8634;</button>
+        <button id="zoom-in" title="Zoom in">+</button>
+      </span>
+    </div>
+    <div id="diagram-viewport">
+      <div id="diagram-inner">
+        <pre class="mermaid" id="mermaid-src">
+flowchart TD
+  classDef input fill:#eef2f7,stroke:#64748b,color:#1e293b,stroke-width:1px,font-size:12px
+  classDef output fill:#fef9c3,stroke:#ca8a04,color:#713f12,stroke-width:1px,font-size:12px
+  classDef decision fill:#fee2e2,stroke:#dc2626,color:#7f1d1d,stroke-width:1.5px,font-weight:600
+  classDef writeCode fill:#dbeafe,stroke:#2563eb,color:#1e3a8a,stroke-width:2.5px,font-weight:700
+  classDef runCode fill:#dcfce7,stroke:#16a34a,color:#14532d,stroke-width:2.5px,font-weight:700
+  classDef docSkill fill:#ede9fe,stroke:#7c3aed,color:#4c1d95,stroke-width:2.5px,font-weight:700
+  classDef msTitle fill:transparent,stroke:transparent,color:#0f172a,font-weight:700
+
+  subgraph M0["Milestone 0 &nbsp;&middot;&nbsp; Project Kickoff"]
+    direction TB
+    IN0[/"Input: Project URL"/]:::input
+    PRD("prd-generator"):::docSkill
+    OUT0[\"Output: PRD.md"\]:::output
+    IN0 --> PRD --> OUT0
+  end
+
+  subgraph M1["Milestone 1 &nbsp;&middot;&nbsp; UI Exploration (one module at a time)"]
+    direction TB
+    IN1a[/"Input: Project URL"/]:::input
+    IN1c[/"Input: Selected module (exactly one)"/]:::input
+    UIX("ui-explorer"):::docSkill
+    DEC1{"Auth required?<br/>Ask fresh credentials<br/>every run &mdash; no session reuse"}:::decision
+    OUT1[\"Output: UI Exploration<br/>Findings.md"\]:::output
+    IN1a --> UIX
+    IN1c --> UIX
+    UIX --> DEC1
+    DEC1 -->|"credentials supplied"| OUT1
+  end
+  OUT0 -->|"PRD consumed as ground truth"| UIX
+
+  subgraph M2["Milestone 2 &nbsp;&middot;&nbsp; Test Design"]
+    direction TB
+    IN2[/"Input: UI Exploration Findings.md"/]:::input
+    DEC2{"Zero or multiple<br/>exploration files given?<br/>&rarr; stop and ask for exactly one"}:::decision
+    TDS("test-designer"):::docSkill
+    OUT2[\"Output: Test Design.xlsx<br/>(Valid in Scope / Needs automation cols)"\]:::output
+    IN2 --> DEC2
+    DEC2 -->|"exactly one confirmed"| TDS --> OUT2
+  end
+  OUT1 --> IN2
+
+  subgraph M3A["Milestone 3A &nbsp;&middot;&nbsp; Manual Execution (no existing suite yet)"]
+    direction TB
+    IN3a2[/"Input: Reviewed CSV<br/>filter Valid in Scope = 1"/]:::input
+    IN3a3[/"Input: Report template (.md)"/]:::input
+    TE("test-executor"):::runCode
+    DEC3a{"Auth required?<br/>Ask fresh credentials every run"}:::decision
+    OUT3a[\"Output: Execution Report<br/>PASS / FAIL / BLOCKED + bugs"\]:::output
+    IN3a2 --> TE
+    IN3a3 --> TE
+    TE --> DEC3a --> OUT3a
+  end
+
+  subgraph M3B["Milestone 3B &nbsp;&middot;&nbsp; Test Automation Build"]
+    direction TB
+    IN3b2[/"Input: Reviewed CSV<br/>Valid in Scope=1 AND Needs automation=1"/]:::input
+    IN3b3[/"Input: STACK.md + existing<br/>Playwright project path"/]:::input
+    TAB("test-automation-builder"):::writeCode
+    DEC3b{"Auth required?<br/>Ask fresh credentials every run"}:::decision
+    OUT3b1[\"Output: New .spec.ts files<br/>in existing project"\]:::output
+    OUT3b2[\"Output: First-run report<br/>+ bounded healing log"\]:::output
+    IN3b2 --> TAB
+    IN3b3 --> TAB
+    TAB --> DEC3b
+    DEC3b --> OUT3b1
+    DEC3b --> OUT3b2
+  end
+
+  OUT2 -->|"filtered rows"| IN3a2
+  OUT2 -->|"filtered rows"| IN3b2
+
+  subgraph M4["Milestone 4 &nbsp;&middot;&nbsp; Regression Runs &amp; Self-Healing (downstream of all code-writing)"]
+    direction TB
+    IN4a[/"Input: Project path"/]:::input
+    IN4b[/"Input: Module name"/]:::input
+    IN4d[/"Input: Fresh credentials<br/>(asked every run)"/]:::input
+    DEC4a{"Module name resolves<br/>ambiguously?<br/>&rarr; stop and ask"}:::decision
+    TRH("test-runner-healer"):::runCode
+    DEC4b{"Failing test caused by<br/>a likely-stale locator,<br/>within healing budget?"}:::decision
+    HEAL["Apply one bounded<br/>self-healing attempt<br/>(never loosens assertions)"]:::writeCode
+    OUT4[\"Output: Combined report &mdash;<br/>execution results + healing log + bug list"\]:::output
+    IN4a --> DEC4a
+    IN4b --> DEC4a
+    DEC4a -->|"resolved"| TRH
+    IN4d --> TRH
+    TRH --> DEC4b
+    DEC4b -->|"yes"| HEAL --> TRH
+    DEC4b -->|"no / budget exhausted"| OUT4
+  end
+
+  OUT3b1 -.->|"existing suite handed downstream"| IN4a
+
+  click PRD call showDetail("PRD")
+  click UIX call showDetail("UIX")
+  click DEC1 call showDetail("DEC1")
+  click DEC2 call showDetail("DEC2")
+  click TDS call showDetail("TD")
+  click TE call showDetail("TE")
+  click DEC3a call showDetail("DEC3a")
+  click TAB call showDetail("TAB")
+  click DEC3b call showDetail("DEC3b")
+  click DEC4a call showDetail("DEC4a")
+  click TRH call showDetail("TRH")
+  click DEC4b call showDetail("DEC4b")
+  click HEAL call showDetail("HEAL")
+        </pre>
+      </div>
+    </div>
+  </div>
+
+  <div class="side">
+    <div class="panel">
+      <h2>Legend</h2>
+      <div class="legend-row"><span class="swatch parallelogram sw-input"></span> Input required (path, module, template, credentials&hellip;)</div>
+      <div class="legend-row"><span class="swatch diamond sw-decision"></span> Decision point / branch</div>
+      <div class="legend-row"><span class="swatch parallelogram sw-output"></span> Output artifact produced</div>
+      <div class="legend-row"><span class="swatch sw-doc"></span> Skill: analysis / document authoring (no test code)</div>
+      <div class="legend-row"><span class="swatch sw-write"></span> Skill / step: writes new test code</div>
+      <div class="legend-row"><span class="swatch sw-run"></span> Skill: executes existing test logic</div>
+      <div class="legend-row" style="margin-top:2px;"><span style="font-size:16px;line-height:1;">&rarr;</span>&nbsp; solid = direct hand-off &nbsp;&nbsp; <span style="font-size:16px;line-height:1;">&#8594;</span>&nbsp; dashed = downstream milestone</div>
+    </div>
+
+    <div class="panel">
+      <h2>Details</h2>
+      <div id="detail-content">
+        <p class="placeholder">Click any skill or decision node in the diagram to see its inputs, logic, and outputs here.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>Single self-contained HTML file &middot; diagram rendered client-side with Mermaid.js (loaded from cdnjs)</footer>
+
+<script>
+  const details = {
+    PRD: {
+      tag: "doc", tagLabel: "Analysis / Doc Skill",
+      title: "prd-generator",
+      inputs: ["Public project URL"],
+      logic: ["Uses live browser exploration (Playwright MCP) as the primary source of truth, especially for JS-rendered SPAs, rather than guessing from static markup."],
+      outputs: ["PRD.md &mdash; evidence-based Product Requirements Document"],
+      next: "Consumed as ground truth by ui-explorer, test-designer, test-executor, and test-automation-builder."
+    },
+    UIX: {
+      tag: "doc", tagLabel: "Analysis / Doc Skill",
+      title: "ui-explorer",
+      inputs: ["Project URL", "PRD.md", "Exactly one selected module"],
+      logic: ["UI-only ground truth: never explores or documents APIs, network requests, or payloads.", "Only ever explores one module per run &mdash; will not attempt whole-app coverage."],
+      outputs: ["UI Exploration Findings.md &mdash; verified UI behavior vs. PRD"],
+      next: "Consumed by test-designer to build test cases."
+    },
+    DEC1: {
+      tag: "decision", tagLabel: "Decision Point",
+      title: "Authentication required?",
+      logic: ["Every execution asks for fresh login credentials.", "No exception is made even if the module looks public or a session already appears to exist &mdash; credentials are never reused across runs."],
+      next: "Once satisfied, exploration proceeds and Findings.md is produced."
+    },
+    TD: {
+      tag: "doc", tagLabel: "Analysis / Doc Skill",
+      title: "test-designer",
+      inputs: ["Exactly one UI Exploration Findings.md file"],
+      logic: ["Does not invent UI behavior, validation rules, or expected results beyond what the exploration file documents.", "If the exploration file is thin or unverified, the resulting test suite is equally honest about that rather than padded out."],
+      outputs: ["Test Design.xlsx with 'Valid in Scope' and 'Needs automation' columns"],
+      next: "Reviewed/filtered rows feed both test-executor (manual path) and test-automation-builder (automated path)."
+    },
+    DEC2: {
+      tag: "decision", tagLabel: "Decision Point",
+      title: "Input file ambiguity check",
+      logic: ["Requires exactly one UI Exploration Markdown file.", "If none or multiple files are given &rarr; stop and ask the user to specify exactly one before proceeding."]
+    },
+    TE: {
+      tag: "run", tagLabel: "Executes Existing Logic",
+      title: "test-executor",
+      inputs: ["Project URL", "PRD", "UI Exploration file", "Reviewed Test Design CSV filtered to Valid in Scope = 1", "Markdown execution report template", "Fresh login credentials"],
+      logic: ["Strictly UI-only: never performs API execution, network/HTTP analysis, or database validation.", "Follows the supplied report template as a structural contract.", "Every run asks for fresh credentials, no exceptions."],
+      outputs: ["Markdown execution report: PASS/FAIL/BLOCKED statuses, evidence, integrated bug reports, blocker tracking"],
+      next: "Terminal for this path &mdash; no test code is produced, so nothing hands off to test-runner-healer here."
+    },
+    DEC3a: {
+      tag: "decision", tagLabel: "Decision Point",
+      title: "Authentication required?",
+      logic: ["Fresh credentials are requested every run, regardless of any apparently-existing session."]
+    },
+    TAB: {
+      tag: "write", tagLabel: "Writes New Test Code",
+      title: "test-automation-builder",
+      inputs: ["Project URL, PRD, UI Exploration file", "Reviewed CSV filtered to Valid in Scope = 1 AND Needs automation = 1", "STACK.md conventions of the target project", "Path to the EXISTING Playwright/IntelliJ project", "Fresh login credentials"],
+      logic: ["Follows the target project's own conventions for page objects, fixtures, folder structure, and tagging &mdash; never a standalone/parallel project.", "Executes the new specs with `npx playwright test` and performs one bounded self-healing attempt per failing test on likely stale locators.", "Never fabricates execution results and never disguises a failure by loosening an assertion."],
+      outputs: ["New Playwright .spec.ts files committed into the existing project", "First-run HTML execution report with embedded/linked healing log and structured bug entries"],
+      next: "The resulting suite is what test-runner-healer runs on all future regression cycles &mdash; this is the code-writing step everything downstream depends on."
+    },
+    DEC3b: {
+      tag: "decision", tagLabel: "Decision Point",
+      title: "Authentication required?",
+      logic: ["Fresh credentials are requested every run, with no exceptions for an apparently-existing session."]
+    },
+    DEC4a: {
+      tag: "decision", tagLabel: "Decision Point",
+      title: "Module resolution check",
+      logic: ["If the given module name resolves ambiguously against the project (e.g. matches multiple modules, or none) &rarr; stop and ask the user to clarify before running anything."]
+    },
+    TRH: {
+      tag: "run", tagLabel: "Executes Existing Logic",
+      title: "test-runner-healer",
+      inputs: ["Project path", "Module name", "Report template", "Fresh credentials (asked every run)"],
+      logic: ["Runs an EXISTING Playwright suite for one module &mdash; it does not author new test cases or new coverage.", "Applies bounded self-healing only to failing tests, only on likely-stale-locator style failures, within a fixed attempt budget.", "Sits downstream of every skill that writes test code (chiefly test-automation-builder) &mdash; it consumes what they produced."],
+      outputs: ["Single combined report: execution results + healing log + bug list"],
+      next: "This is the recurring regression entry point for future milestones/releases."
+    },
+    DEC4b: {
+      tag: "decision", tagLabel: "Decision Point",
+      title: "Is this failure healable?",
+      logic: ["Healing is only attempted for failures that look like stale locators, and only up to a bounded number of attempts.", "Assertions are never loosened to force a pass &mdash; a genuine functional failure is reported as a bug, not silently healed."]
+    },
+    HEAL: {
+      tag: "write", tagLabel: "Writes/Adjusts Test Code",
+      title: "Bounded self-healing attempt",
+      logic: ["A locator-only repair applied inside test-runner-healer's run &mdash; the smallest scope of 'writing code' in this pipeline.", "Feeds the test back into the same run for re-verification; if still failing after the attempt budget, it is logged as a bug instead."]
+    }
+  };
+
+  function showDetail(id) {
+    const d = details[id];
+    const el = document.getElementById('detail-content');
+    if (!d) { el.innerHTML = '<p class="placeholder">No details available.</p>'; return; }
+    let html = '<span class="tag ' + d.tag + '">' + d.tagLabel + '</span>';
+    html += '<h3>' + d.title + '</h3>';
+    if (d.inputs) {
+      html += '<div class="section-label">Inputs</div><ul>' + d.inputs.map(i => '<li>' + i + '</li>').join('') + '</ul>';
+    }
+    if (d.logic) {
+      html += '<div class="section-label">Key logic / decisions</div><ul>' + d.logic.map(i => '<li>' + i + '</li>').join('') + '</ul>';
+    }
+    if (d.outputs) {
+      html += '<div class="section-label">Outputs</div><ul>' + d.outputs.map(i => '<li>' + i + '</li>').join('') + '</ul>';
+    }
+    if (d.next) {
+      html += '<div class="section-label">Feeds into</div><p style="margin:4px 0 0 0;">' + d.next + '</p>';
+    }
+    el.innerHTML = html;
+  }
+  window.showDetail = showDetail;
+
+  mermaid.initialize({
+    startOnLoad: true,
+    securityLevel: 'loose',
+    theme: 'base',
+    flowchart: { curve: 'basis', htmlLabels: true, useMaxWidth: false },
+    themeVariables: {
+      fontSize: '13px',
+      primaryColor: '#eef2f7',
+      primaryBorderColor: '#64748b',
+      lineColor: '#94a3b8',
+      clusterBkg: '#f8fafc',
+      clusterBorder: '#cbd5e1'
+    }
+  });
+
+  // Simple zoom controls for the rendered diagram
+  window.addEventListener('load', function () {
+    let scale = 1;
+    const inner = document.getElementById('diagram-inner');
+    function applyScale() {
+      inner.style.transform = 'scale(' + scale + ')';
+    }
+    document.getElementById('zoom-in').addEventListener('click', function () {
+      scale = Math.min(scale + 0.15, 3);
+      applyScale();
+    });
+    document.getElementById('zoom-out').addEventListener('click', function () {
+      scale = Math.max(scale - 0.15, 0.3);
+      applyScale();
+    });
+    document.getElementById('zoom-reset').addEventListener('click', function () {
+      scale = 1;
+      applyScale();
+    });
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,173 @@
+
+Running 48 tests using 3 workers
+
+  ✓   2 [chromium] › src\features\my-info\contact-details.spec.ts:14:7 › My Info — Contact Details › TC-020 Contact Details fields are pre-populated with a Save button present @automated (12.4s)
+  ✓   1 [chromium] › src\features\my-info\attachments-common.spec.ts:7:7 › My Info — Attachments (General) › TC-052 Attachments empty state shows No Records Found with headers visible @automated (13.0s)
+  ✓   3 [chromium] › src\features\my-info\contact-details.spec.ts:21:7 › My Info — Contact Details › TC-021 invalid Work Email format shows error and blocks save @automated (14.7s)
+  ✓   5 [chromium] › src\features\my-info\contact-details.spec.ts:39:7 › My Info — Contact Details › TC-023 Contact Details Attachments shows No Records Found @automated (9.9s)
+  ✓   4 [chromium] › src\features\my-info\contact-details.spec.ts:29:7 › My Info — Contact Details › TC-022 Country dropdown includes the full alphabetical option list @automated (11.2s)
+  ✓   6 [chromium] › src\features\my-info\dependents.spec.ts:14:7 › My Info — Dependents › TC-029 Dependents table lists the existing record @automated (9.7s)
+  ✓   7 [chromium] › src\features\my-info\dependents.spec.ts:20:7 › My Info — Dependents › TC-030 Add Dependent Relationship dropdown shows exactly 3 options @automated (11.2s)
+  ✓   8 [chromium] › src\features\my-info\dependents.spec.ts:28:7 › My Info — Dependents › TC-031 Add Dependent form marks Name/Relationship required, Date of Birth optional @automated (12.6s)
+  ✓   9 [chromium] › src\features\my-info\emergency-contacts.spec.ts:14:7 › My Info — Emergency Contacts › TC-024 Emergency Contacts table lists existing records with record count @automated (11.8s)
+  ✓  10 [chromium] › src\features\my-info\emergency-contacts.spec.ts:21:7 › My Info — Emergency Contacts › TC-025 Add form shows Name*/Relationship* required and Save/Cancel/legend @automated (18.7s)
+  ✓  12 [chromium] › src\features\my-info\emergency-contacts.spec.ts:41:7 › My Info — Emergency Contacts › TC-027 all phone fields empty shows at-least-one-phone-required error @automated (25.2s)
+  ✓  11 [chromium] › src\features\my-info\emergency-contacts.spec.ts:32:7 › My Info — Emergency Contacts › TC-026 empty Name and Relationship show Required errors and block save @automated (30.7s)
+  ✓  13 [chromium] › src\features\my-info\emergency-contacts.spec.ts:51:7 › My Info — Emergency Contacts › TC-028 Cancel discards the Add form without saving @automated (23.6s)
+  ✓  15 [chromium] › src\features\my-info\immigration.spec.ts:20:7 › My Info — Immigration › TC-033 Add Immigration form defaults to Passport and marks Number required @automated (16.3s)
+  ✓  14 [chromium] › src\features\my-info\immigration.spec.ts:14:7 › My Info — Immigration › TC-032 Immigration table lists existing records @automated (24.0s)
+  ✓  16 [chromium] › src\features\my-info\job.spec.ts:23:7 › My Info — Job (Read-only) › TC-048 Job fields are read-only and no Save button exists @automated (10.9s)
+  ✓  17 [chromium] › src\features\my-info\memberships.spec.ts:13:7 › My Info — Memberships › TC-045 Memberships table lists the existing record @automated (10.2s)
+  ✓  19 [chromium] › src\features\my-info\memberships.spec.ts:26:7 › My Info — Memberships › TC-047 Memberships Attachments table lists the existing file @automated (9.3s)
+  ✓  18 [chromium] › src\features\my-info\memberships.spec.ts:19:7 › My Info — Memberships › TC-046 Add Membership form marks Membership as required @automated (17.5s)
+  ✓  20 [chromium] › src\features\my-info\navigation.spec.ts:14:7 › My Info — Navigation › TC-001 navigates to My Info landing on Personal Details with employee card visible @automated (15.0s)
+  ✓  21 [chromium] › src\features\my-info\navigation.spec.ts:22:7 › My Info — Navigation › TC-002 all 10 tabs are present in order and each navigates to its own route @automated (22.8s)
+  ✓  23 [chromium] › src\features\my-info\navigation.spec.ts:42:7 › My Info — Navigation › TC-004 top banner heading reads PIM on My Info sub-tabs @automated (16.1s)
+  ✓  22 [chromium] › src\features\my-info\navigation.spec.ts:32:7 › My Info — Navigation › TC-003 employee identity card persists across tab switches @automated (28.7s)
+  ✓  24 [chromium] › src\features\my-info\navigation.spec.ts:48:7 › My Info — Navigation › TC-005 no unsaved-changes dialog appears when switching tabs after an edit @automated (26.7s)
+  ✓  26 [chromium] › src\features\my-info\navigation.spec.ts:68:7 › My Info — Navigation › TC-007 no sortable column headers exist on Qualifications tables @automated (23.4s)
+  ✓  27 [chromium] › src\features\my-info\navigation.spec.ts:75:7 › My Info — Navigation › TC-008 no pagination controls appear on Qualifications > Languages table @automated (13.3s)
+  ✓  28 [chromium] › src\features\my-info\navigation.spec.ts:82:7 › My Info — Navigation › TC-009 * Required legend is shown near Save on Personal Details @automated (9.2s)
+  ✓  29 [chromium] › src\features\my-info\navigation.spec.ts:88:7 › My Info — Navigation › TC-010 License Expiry Date field uses yyyy-dd-mm format @automated (8.9s)
+  ✓  30 [chromium] › src\features\my-info\personal-details.spec.ts:13:7 › My Info — Personal Details › TC-011 Personal Details fields are pre-populated and Save is enabled @automated (8.7s)
+  ✓  25 [chromium] › src\features\my-info\navigation.spec.ts:58:7 › My Info — Navigation › TC-006 no search or filter controls exist on My Info tabs @automated (52.7s)
+  ✓  31 [chromium] › src\features\my-info\personal-details.spec.ts:20:7 › My Info — Personal Details › TC-012 empty First Name shows inline Required error and blocks save @automated (11.0s)
+  ✘  32 [chromium] › src\features\my-info\personal-details.spec.ts:29:7 › My Info — Personal Details › TC-013 invalid License Expiry Date shows format error and blocks save @automated (37.6s)
+  ✓  35 [chromium] › src\features\my-info\personal-details.spec.ts:58:7 › My Info — Personal Details › TC-017 Marital Status dropdown shows exactly 4 options @automated (6.3s)
+  ✓  36 [chromium] › src\features\my-info\personal-details.spec.ts:65:7 › My Info — Personal Details › TC-018 Blood Type dropdown shows exactly 9 options @automated (6.5s)
+  ✓  37 [chromium] › src\features\my-info\qualifications.spec.ts:13:7 › My Info — Qualifications › TC-035 Work Experience table lists existing records @automated (8.7s)
+  ✘  33 [chromium] › src\features\my-info\personal-details.spec.ts:39:7 › My Info — Personal Details › TC-014 Employee Id exceeding 10 characters shows length error and blocks save @automated (1.1m)
+  ✘  34 [chromium] › src\features\my-info\personal-details.spec.ts:48:7 › My Info — Personal Details › TC-016 Nationality dropdown includes the full alphabetical option list @automated (1.1m)
+  ✓  38 [chromium] › src\features\my-info\qualifications.spec.ts:19:7 › My Info — Qualifications › TC-036 Add Work Experience form marks Company and Job Title required @automated (17.7s)
+  ✓  39 [chromium] › src\features\my-info\qualifications.spec.ts:27:7 › My Info — Qualifications › TC-037 Education table lists existing records @automated (10.3s)
+  ✓  40 [chromium] › src\features\my-info\qualifications.spec.ts:33:7 › My Info — Qualifications › TC-038 Add Education Level dropdown shows exactly 5 options @automated (11.9s)
+  ✓  41 [chromium] › src\features\my-info\qualifications.spec.ts:47:7 › My Info — Qualifications › TC-039 Skills table shows No Records Found @automated (11.4s)
+  ✓  42 [chromium] › src\features\my-info\qualifications.spec.ts:53:7 › My Info — Qualifications › TC-040 Add Skill form marks Skill as required @automated (12.1s)
+  ✓  43 [chromium] › src\features\my-info\qualifications.spec.ts:60:7 › My Info — Qualifications › TC-041 Languages table lists existing records @automated (10.8s)
+  ✓  44 [chromium] › src\features\my-info\qualifications.spec.ts:66:7 › My Info — Qualifications › TC-042 Add Language form marks Language/Fluency/Competency as required @automated (10.6s)
+  ✓  45 [chromium] › src\features\my-info\qualifications.spec.ts:75:7 › My Info — Qualifications › TC-043 License table lists the existing record @automated (9.9s)
+  ✓  47 [chromium] › src\features\my-info\report-to.spec.ts:13:7 › My Info — Report-to (Read-only) › TC-051 Supervisors empty, 1 Subordinate listed, no Add button anywhere @automated (8.8s)
+  ✓  48 [chromium] › src\features\my-info\salary.spec.ts:12:7 › My Info — Salary (Read-only) › TC-050 Salary shows No Records Found in both sections and no Add button @automated (12.2s)
+  ✓  46 [chromium] › src\features\my-info\qualifications.spec.ts:81:7 › My Info — Qualifications › TC-044 Add License form marks License Type as required @automated (21.3s)
+
+
+  1) [chromium] › src\features\my-info\personal-details.spec.ts:29:7 › My Info — Personal Details › TC-013 invalid License Expiry Date shows format error and blocks save @automated 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText('Dashboard').first()
+    Expected: visible
+    Timeout: 30000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByText('Dashboard').first() with timeout 30000ms
+      - waiting for getByText('Dashboard').first()
+
+
+       at fixtures\auth.fixture.ts:23
+
+      21 |     const loginPage = new LoginPage(page);
+      22 |     await loginPage.login(username, password);
+    > 23 |     await expect(page.getByText('Dashboard').first()).toBeVisible({ timeout: 30000 });
+         |                                                       ^
+      24 |
+      25 |     await use(page);
+      26 |   },
+        at Object.authenticatedPage (C:\Users\SH\Downloads\AI Task 4\AI Task 4\Output\Framework\src\fixtures\auth.fixture.ts:23:55)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\features-my-info-personal--a95b7-ormat-error-and-blocks-save-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\features-my-info-personal--a95b7-ormat-error-and-blocks-save-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\features-my-info-personal--a95b7-ormat-error-and-blocks-save-chromium\error-context.md
+
+  2) [chromium] › src\features\my-info\personal-details.spec.ts:39:7 › My Info — Personal Details › TC-014 Employee Id exceeding 10 characters shows length error and blocks save @automated 
+
+    Test timeout of 60000ms exceeded while running "beforeEach" hook.
+
+       5 | test.describe('My Info — Personal Details', { tag: '@automated' }, () => {
+       6 |   test.describe.configure({ timeout: 60000 });
+    >  7 |   test.beforeEach(async ({ authenticatedPage }) => {
+         |        ^
+       8 |     const myInfo = new MyInfoPage(authenticatedPage);
+       9 |     await myInfo.open();
+      10 |   });
+        at C:\Users\SH\Downloads\AI Task 4\AI Task 4\Output\Framework\src\features\my-info\personal-details.spec.ts:7:8
+
+    Error: locator.fill: Test timeout of 60000ms exceeded.
+    Call log:
+      - waiting for getByPlaceholder('Username')
+
+
+       at features\auth\login.page.ts:19
+
+      17 |   async login(username: string, password: string) {
+      18 |     await this.page.goto('/web/index.php/auth/login', { timeout: 60000 });
+    > 19 |     await this.usernameInput().fill(username);
+         |                                ^
+      20 |     await this.passwordInput().fill(password);
+      21 |     await this.loginButton().click();
+      22 |   }
+        at LoginPage.login (C:\Users\SH\Downloads\AI Task 4\AI Task 4\Output\Framework\src\features\auth\login.page.ts:19:32)
+        at Object.authenticatedPage (C:\Users\SH\Downloads\AI Task 4\AI Task 4\Output\Framework\src\fixtures\auth.fixture.ts:22:5)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\features-my-info-personal--b3138-ength-error-and-blocks-save-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\features-my-info-personal--b3138-ength-error-and-blocks-save-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\features-my-info-personal--b3138-ength-error-and-blocks-save-chromium\error-context.md
+
+  3) [chromium] › src\features\my-info\personal-details.spec.ts:48:7 › My Info — Personal Details › TC-016 Nationality dropdown includes the full alphabetical option list @automated 
+
+    Test timeout of 60000ms exceeded while running "beforeEach" hook.
+
+       5 | test.describe('My Info — Personal Details', { tag: '@automated' }, () => {
+       6 |   test.describe.configure({ timeout: 60000 });
+    >  7 |   test.beforeEach(async ({ authenticatedPage }) => {
+         |        ^
+       8 |     const myInfo = new MyInfoPage(authenticatedPage);
+       9 |     await myInfo.open();
+      10 |   });
+        at C:\Users\SH\Downloads\AI Task 4\AI Task 4\Output\Framework\src\features\my-info\personal-details.spec.ts:7:8
+
+    Error: locator.fill: Test timeout of 60000ms exceeded.
+    Call log:
+      - waiting for getByPlaceholder('Username')
+
+
+       at features\auth\login.page.ts:19
+
+      17 |   async login(username: string, password: string) {
+      18 |     await this.page.goto('/web/index.php/auth/login', { timeout: 60000 });
+    > 19 |     await this.usernameInput().fill(username);
+         |                                ^
+      20 |     await this.passwordInput().fill(password);
+      21 |     await this.loginButton().click();
+      22 |   }
+        at LoginPage.login (C:\Users\SH\Downloads\AI Task 4\AI Task 4\Output\Framework\src\features\auth\login.page.ts:19:32)
+        at Object.authenticatedPage (C:\Users\SH\Downloads\AI Task 4\AI Task 4\Output\Framework\src\fixtures\auth.fixture.ts:22:5)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\features-my-info-personal--3cf8e-ll-alphabetical-option-list-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\features-my-info-personal--3cf8e-ll-alphabetical-option-list-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\features-my-info-personal--3cf8e-ll-alphabetical-option-list-chromium\error-context.md
+
+  3 failed
+    [chromium] › src\features\my-info\personal-details.spec.ts:29:7 › My Info — Personal Details › TC-013 invalid License Expiry Date shows format error and blocks save @automated 
+    [chromium] › src\features\my-info\personal-details.spec.ts:39:7 › My Info — Personal Details › TC-014 Employee Id exceeding 10 characters shows length error and blocks save @automated 
+    [chromium] › src\features\my-info\personal-details.spec.ts:48:7 › My Info — Personal Details › TC-016 Nationality dropdown includes the full alphabetical option list @automated 
+  45 passed (4.9m)

@@ -1,0 +1,821 @@
+{
+  "meta": {
+    "url": "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login",
+    "startedAt": "2026-09-16T11:47:41.388Z",
+    "finishedAt": "2026-09-16T11:49:37.596Z"
+  },
+  "authentication": {
+    "status": "Successful"
+  },
+  "navigation": {
+    "myInfoUrl": "https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewPersonalDetails/empNumber/7",
+    "headingSample": "PIM",
+    "discoveredTabs": [
+      "Personal Details",
+      "Contact Details",
+      "Emergency Contacts",
+      "Dependents",
+      "Immigration",
+      "Job",
+      "Salary",
+      "Report-to",
+      "Qualifications",
+      "Memberships"
+    ]
+  },
+  "tabs": [
+    {
+      "name": "Personal Details",
+      "screenshots": [
+        "screenshots\\tab-personal-details-01-landing.png"
+      ],
+      "fields": [
+        {
+          "kind": "input",
+          "tag": "input",
+          "type": "text",
+          "name": "firstName",
+          "placeholder": "First Name",
+          "label": null,
+          "required": false,
+          "disabled": false,
+          "readonly": false,
+          "value": "first"
+        },
+        {
+          "kind": "input",
+          "tag": "input",
+          "type": "text",
+          "name": "middleName",
+          "placeholder": "Middle Name",
+          "label": null,
+          "required": false,
+          "disabled": false,
+          "readonly": false,
+          "value": "middle"
+        },
+        {
+          "kind": "input",
+          "tag": "input",
+          "type": "text",
+          "name": "lastName",
+          "placeholder": "Last Name",
+          "label": null,
+          "required": false,
+          "disabled": false,
+          "readonly": false,
+          "value": "K"
+        },
+        {
+          "kind": "input",
+          "tag": "input",
+          "type": "text",
+          "name": null,
+          "placeholder": null,
+          "label": null,
+          "required": false,
+          "disabled": false,
+          "readonly": false,
+          "value": "EMP1001"
+        },
+        {
+          "kind": "input",
+          "tag": "input",
+          "type": "text",
+          "name": null,
+          "placeholder": null,
+          "label": null,
+          "required": false,
+          "disabled": false,
+          "readonly": false,
+          "value": "OTH1001"
+        },
+        {
+          "kind": "input",
+          "tag": "input",
+          "type": "text",
+          "name": null,
+          "placeholder": null,
+          "label": null,
+          "required": false,
+          "disabled": false,
+          "readonly": false,
+          "value": "DL123456"
+        },
+        {
+          "kind": "input",
+          "tag": "input",
+          "type": "text",
+          "name": null,
+          "placeholder": "yyyy-dd-mm",
+          "label": null,
+          "required": false,
+          "disabled": false,
+          "readonly": false,
+          "value": "2026-15-10"
+        },
+        {
+          "kind": "input",
+          "tag": "input",
+          "type": "text",
+          "name": null,
+          "placeholder": "yyyy-dd-mm",
+          "label": null,
+          "required": false,
+          "disabled": false,
+          "readonly": false,
+          "value": "1998-15-10"
+        },
+        {
+          "kind": "input",
+          "tag": "input",
+          "type": "radio",
+          "name": null,
+          "placeholder": null,
+          "label": "Male",
+          "required": false,
+          "disabled": false,
+          "readonly": false,
+          "value": "1"
+        },
+        {
+          "kind": "input",
+          "tag": "input",
+          "type": "radio",
+          "name": null,
+          "placeholder": null,
+          "label": "Female",
+          "required": false,
+          "disabled": false,
+          "readonly": false,
+          "value": "2"
+        },
+        {
+          "kind": "input",
+          "tag": "input",
+          "type": "text",
+          "name": null,
+          "placeholder": null,
+          "label": null,
+          "required": false,
+          "disabled": false,
+          "readonly": false,
+          "value": null
+        },
+        {
+          "kind": "input",
+          "tag": "input",
+          "type": "text",
+          "name": null,
+          "placeholder": null,
+          "label": null,
+          "required": false,
+          "disabled": false,
+          "readonly": false,
+          "value": null
+        },
+        {
+          "kind": "input",
+          "tag": "input",
+          "type": "text",
+          "name": null,
+          "placeholder": null,
+          "label": null,
+          "required": false,
+          "disabled": false,
+          "readonly": false,
+          "value": null
+        },
+        {
+          "kind": "input",
+          "tag": "input",
+          "type": "text",
+          "name": null,
+          "placeholder": null,
+          "label": null,
+          "required": false,
+          "disabled": false,
+          "readonly": false,
+          "value": null
+        },
+        {
+          "kind": "input",
+          "tag": "input",
+          "type": "text",
+          "name": null,
+          "placeholder": null,
+          "label": null,
+          "required": false,
+          "disabled": false,
+          "readonly": false,
+          "value": "24355"
+        },
+        {
+          "kind": "input",
+          "tag": "input",
+          "type": "checkbox",
+          "name": null,
+          "placeholder": null,
+          "label": "",
+          "required": false,
+          "disabled": false,
+          "readonly": false,
+          "value": "on"
+        },
+        {
+          "kind": "input",
+          "tag": "input",
+          "type": "checkbox",
+          "name": null,
+          "placeholder": null,
+          "label": "",
+          "required": false,
+          "disabled": false,
+          "readonly": false,
+          "value": "0"
+        },
+        {
+          "kind": "custom-dropdown",
+          "label": null,
+          "currentText": "Indian",
+          "required": false,
+          "disabled": false
+        },
+        {
+          "kind": "custom-dropdown",
+          "label": null,
+          "currentText": "Single",
+          "required": false,
+          "disabled": false
+        }
+      ],
+      "dropdowns": [
+        {
+          "label": "Nationality",
+          "options": {
+            "total": 193,
+            "first5": [
+              "-- Select --",
+              "Albanian",
+              "Algerian",
+              "American",
+              "Andorran"
+            ],
+            "last5": [
+              "Vietnamese",
+              "Welsh",
+              "Yemenite",
+              "Zambian",
+              "Zimbabwean"
+            ]
+          }
+        },
+        {
+          "label": "Marital Status",
+          "options": {
+            "total": 4,
+            "all": [
+              "-- Select --",
+              "Single",
+              "Married",
+              "Other"
+            ]
+          }
+        }
+      ],
+      "addForms": [],
+      "table": {
+        "present": true,
+        "approxRowCount": 2
+      },
+      "notes": [],
+      "url": "https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewPersonalDetails/empNumber/7",
+      "emptyStateObserved": false
+    },
+    {
+      "name": "Contact Details",
+      "screenshots": [
+        "screenshots\\tab-contact-details-01-landing.png"
+      ],
+      "fields": [
+        {
+          "kind": "input",
+          "tag": "input",
+          "type": "text",
+          "name": null,
+          "placeholder": null,
+          "label": null,
+          "required": false,
+          "disabled": false,
+          "readonly": false,
+          "value": null
+        },
+        {
+          "kind": "input",
+          "tag": "input",
+          "type": "text",
+          "name": null,
+          "placeholder": null,
+          "label": null,
+          "required": false,
+          "disabled": false,
+          "readonly": false,
+          "value": null
+        },
+        {
+          "kind": "input",
+          "tag": "input",
+          "type": "text",
+          "name": null,
+          "placeholder": null,
+          "label": null,
+          "required": false,
+          "disabled": false,
+          "readonly": false,
+          "value": null
+        },
+        {
+          "kind": "input",
+          "tag": "input",
+          "type": "text",
+          "name": null,
+          "placeholder": null,
+          "label": null,
+          "required": false,
+          "disabled": false,
+          "readonly": false,
+          "value": null
+        },
+        {
+          "kind": "input",
+          "tag": "input",
+          "type": "text",
+          "name": null,
+          "placeholder": null,
+          "label": null,
+          "required": false,
+          "disabled": false,
+          "readonly": false,
+          "value": null
+        },
+        {
+          "kind": "input",
+          "tag": "input",
+          "type": "text",
+          "name": null,
+          "placeholder": null,
+          "label": null,
+          "required": false,
+          "disabled": false,
+          "readonly": false,
+          "value": null
+        },
+        {
+          "kind": "input",
+          "tag": "input",
+          "type": "text",
+          "name": null,
+          "placeholder": null,
+          "label": null,
+          "required": false,
+          "disabled": false,
+          "readonly": false,
+          "value": null
+        },
+        {
+          "kind": "input",
+          "tag": "input",
+          "type": "text",
+          "name": null,
+          "placeholder": null,
+          "label": null,
+          "required": false,
+          "disabled": false,
+          "readonly": false,
+          "value": "112-898-7612"
+        },
+        {
+          "kind": "input",
+          "tag": "input",
+          "type": "text",
+          "name": null,
+          "placeholder": null,
+          "label": null,
+          "required": false,
+          "disabled": false,
+          "readonly": false,
+          "value": "paul1@osohrm.com"
+        },
+        {
+          "kind": "input",
+          "tag": "input",
+          "type": "text",
+          "name": null,
+          "placeholder": null,
+          "label": null,
+          "required": false,
+          "disabled": false,
+          "readonly": false,
+          "value": null
+        },
+        {
+          "kind": "input",
+          "tag": "input",
+          "type": "checkbox",
+          "name": null,
+          "placeholder": null,
+          "label": "",
+          "required": false,
+          "disabled": false,
+          "readonly": false,
+          "value": "on"
+        },
+        {
+          "kind": "custom-dropdown",
+          "label": null,
+          "currentText": "-- Select --",
+          "required": false,
+          "disabled": false
+        },
+        {
+          "kind": "custom-dropdown",
+          "label": null,
+          "currentText": "-- Select --",
+          "required": false,
+          "disabled": false
+        }
+      ],
+      "dropdowns": [
+        {
+          "label": "Country",
+          "options": {
+            "total": 240,
+            "first5": [
+              "-- Select --",
+              "Afghanistan",
+              "Albania",
+              "Algeria",
+              "American Samoa"
+            ],
+            "last5": [
+              "Wallis and Futuna",
+              "Western Sahara",
+              "Yemen",
+              "Zambia",
+              "Zimbabwe"
+            ]
+          }
+        },
+        {
+          "label": "n xbxj",
+          "options": {
+            "total": 2,
+            "all": [
+              "-- Select --",
+              "o+"
+            ]
+          }
+        }
+      ],
+      "addForms": [],
+      "table": {
+        "present": true,
+        "approxRowCount": 1
+      },
+      "notes": [],
+      "url": "https://opensource-demo.orangehrmlive.com/web/index.php/pim/contactDetails/empNumber/7",
+      "emptyStateObserved": true
+    },
+    {
+      "name": "Emergency Contacts",
+      "screenshots": [
+        "screenshots\\tab-emergency-contacts-01-landing.png"
+      ],
+      "fields": [
+        {
+          "kind": "input",
+          "tag": "input",
+          "type": "checkbox",
+          "name": null,
+          "placeholder": null,
+          "label": "",
+          "required": false,
+          "disabled": false,
+          "readonly": false,
+          "value": "on"
+        },
+        {
+          "kind": "input",
+          "tag": "input",
+          "type": "checkbox",
+          "name": null,
+          "placeholder": null,
+          "label": "",
+          "required": false,
+          "disabled": false,
+          "readonly": false,
+          "value": "on"
+        }
+      ],
+      "dropdowns": [],
+      "addForms": [],
+      "table": {
+        "present": true,
+        "approxRowCount": 1
+      },
+      "notes": [],
+      "url": "https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewEmergencyContacts/empNumber/7",
+      "emptyStateObserved": true
+    },
+    {
+      "name": "Dependents",
+      "screenshots": [
+        "screenshots\\tab-dependents-01-landing.png"
+      ],
+      "fields": [
+        {
+          "kind": "input",
+          "tag": "input",
+          "type": "checkbox",
+          "name": null,
+          "placeholder": null,
+          "label": "",
+          "required": false,
+          "disabled": false,
+          "readonly": false,
+          "value": "on"
+        },
+        {
+          "kind": "input",
+          "tag": "input",
+          "type": "checkbox",
+          "name": null,
+          "placeholder": null,
+          "label": "",
+          "required": false,
+          "disabled": false,
+          "readonly": false,
+          "value": "on"
+        }
+      ],
+      "dropdowns": [],
+      "addForms": [],
+      "table": {
+        "present": true,
+        "approxRowCount": 1
+      },
+      "notes": [],
+      "url": "https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewDependents/empNumber/7",
+      "emptyStateObserved": true
+    },
+    {
+      "name": "Immigration",
+      "screenshots": [
+        "screenshots\\tab-immigration-01-landing.png"
+      ],
+      "fields": [
+        {
+          "kind": "input",
+          "tag": "input",
+          "type": "checkbox",
+          "name": null,
+          "placeholder": null,
+          "label": "",
+          "required": false,
+          "disabled": false,
+          "readonly": false,
+          "value": "on"
+        },
+        {
+          "kind": "input",
+          "tag": "input",
+          "type": "checkbox",
+          "name": null,
+          "placeholder": null,
+          "label": "",
+          "required": false,
+          "disabled": false,
+          "readonly": false,
+          "value": "0"
+        },
+        {
+          "kind": "input",
+          "tag": "input",
+          "type": "checkbox",
+          "name": null,
+          "placeholder": null,
+          "label": "",
+          "required": false,
+          "disabled": false,
+          "readonly": false,
+          "value": "on"
+        },
+        {
+          "kind": "input",
+          "tag": "input",
+          "type": "checkbox",
+          "name": null,
+          "placeholder": null,
+          "label": "",
+          "required": false,
+          "disabled": false,
+          "readonly": false,
+          "value": "0"
+        }
+      ],
+      "dropdowns": [],
+      "addForms": [],
+      "table": {
+        "present": true,
+        "approxRowCount": 2
+      },
+      "notes": [],
+      "url": "https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewImmigration/empNumber/7",
+      "emptyStateObserved": false
+    },
+    {
+      "name": "Job",
+      "screenshots": [
+        "screenshots\\tab-job-01-landing.png"
+      ],
+      "fields": [
+        {
+          "kind": "input",
+          "tag": "input",
+          "type": "text",
+          "name": null,
+          "placeholder": "yyyy-dd-mm",
+          "label": null,
+          "required": false,
+          "disabled": true,
+          "readonly": false,
+          "value": null
+        },
+        {
+          "kind": "input",
+          "tag": "input",
+          "type": "checkbox",
+          "name": null,
+          "placeholder": null,
+          "label": "",
+          "required": false,
+          "disabled": false,
+          "readonly": false,
+          "value": "on"
+        },
+        {
+          "kind": "custom-dropdown",
+          "label": null,
+          "currentText": "-- Select --",
+          "required": false,
+          "disabled": true
+        },
+        {
+          "kind": "custom-dropdown",
+          "label": null,
+          "currentText": "-- Select --",
+          "required": false,
+          "disabled": true
+        },
+        {
+          "kind": "custom-dropdown",
+          "label": null,
+          "currentText": "-- Select --",
+          "required": false,
+          "disabled": true
+        },
+        {
+          "kind": "custom-dropdown",
+          "label": null,
+          "currentText": "-- Select --",
+          "required": false,
+          "disabled": true
+        },
+        {
+          "kind": "custom-dropdown",
+          "label": null,
+          "currentText": "-- Select --",
+          "required": false,
+          "disabled": true
+        }
+      ],
+      "dropdowns": [
+        {
+          "label": "Job Title",
+          "options": {
+            "error": "locator.waitFor: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.oxd-select-dropdown').first() to be visible\u001b[22m\n"
+          }
+        },
+        {
+          "label": "Job Category",
+          "options": {
+            "error": "locator.waitFor: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.oxd-select-dropdown').first() to be visible\u001b[22m\n"
+          }
+        },
+        {
+          "label": "Sub Unit",
+          "options": {
+            "error": "locator.waitFor: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.oxd-select-dropdown').first() to be visible\u001b[22m\n"
+          }
+        },
+        {
+          "label": "Location",
+          "options": {
+            "error": "locator.waitFor: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.oxd-select-dropdown').first() to be visible\u001b[22m\n"
+          }
+        },
+        {
+          "label": "Employment Status",
+          "options": {
+            "error": "locator.waitFor: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.oxd-select-dropdown').first() to be visible\u001b[22m\n"
+          }
+        }
+      ],
+      "addForms": [],
+      "table": {
+        "present": true,
+        "approxRowCount": 1
+      },
+      "notes": [],
+      "url": "https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewJobDetails/empNumber/7",
+      "emptyStateObserved": true
+    },
+    {
+      "name": "Salary",
+      "screenshots": [
+        "screenshots\\tab-salary-01-landing.png"
+      ],
+      "fields": [],
+      "dropdowns": [],
+      "addForms": [],
+      "table": {
+        "present": false
+      },
+      "notes": [],
+      "url": "https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewSalaryList/empNumber/7",
+      "emptyStateObserved": false
+    },
+    {
+      "name": "Report-to",
+      "screenshots": [
+        "screenshots\\tab-report-to-01-landing.png"
+      ],
+      "fields": [],
+      "dropdowns": [],
+      "addForms": [],
+      "table": {
+        "present": true,
+        "approxRowCount": 0
+      },
+      "notes": [],
+      "url": "https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewReportToDetails/empNumber/7",
+      "emptyStateObserved": false
+    },
+    {
+      "name": "Qualifications",
+      "screenshots": [
+        "screenshots\\tab-qualifications-01-landing.png"
+      ],
+      "fields": [
+        {
+          "kind": "input",
+          "tag": "input",
+          "type": "checkbox",
+          "name": null,
+          "placeholder": null,
+          "label": "",
+          "required": false,
+          "disabled": false,
+          "readonly": false,
+          "value": "on"
+        }
+      ],
+      "dropdowns": [],
+      "addForms": [],
+      "table": {
+        "present": true,
+        "approxRowCount": 0
+      },
+      "notes": [],
+      "url": "https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewQualifications/empNumber/7",
+      "emptyStateObserved": true
+    },
+    {
+      "name": "Memberships",
+      "screenshots": [
+        "screenshots\\tab-memberships-01-landing.png"
+      ],
+      "fields": [],
+      "dropdowns": [],
+      "addForms": [],
+      "table": {
+        "present": true,
+        "approxRowCount": 0
+      },
+      "notes": [],
+      "url": "https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewMemberships/empNumber/7",
+      "emptyStateObserved": false
+    }
+  ],
+  "blockers": []
+}

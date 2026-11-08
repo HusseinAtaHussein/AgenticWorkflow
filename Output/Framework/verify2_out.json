@@ -1,0 +1,188 @@
+[
+ {
+  "title": "TC-052 Attachments empty state shows No Records Found with headers visible",
+  "status": "passed",
+  "duration": 26893,
+  "error": null
+ },
+ {
+  "title": "TC-020 Contact Details fields are pre-populated with a Save button present",
+  "status": "passed",
+  "duration": 11810,
+  "error": null
+ },
+ {
+  "title": "TC-021 invalid Work Email format shows error and blocks save",
+  "status": "failed",
+  "duration": 17764,
+  "error": "Error: \u001bexpect(\u001b\u001blocator\u001b\u001b).\u001btoBeVisible\u001b(\u001b\u001b)\u001b failed |  | Locator: getByText('Work Email').locator('xpath=ancestor::div[contains(@class,\"oxd-input-group\")][1]').getByText('Expected format: admin@example.com') | Expected: visible | Timeout: 5000ms | Error: element(s) not found"
+ },
+ {
+  "title": "TC-022 Country dropdown includes the full alphabetical option list",
+  "status": "passed",
+  "duration": 12567,
+  "error": null
+ },
+ {
+  "title": "TC-023 Contact Details Attachments shows No Records Found",
+  "status": "passed",
+  "duration": 24057,
+  "error": null
+ },
+ {
+  "title": "TC-029 Dependents table lists the existing record",
+  "status": "passed",
+  "duration": 19068,
+  "error": null
+ },
+ {
+  "title": "TC-030 Add Dependent Relationship dropdown shows exactly 3 options",
+  "status": "passed",
+  "duration": 13372,
+  "error": null
+ },
+ {
+  "title": "TC-031 Add Dependent form marks Name/Relationship required, Date of Birth optional",
+  "status": "passed",
+  "duration": 10922,
+  "error": null
+ },
+ {
+  "title": "TC-024 Emergency Contacts table lists existing records with record count",
+  "status": "passed",
+  "duration": 9020,
+  "error": null
+ },
+ {
+  "title": "TC-025 Add form shows Name*/Relationship* required and Save/Cancel/legend",
+  "status": "passed",
+  "duration": 11290,
+  "error": null
+ },
+ {
+  "title": "TC-026 empty Name and Relationship show Required errors and block save",
+  "status": "failed",
+  "duration": 22857,
+  "error": "Error: \u001bexpect(\u001b\u001blocator\u001b\u001b).\u001btoBeVisible\u001b(\u001b\u001b)\u001b failed |  | Locator: getByText('Name').locator('xpath=ancestor::div[contains(@class,\"oxd-input-group\")][1]').getByText('Required') | Expected: visible | Timeout: 5000ms | Error: element(s) not found"
+ },
+ {
+  "title": "TC-027 all phone fields empty shows at-least-one-phone-required error",
+  "status": "failed",
+  "duration": 21985,
+  "error": "Error: \u001bexpect(\u001b\u001blocator\u001b\u001b).\u001btoBeVisible\u001b(\u001b\u001b)\u001b failed |  | Locator: getByText('Home Telephone').locator('xpath=ancestor::div[contains(@class,\"oxd-input-group\")][1]').getByText('At least one phone number is required') | Expected: visible | Timeout: 5000ms | Error: element(s) not found"
+ },
+ {
+  "title": "TC-028 Cancel discards the Add form without saving",
+  "status": "passed",
+  "duration": 22121,
+  "error": null
+ },
+ {
+  "title": "TC-032 Immigration table lists existing records",
+  "status": "passed",
+  "duration": 20823,
+  "error": null
+ },
+ {
+  "title": "TC-048 Job fields are read-only and no Save button exists",
+  "status": "passed",
+  "duration": 18596,
+  "error": null
+ },
+ {
+  "title": "TC-045 Memberships table lists the existing record",
+  "status": "passed",
+  "duration": 11359,
+  "error": null
+ },
+ {
+  "title": "TC-047 Memberships Attachments table lists the existing file",
+  "status": "passed",
+  "duration": 9355,
+  "error": null
+ },
+ {
+  "title": "TC-005 no unsaved-changes dialog appears when switching tabs after an edit",
+  "status": "passed",
+  "duration": 26465,
+  "error": null
+ },
+ {
+  "title": "TC-010 License Expiry Date field uses yyyy-dd-mm format",
+  "status": "passed",
+  "duration": 11182,
+  "error": null
+ },
+ {
+  "title": "TC-011 Personal Details fields are pre-populated and Save is enabled",
+  "status": "failed",
+  "duration": 21689,
+  "error": "Error: \u001bexpect(\u001b\u001blocator\u001b\u001b).\u001btoBeEnabled\u001b(\u001b\u001b)\u001b failed |  | Locator: getByRole('button', { name: 'Save' }) | Expected: enabled | Error: strict mode violation: getByRole('button', { name: 'Save' }) resolved to 2 elements: |     1) <button type=\"submit\" data-v-10d463b7=\"\" data-v-6653c066=\"\" class=\"oxd-button oxd-button--medium oxd-button--secondary orangehrm-left-space\">…</button> aka locator('form').filter({ hasText: 'Employee Full NameEmployee' }).getByRole('button')"
+ },
+ {
+  "title": "TC-012 empty First Name shows inline Required error and blocks save",
+  "status": "failed",
+  "duration": 14228,
+  "error": "Error: locator.click: Error: strict mode violation: getByRole('button', { name: 'Save' }) resolved to 2 elements: |     1) <button type=\"submit\" data-v-10d463b7=\"\" data-v-6653c066=\"\" class=\"oxd-button oxd-button--medium oxd-button--secondary orangehrm-left-space\">…</button> aka locator('form').filter({ hasText: 'Employee Full' }).getByRole('button') |     2) <button type=\"submit\" data-v-10d463b7=\"\" class=\"oxd-button oxd-button--medium oxd-button--secondary orangehrm-left-space\">…</button> aka locator('form').filter({ hasText: 'Blood TypeA-Test_Field Save' }).getByRole('button') |  | Call log: | \u001b  - waiting for getByRole('button', { name: 'Save' })\u001b"
+ },
+ {
+  "title": "TC-013 invalid License Expiry Date shows format error and blocks save",
+  "status": "failed",
+  "duration": 8034,
+  "error": "Error: locator.click: Error: strict mode violation: getByRole('button', { name: 'Save' }) resolved to 2 elements: |     1) <button type=\"submit\" data-v-10d463b7=\"\" data-v-6653c066=\"\" class=\"oxd-button oxd-button--medium oxd-button--secondary orangehrm-left-space\">…</button> aka locator('form').filter({ hasText: 'Employee Full NameEmployee' }).getByRole('button') |     2) <button type=\"submit\" data-v-10d463b7=\"\" class=\"oxd-button oxd-button--medium oxd-button--secondary orangehrm-left-space\">…</button> aka locator('form').filter({ hasText: 'Blood TypeA-Test_Field Save' }).getByRole('button') |  | Call log: | \u001b  - waiting for getByRole('button', { name: 'Save' })\u001b"
+ },
+ {
+  "title": "TC-014 Employee Id exceeding 10 characters shows length error and blocks save",
+  "status": "timedOut",
+  "duration": 64817,
+  "error": "\u001bTest timeout of 60000ms exceeded.\u001b"
+ },
+ {
+  "title": "TC-016 Nationality dropdown includes the full alphabetical option list",
+  "status": "passed",
+  "duration": 10205,
+  "error": null
+ },
+ {
+  "title": "TC-035 Work Experience table lists existing records",
+  "status": "passed",
+  "duration": 18090,
+  "error": null
+ },
+ {
+  "title": "TC-037 Education table lists existing records",
+  "status": "passed",
+  "duration": 27815,
+  "error": null
+ },
+ {
+  "title": "TC-038 Add Education Level dropdown shows exactly 5 options",
+  "status": "failed",
+  "duration": 20570,
+  "error": "Error: \u001bexpect(\u001b\u001breceived\u001b\u001b).\u001btoEqual\u001b(\u001b\u001bexpected\u001b\u001b) // deep equality\u001b |  | \u001b- Expected  - 5\u001b | \u001b+ Received  + 1\u001b |  | \u001b  Array [\u001b"
+ },
+ {
+  "title": "TC-039 Skills table shows No Records Found",
+  "status": "passed",
+  "duration": 22915,
+  "error": null
+ },
+ {
+  "title": "TC-041 Languages table lists existing records",
+  "status": "passed",
+  "duration": 9276,
+  "error": null
+ },
+ {
+  "title": "TC-043 License table lists the existing record",
+  "status": "passed",
+  "duration": 12414,
+  "error": null
+ },
+ {
+  "title": "TC-051 Supervisors empty, 1 Subordinate listed, no Add button anywhere",
+  "status": "passed",
+  "duration": 9238,
+  "error": null
+ }
+]

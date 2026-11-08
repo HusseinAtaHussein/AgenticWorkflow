@@ -1,0 +1,188 @@
+[
+ {
+  "title": "TC-052 Attachments empty state shows No Records Found with headers visible",
+  "status": "passed",
+  "duration": 14726,
+  "error": null
+ },
+ {
+  "title": "TC-020 Contact Details fields are pre-populated with a Save button present",
+  "status": "passed",
+  "duration": 10931,
+  "error": null
+ },
+ {
+  "title": "TC-021 invalid Work Email format shows error and blocks save",
+  "status": "passed",
+  "duration": 9750,
+  "error": null
+ },
+ {
+  "title": "TC-022 Country dropdown includes the full alphabetical option list",
+  "status": "passed",
+  "duration": 11146,
+  "error": null
+ },
+ {
+  "title": "TC-023 Contact Details Attachments shows No Records Found",
+  "status": "passed",
+  "duration": 10388,
+  "error": null
+ },
+ {
+  "title": "TC-029 Dependents table lists the existing record",
+  "status": "passed",
+  "duration": 39085,
+  "error": null
+ },
+ {
+  "title": "TC-030 Add Dependent Relationship dropdown shows exactly 3 options",
+  "status": "passed",
+  "duration": 10675,
+  "error": null
+ },
+ {
+  "title": "TC-031 Add Dependent form marks Name/Relationship required, Date of Birth optional",
+  "status": "passed",
+  "duration": 10685,
+  "error": null
+ },
+ {
+  "title": "TC-024 Emergency Contacts table lists existing records with record count",
+  "status": "passed",
+  "duration": 8604,
+  "error": null
+ },
+ {
+  "title": "TC-025 Add form shows Name*/Relationship* required and Save/Cancel/legend",
+  "status": "passed",
+  "duration": 8319,
+  "error": null
+ },
+ {
+  "title": "TC-026 empty Name and Relationship show Required errors and block save",
+  "status": "passed",
+  "duration": 12759,
+  "error": null
+ },
+ {
+  "title": "TC-027 all phone fields empty shows at-least-one-phone-required error",
+  "status": "passed",
+  "duration": 9322,
+  "error": null
+ },
+ {
+  "title": "TC-028 Cancel discards the Add form without saving",
+  "status": "passed",
+  "duration": 8157,
+  "error": null
+ },
+ {
+  "title": "TC-032 Immigration table lists existing records",
+  "status": "passed",
+  "duration": 8367,
+  "error": null
+ },
+ {
+  "title": "TC-048 Job fields are read-only and no Save button exists",
+  "status": "passed",
+  "duration": 8056,
+  "error": null
+ },
+ {
+  "title": "TC-045 Memberships table lists the existing record",
+  "status": "passed",
+  "duration": 9581,
+  "error": null
+ },
+ {
+  "title": "TC-047 Memberships Attachments table lists the existing file",
+  "status": "passed",
+  "duration": 12842,
+  "error": null
+ },
+ {
+  "title": "TC-005 no unsaved-changes dialog appears when switching tabs after an edit",
+  "status": "passed",
+  "duration": 19967,
+  "error": null
+ },
+ {
+  "title": "TC-010 License Expiry Date field uses yyyy-dd-mm format",
+  "status": "passed",
+  "duration": 12290,
+  "error": null
+ },
+ {
+  "title": "TC-011 Personal Details fields are pre-populated and Save is enabled",
+  "status": "passed",
+  "duration": 7174,
+  "error": null
+ },
+ {
+  "title": "TC-012 empty First Name shows inline Required error and blocks save",
+  "status": "failed",
+  "duration": 14246,
+  "error": "Error: \u001bexpect(\u001b\u001blocator\u001b\u001b).\u001btoBeVisible\u001b(\u001b\u001b)\u001b failed |  | Locator: getByText('First Name').locator('xpath=ancestor::div[contains(concat(\\' \\', normalize-space(@class), \\' \\'), \\' oxd-input-group \\')][1]').getByText('Required') | Expected: visible | Timeout: 5000ms | Error: element(s) not found"
+ },
+ {
+  "title": "TC-013 invalid License Expiry Date shows format error and blocks save",
+  "status": "passed",
+  "duration": 10079,
+  "error": null
+ },
+ {
+  "title": "TC-014 Employee Id exceeding 10 characters shows length error and blocks save",
+  "status": "passed",
+  "duration": 7725,
+  "error": null
+ },
+ {
+  "title": "TC-016 Nationality dropdown includes the full alphabetical option list",
+  "status": "passed",
+  "duration": 7693,
+  "error": null
+ },
+ {
+  "title": "TC-035 Work Experience table lists existing records",
+  "status": "passed",
+  "duration": 11833,
+  "error": null
+ },
+ {
+  "title": "TC-037 Education table lists existing records",
+  "status": "passed",
+  "duration": 9920,
+  "error": null
+ },
+ {
+  "title": "TC-038 Add Education Level dropdown shows exactly 5 options",
+  "status": "passed",
+  "duration": 23380,
+  "error": null
+ },
+ {
+  "title": "TC-039 Skills table shows No Records Found",
+  "status": "passed",
+  "duration": 17470,
+  "error": null
+ },
+ {
+  "title": "TC-041 Languages table lists existing records",
+  "status": "passed",
+  "duration": 24288,
+  "error": null
+ },
+ {
+  "title": "TC-043 License table lists the existing record",
+  "status": "passed",
+  "duration": 26903,
+  "error": null
+ },
+ {
+  "title": "TC-051 Supervisors empty, 1 Subordinate listed, no Add button anywhere",
+  "status": "passed",
+  "duration": 12886,
+  "error": null
+ }
+]

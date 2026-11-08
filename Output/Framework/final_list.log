@@ -1,0 +1,91 @@
+
+Running 48 tests using 3 workers
+
+  ✓   2 [chromium] › src\features\my-info\contact-details.spec.ts:21:7 › My Info — Contact Details › TC-021 invalid Work Email format shows error and blocks save @automated (15.6s)
+  ✓   1 [chromium] › src\features\my-info\attachments-common.spec.ts:7:7 › My Info — Attachments (General) › TC-052 Attachments empty state shows No Records Found with headers visible @automated (17.5s)
+  ✓   3 [chromium] › src\features\my-info\contact-details.spec.ts:14:7 › My Info — Contact Details › TC-020 Contact Details fields are pre-populated with a Save button present @automated (18.0s)
+  ✓   4 [chromium] › src\features\my-info\contact-details.spec.ts:29:7 › My Info — Contact Details › TC-022 Country dropdown includes the full alphabetical option list @automated (12.0s)
+  ✓   6 [chromium] › src\features\my-info\dependents.spec.ts:14:7 › My Info — Dependents › TC-029 Dependents table lists the existing record @automated (11.6s)
+  ✓   5 [chromium] › src\features\my-info\contact-details.spec.ts:39:7 › My Info — Contact Details › TC-023 Contact Details Attachments shows No Records Found @automated (14.7s)
+  ✓   7 [chromium] › src\features\my-info\dependents.spec.ts:20:7 › My Info — Dependents › TC-030 Add Dependent Relationship dropdown shows exactly 3 options @automated (12.2s)
+  ✓   8 [chromium] › src\features\my-info\dependents.spec.ts:28:7 › My Info — Dependents › TC-031 Add Dependent form marks Name/Relationship required, Date of Birth optional @automated (12.9s)
+  ✓   9 [chromium] › src\features\my-info\emergency-contacts.spec.ts:14:7 › My Info — Emergency Contacts › TC-024 Emergency Contacts table lists existing records with record count @automated (10.7s)
+  ✓  10 [chromium] › src\features\my-info\emergency-contacts.spec.ts:21:7 › My Info — Emergency Contacts › TC-025 Add form shows Name*/Relationship* required and Save/Cancel/legend @automated (10.4s)
+  ✓  11 [chromium] › src\features\my-info\emergency-contacts.spec.ts:32:7 › My Info — Emergency Contacts › TC-026 empty Name and Relationship show Required errors and block save @automated (11.7s)
+  ✓  12 [chromium] › src\features\my-info\emergency-contacts.spec.ts:41:7 › My Info — Emergency Contacts › TC-027 all phone fields empty shows at-least-one-phone-required error @automated (11.8s)
+  ✓  13 [chromium] › src\features\my-info\emergency-contacts.spec.ts:51:7 › My Info — Emergency Contacts › TC-028 Cancel discards the Add form without saving @automated (11.4s)
+  ✓  14 [chromium] › src\features\my-info\immigration.spec.ts:14:7 › My Info — Immigration › TC-032 Immigration table lists existing records @automated (11.3s)
+  ✓  15 [chromium] › src\features\my-info\immigration.spec.ts:20:7 › My Info — Immigration › TC-033 Add Immigration form defaults to Passport and marks Number required @automated (11.9s)
+  ✓  16 [chromium] › src\features\my-info\job.spec.ts:23:7 › My Info — Job (Read-only) › TC-048 Job fields are read-only and no Save button exists @automated (11.8s)
+  ✓  17 [chromium] › src\features\my-info\memberships.spec.ts:13:7 › My Info — Memberships › TC-045 Memberships table lists the existing record @automated (10.1s)
+  ✓  18 [chromium] › src\features\my-info\memberships.spec.ts:19:7 › My Info — Memberships › TC-046 Add Membership form marks Membership as required @automated (14.7s)
+  ✓  20 [chromium] › src\features\my-info\navigation.spec.ts:14:7 › My Info — Navigation › TC-001 navigates to My Info landing on Personal Details with employee card visible @automated (10.2s)
+  ✓  19 [chromium] › src\features\my-info\memberships.spec.ts:26:7 › My Info — Memberships › TC-047 Memberships Attachments table lists the existing file @automated (13.2s)
+  ✓  21 [chromium] › src\features\my-info\navigation.spec.ts:22:7 › My Info — Navigation › TC-002 all 10 tabs are present in order and each navigates to its own route @automated (11.8s)
+  ✓  23 [chromium] › src\features\my-info\navigation.spec.ts:42:7 › My Info — Navigation › TC-004 top banner heading reads PIM on My Info sub-tabs @automated (12.7s)
+  ✓  22 [chromium] › src\features\my-info\navigation.spec.ts:32:7 › My Info — Navigation › TC-003 employee identity card persists across tab switches @automated (13.4s)
+  ✓  24 [chromium] › src\features\my-info\navigation.spec.ts:48:7 › My Info — Navigation › TC-005 no unsaved-changes dialog appears when switching tabs after an edit @automated (11.8s)
+  ✓  26 [chromium] › src\features\my-info\navigation.spec.ts:68:7 › My Info — Navigation › TC-007 no sortable column headers exist on Qualifications tables @automated (14.3s)
+  ✘  25 [chromium] › src\features\my-info\navigation.spec.ts:58:7 › My Info — Navigation › TC-006 no search or filter controls exist on My Info tabs @automated (14.7s)
+  ✓  27 [chromium] › src\features\my-info\navigation.spec.ts:75:7 › My Info — Navigation › TC-008 no pagination controls appear on Qualifications > Languages table @automated (10.0s)
+  ✓  28 [chromium] › src\features\my-info\navigation.spec.ts:82:7 › My Info — Navigation › TC-009 * Required legend is shown near Save on Personal Details @automated (8.2s)
+  ✓  30 [chromium] › src\features\my-info\navigation.spec.ts:88:7 › My Info — Navigation › TC-010 License Expiry Date field uses yyyy-dd-mm format @automated (8.6s)
+  ✓  29 [chromium] › src\features\my-info\personal-details.spec.ts:13:7 › My Info — Personal Details › TC-011 Personal Details fields are pre-populated and Save is enabled @automated (13.6s)
+  ✓  31 [chromium] › src\features\my-info\personal-details.spec.ts:20:7 › My Info — Personal Details › TC-012 empty First Name shows inline Required error and blocks save @automated (9.8s)
+  ✓  32 [chromium] › src\features\my-info\personal-details.spec.ts:29:7 › My Info — Personal Details › TC-013 invalid License Expiry Date shows format error and blocks save @automated (10.8s)
+  ✓  33 [chromium] › src\features\my-info\personal-details.spec.ts:39:7 › My Info — Personal Details › TC-014 Employee Id exceeding 10 characters shows length error and blocks save @automated (10.6s)
+  ✓  34 [chromium] › src\features\my-info\personal-details.spec.ts:48:7 › My Info — Personal Details › TC-016 Nationality dropdown includes the full alphabetical option list @automated (9.8s)
+  ✓  35 [chromium] › src\features\my-info\personal-details.spec.ts:58:7 › My Info — Personal Details › TC-017 Marital Status dropdown shows exactly 4 options @automated (11.1s)
+  ✓  36 [chromium] › src\features\my-info\personal-details.spec.ts:65:7 › My Info — Personal Details › TC-018 Blood Type dropdown shows exactly 9 options @automated (11.8s)
+  ✓  37 [chromium] › src\features\my-info\qualifications.spec.ts:13:7 › My Info — Qualifications › TC-035 Work Experience table lists existing records @automated (12.6s)
+  ✓  38 [chromium] › src\features\my-info\qualifications.spec.ts:19:7 › My Info — Qualifications › TC-036 Add Work Experience form marks Company and Job Title required @automated (11.2s)
+  ✓  39 [chromium] › src\features\my-info\qualifications.spec.ts:27:7 › My Info — Qualifications › TC-037 Education table lists existing records @automated (11.2s)
+  ✓  40 [chromium] › src\features\my-info\qualifications.spec.ts:33:7 › My Info — Qualifications › TC-038 Add Education Level dropdown shows exactly 5 options @automated (11.1s)
+  ✓  43 [chromium] › src\features\my-info\qualifications.spec.ts:60:7 › My Info — Qualifications › TC-041 Languages table lists existing records @automated (11.4s)
+  ✓  41 [chromium] › src\features\my-info\qualifications.spec.ts:47:7 › My Info — Qualifications › TC-039 Skills table shows No Records Found @automated (19.6s)
+  ✓  42 [chromium] › src\features\my-info\qualifications.spec.ts:53:7 › My Info — Qualifications › TC-040 Add Skill form marks Skill as required @automated (19.9s)
+  ✓  45 [chromium] › src\features\my-info\qualifications.spec.ts:75:7 › My Info — Qualifications › TC-043 License table lists the existing record @automated (11.7s)
+  ✓  44 [chromium] › src\features\my-info\qualifications.spec.ts:66:7 › My Info — Qualifications › TC-042 Add Language form marks Language/Fluency/Competency as required @automated (12.9s)
+  ✓  46 [chromium] › src\features\my-info\qualifications.spec.ts:81:7 › My Info — Qualifications › TC-044 Add License form marks License Type as required @automated (13.1s)
+  ✓  47 [chromium] › src\features\my-info\report-to.spec.ts:13:7 › My Info — Report-to (Read-only) › TC-051 Supervisors empty, 1 Subordinate listed, no Add button anywhere @automated (10.8s)
+  ✓  48 [chromium] › src\features\my-info\salary.spec.ts:12:7 › My Info — Salary (Read-only) › TC-050 Salary shows No Records Found in both sections and no Add button @automated (14.5s)
+
+
+  1) [chromium] › src\features\my-info\navigation.spec.ts:58:7 › My Info — Navigation › TC-006 no search or filter controls exist on My Info tabs @automated 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  getByPlaceholder(/search/i)
+    Expected: 0
+    Received: 1
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveCount" getByPlaceholder(/search/i) with timeout 5000ms
+      - waiting for getByPlaceholder(/search/i)
+        14 × locator resolved to 1 element
+           - unexpected value "1"
+
+
+      60 |     for (const tabName of MY_INFO_TABS) {
+      61 |       await myInfo.openTab(tabName);
+    > 62 |       await expect(authenticatedPage.getByPlaceholder(/search/i)).toHaveCount(0);
+         |                                                                   ^
+      63 |       await expect(authenticatedPage.getByRole('button', { name: /filter/i })).toHaveCount(0);
+      64 |     }
+      65 |   });
+        at C:\Users\SH\Downloads\AI Task 4\AI Task 4\Output\Framework\src\features\my-info\navigation.spec.ts:62:67
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\features-my-info-navigatio-0e956-trols-exist-on-My-Info-tabs-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\features-my-info-navigatio-0e956-trols-exist-on-My-Info-tabs-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\features-my-info-navigatio-0e956-trols-exist-on-My-Info-tabs-chromium\error-context.md
+
+  1 failed
+    [chromium] › src\features\my-info\navigation.spec.ts:58:7 › My Info — Navigation › TC-006 no search or filter controls exist on My Info tabs @automated 
+  47 passed (3.5m)

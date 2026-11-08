@@ -1,0 +1,22 @@
+{
+  "name": "orangehrm-myinfo-automation",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "playwright test",
+    "test:smoke": "playwright test --grep @smoke",
+    "test:regression": "playwright test --grep @regression",
+    "test:myinfo": "playwright test src/features/my-info",
+    "test:ui": "playwright test --ui",
+    "test:debug": "playwright test --debug",
+    "report": "playwright show-report",
+    "typecheck": "tsc --noEmit",
+    "explore:my-info": "node scripts/explore-my-info.js"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.47.0",
+    "@types/node": "^20.14.0",
+    "playwright": "^1.63.0",
+    "typescript": "^5.5.0"
+  }
+}

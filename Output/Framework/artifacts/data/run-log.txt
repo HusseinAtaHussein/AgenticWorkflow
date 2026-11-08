@@ -1,0 +1,26 @@
+[2026-09-16T11:47:41.879Z] Navigating to login page
+[2026-09-16T11:48:13.873Z] Login successful — post-login route reached and user menu visible
+[2026-09-16T11:48:14.867Z] Clicking My Info in sidebar
+[2026-09-16T11:48:32.231Z] My Info landed at https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewPersonalDetails/empNumber/7
+[2026-09-16T11:48:32.271Z] Discovered tabs: ["Personal Details","Contact Details","Emergency Contacts","Dependents","Immigration","Job","Salary","Report-to","Qualifications","Memberships"]
+[2026-09-16T11:48:32.271Z] --- Exploring tab: Personal Details ---
+[2026-09-16T11:48:35.026Z]   Found 0 Add button(s) on Personal Details
+[2026-09-16T11:48:35.027Z] --- Exploring tab: Contact Details ---
+[2026-09-16T11:48:38.348Z]   Found 0 Add button(s) on Contact Details
+[2026-09-16T11:48:38.348Z] --- Exploring tab: Emergency Contacts ---
+[2026-09-16T11:48:40.920Z]   Found 0 Add button(s) on Emergency Contacts
+[2026-09-16T11:48:40.920Z] --- Exploring tab: Dependents ---
+[2026-09-16T11:48:43.622Z]   Found 0 Add button(s) on Dependents
+[2026-09-16T11:48:43.622Z] --- Exploring tab: Immigration ---
+[2026-09-16T11:48:46.755Z]   Found 0 Add button(s) on Immigration
+[2026-09-16T11:48:46.755Z] --- Exploring tab: Job ---
+[2026-09-16T11:48:51.754Z]   [console error] Failed to load resource: the server responded with a status of 404 ()
+[2026-09-16T11:49:17.304Z]   Found 0 Add button(s) on Job
+[2026-09-16T11:49:17.304Z] --- Exploring tab: Salary ---
+[2026-09-16T11:49:21.783Z]   Found 0 Add button(s) on Salary
+[2026-09-16T11:49:21.783Z] --- Exploring tab: Report-to ---
+[2026-09-16T11:49:28.912Z]   Found 0 Add button(s) on Report-to
+[2026-09-16T11:49:28.912Z] --- Exploring tab: Qualifications ---
+[2026-09-16T11:49:33.568Z]   Found 0 Add button(s) on Qualifications
+[2026-09-16T11:49:33.568Z] --- Exploring tab: Memberships ---
+[2026-09-16T11:49:37.596Z]   Found 0 Add button(s) on Memberships

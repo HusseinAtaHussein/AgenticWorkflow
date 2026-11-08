@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Info - QA Execution Report</title>
+<style>
+  :root{
+    color-scheme: light;
+    --paper:#F3F5F8; --surface:#FFFFFF; --surface-2:#EAEEF4;
+    --ink:#10151F; --ink-2:#45536B; --ink-muted:#7C8AA0;
+    --line:#DDE3EC; --line-strong:#C6CEDC;
+    --accent:#2A78D6; --accent-ink:#1C5CAB; --accent-wash:#E4EEFA;
+    --good:#0CA30C; --warning:#C98A17; --serious:#D9673C; --critical:#D03B3B;
+    --good-wash:rgba(12,163,12,0.12); --warning-wash:rgba(250,178,25,0.16);
+    --serious-wash:rgba(236,131,90,0.14); --critical-wash:rgba(208,59,59,0.12);
+    --shadow:rgba(16,21,31,0.08);
+    --font-sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --font-mono:ui-monospace,"SF Mono","Cascadia Code","Roboto Mono",Consolas,"Courier New",monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:where(:not([data-theme="light"])){
+      color-scheme: dark;
+      --paper:#0A0E15; --surface:#111826; --surface-2:#16202F;
+      --ink:#EDF1F7; --ink-2:#B7C2D1; --ink-muted:#8290A6;
+      --line:#232E40; --line-strong:#324058;
+      --accent:#3987E5; --accent-ink:#8FBBEF; --accent-wash:#152A45;
+      --good:#35C24A; --warning:#E3A730; --serious:#E88A5E; --critical:#EA5B5B;
+      --good-wash:rgba(53,194,74,0.16); --warning-wash:rgba(227,167,48,0.16);
+      --serious-wash:rgba(232,138,94,0.16); --critical-wash:rgba(234,91,91,0.18);
+      --shadow:rgba(0,0,0,0.5);
+    }
+  }
+  :root[data-theme="dark"]{
+    color-scheme: dark;
+    --paper:#0A0E15; --surface:#111826; --surface-2:#16202F;
+    --ink:#EDF1F7; --ink-2:#B7C2D1; --ink-muted:#8290A6;
+    --line:#232E40; --line-strong:#324058;
+    --accent:#3987E5; --accent-ink:#8FBBEF; --accent-wash:#152A45;
+    --good:#35C24A; --warning:#E3A730; --serious:#E88A5E; --critical:#EA5B5B;
+    --good-wash:rgba(53,194,74,0.16); --warning-wash:rgba(227,167,48,0.16);
+    --serious-wash:rgba(232,138,94,0.16); --critical-wash:rgba(234,91,91,0.18);
+    --shadow:rgba(0,0,0,0.5);
+  }
+  :root[data-theme="light"]{
+    color-scheme: light;
+    --paper:#F3F5F8; --surface:#FFFFFF; --surface-2:#EAEEF4;
+    --ink:#10151F; --ink-2:#45536B; --ink-muted:#7C8AA0;
+    --line:#DDE3EC; --line-strong:#C6CEDC;
+    --accent:#2A78D6; --accent-ink:#1C5CAB; --accent-wash:#E4EEFA;
+    --good:#0CA30C; --warning:#C98A17; --serious:#D9673C; --critical:#D03B3B;
+    --good-wash:rgba(12,163,12,0.12); --warning-wash:rgba(250,178,25,0.16);
+    --serious-wash:rgba(236,131,90,0.14); --critical-wash:rgba(208,59,59,0.12);
+    --shadow:rgba(16,21,31,0.08);
+  }
+  *{ box-sizing:border-box; }
+  html,body{ margin:0; padding:0; }
+  body{ background:var(--paper); color:var(--ink); font-family:var(--font-sans);
+        font-size:14px; line-height:1.5; -webkit-font-smoothing:antialiased; }
+  @media (prefers-reduced-motion: reduce){ *{ animation-duration:.001ms !important; transition-duration:.001ms !important; } }
+  a{ color:var(--accent-ink); }
+  .wrap{ max-width:960px; margin:0 auto; padding:32px 20px 80px; }
+  .dashboard-card{ background:var(--surface); border:1px solid var(--line-strong); border-radius:24px; padding:24px; }
+  code,.mono{ font-family:var(--font-mono); font-size:.92em; }
+  .header{ display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:12px; margin-bottom:24px; }
+  .header-main{ flex:1 1 auto; min-width:280px; }
+  .header h1{ font-size:32px; font-weight:800; margin:0 0 8px; }
+  .header .meta{ color:var(--ink-muted); font-size:13px; }
+  .pill{ display:inline-flex; align-items:center; gap:6px; padding:6px 18px; border-radius:999px; font-size:12px; font-weight:700; letter-spacing:.03em; border:1px solid transparent; }
+  .pill-complete{ background:var(--good-wash); color:var(--good); border-color:var(--good); }
+  .pill-interrupted{ background:var(--critical-wash); color:var(--critical); }
+  .section-num{ font-size:17px; font-weight:700; color:var(--ink); margin:32px 0 14px; text-transform:none; letter-spacing:normal; border-bottom:none; padding-bottom:0; }
+  .summary-layout{ display:flex; align-items:center; gap:36px; flex-wrap:wrap; margin-bottom:28px; }
+  .donut-block{ display:flex; align-items:center; gap:20px; flex-shrink:0; }
+  .stats-block{ flex:1 1 360px; min-width:280px; display:flex; flex-direction:column; gap:14px; }
+  .scard{ text-align:center; }
+  .scard .lbl{ font-size:15px; font-weight:700; color:var(--ink-muted); margin-top:4px; }
+  .scard .val{ font-size:24px; font-weight:700; color:var(--ink); }
+  .scard .val.pass{ color:var(--good); }
+  .scard .val.fail{ color:var(--critical); }
+  .scard .val.blocked{ color:var(--serious); }
+  .scard .val.accent{ color:var(--accent-ink); }
+  .scard-total .lbl{ font-size:17px; margin-top:6px; }
+  .scard-total .val{ font-size:28px; }
+  summary.section-summary-flex > .section-count-badges,
+  summary.section-summary-flex > .section-count-badge{ float:right; }
+  .section-count-badge{ display:flex; flex-direction:column; align-items:center; justify-content:center;
+      background:var(--surface); border:1px solid var(--line-strong); border-radius:12px; padding:6px 20px;
+      text-transform:none; letter-spacing:normal; flex-shrink:0; }
+  .section-count-badge .scb-val{ font-size:20px; font-weight:700; color:var(--accent-ink); line-height:1.2; }
+  .section-count-badge .scb-lbl{ font-size:11px; color:var(--ink-muted); margin-top:1px; }
+  .section-count-badges{ display:flex; gap:10px; flex-shrink:0; }
+  .scb-val.serious{ color:var(--serious); }
+  .scb-val.accent{ color:var(--accent-ink); }
+  .summary-cards{ display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:12px; }
+  .donut{ width:280px; height:280px; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; }
+  .donut-hole{ width:190px; height:190px; border-radius:50%; background:var(--paper); display:flex; flex-direction:column; align-items:center; justify-content:center; }
+  .donut-pct{ font-size:34px; font-weight:800; color:var(--ink); }
+  .donut-sub{ font-size:15px; color:var(--ink-muted); }
+  .donut-legend{ display:flex; flex-direction:column; gap:10px; }
+  .litem{ display:flex; align-items:center; gap:8px; font-size:13px; color:var(--ink-2); white-space:nowrap; }
+  .litem .lcount{ margin-left:4px; color:var(--ink-muted); }
+  .swatch{ width:12px; height:12px; border-radius:3px; flex-shrink:0; }
+  .swatch.pass{ background:var(--good); }
+  .swatch.fail{ background:var(--critical); }
+  .swatch.blocked{ background:var(--serious); }
+  h2{ font-size:15px; text-transform:uppercase; letter-spacing:.04em; color:var(--ink-2);
+      border-bottom:1px solid var(--line); padding-bottom:6px; margin:32px 0 12px; }
+  .section-collapse{ margin:0; }
+  .section-collapse > summary{ font-size:15px; text-transform:uppercase; letter-spacing:.04em; color:var(--ink-2);
+      border-bottom:1px solid var(--line); padding-bottom:6px; margin:32px 0 12px; cursor:pointer; }
+  .section-collapse > summary::-webkit-details-marker{ color:var(--ink-muted); }
+  .tc-section > summary{ margin-top:0; }
+  .tc-category{ background:var(--surface); border:1px solid var(--line-strong); border-radius:12px; margin-bottom:10px; }
+  .tc-category > summary{ display:flex; align-items:center; gap:10px; padding:14px 16px; cursor:pointer; list-style:none; }
+  .tc-category > summary::-webkit-details-marker{ display:none; }
+  .cat-icon{ font-size:16px; flex-shrink:0; width:22px; display:inline-flex; align-items:center; justify-content:center; }
+  .cat-name{ font-weight:700; color:var(--ink); flex-shrink:0; }
+  .cat-counts{ display:flex; gap:14px; margin-left:auto; font-size:12px; }
+  .cc{ font-weight:600; }
+  .cc.pass{ color:var(--good); }
+  .cc.fail{ color:var(--critical); }
+  .cc.blocked{ color:var(--serious); }
+  .cat-chev{ display:inline-block; width:9px; flex-shrink:0; color:var(--ink-muted); font-size:10px; transition:transform .15s ease; }
+  .cat-chev::before{ content:'\25B8'; }
+  details.tc-category[open] > summary .cat-chev{ transform:rotate(90deg); }
+  .tc-category-body{ padding:0 16px 16px; }
+  .tc-category.cat-empty{ display:none; }
+  .tc{ background:var(--surface); border:1px solid var(--line-strong); border-left-width:4px; border-radius:12px; padding:16px 18px; margin-bottom:8px; }
+  .tc.PASS{ border-left-color:var(--good); }
+  .tc.FAIL{ border-left-color:var(--critical); }
+  .tc.BLOCKED{ border-left-color:var(--serious); }
+  .tc-head{ display:flex; justify-content:space-between; gap:10px; font-weight:600; }
+  .badge{ font-size:11px; font-weight:700; padding:2px 8px; border-radius:5px; }
+  .badge.PASS{ background:var(--good-wash); color:var(--good); }
+  .badge.FAIL{ background:var(--critical-wash); color:var(--critical); }
+  .badge.BLOCKED{ background:var(--serious-wash); color:var(--serious); }
+  .tc .row{ margin-top:6px; font-size:13px; color:var(--ink-2); overflow-wrap:anywhere; }
+  .tc .row b{ color:var(--ink); }
+  .view-tc-wrap{ margin-top:10px; }
+  .view-tc > summary{ display:block; text-align:right; color:var(--accent-ink); text-decoration:underline; cursor:pointer; font-size:12px; font-weight:600; list-style:none; }
+  .view-tc > summary::-webkit-details-marker{ display:none; }
+  .view-tc-body{ margin-top:8px; padding:14px 16px; background:var(--surface-2); border:1px solid var(--line); border-radius:8px; font-size:13px; }
+  .vtc-h{ font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; color:var(--ink-muted); margin:12px 0 4px; }
+  .vtc-h:first-child{ margin-top:0; }
+  .vtc-p{ color:var(--ink-2); overflow-wrap:anywhere; }
+  .vtc-steps{ margin:0; padding-left:18px; color:var(--ink-2); }
+  .vtc-steps li{ margin-bottom:4px; overflow-wrap:anywhere; }
+  details.evidence{ margin-top:6px; }
+  details.evidence summary{ cursor:pointer; font-size:12px; color:var(--accent-ink); }
+  details.evidence .ev-body{ margin-top:4px; padding:8px 10px; background:var(--surface-2); border-radius:6px; font-size:12px; overflow-wrap:anywhere; }
+  .tc-status-row{ display:flex; align-items:center; gap:10px; }
+  .finding{ border-radius:12px; padding:10px 12px; margin-bottom:8px; font-size:13px; overflow-wrap:anywhere; }
+  .finding.defect{ background:var(--critical-wash); border:1px solid var(--critical); }
+  .finding.blocker{ background:var(--serious-wash); border:1px solid var(--serious); }
+  .finding.unknown_resolution{ background:var(--accent-wash); border:1px solid var(--accent); }
+  .finding .kind{ font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.03em; }
+  .cleanup{ background:var(--warning-wash); border:1px solid var(--warning); border-radius:12px; padding:12px 14px; }
+  .cleanup ul{ margin:6px 0 0; padding-left:18px; }
+  .cleanup li{ margin-bottom:6px; overflow-wrap:anywhere; }
+  .empty{ color:var(--ink-muted); font-size:13px; font-style:italic; }
+.meta-card{ margin-top:8px; }
+.fields{ display:flex; flex-direction:column; gap:4px; margin:4px 0 6px; }
+.fields.run-meta{ margin-top:10px; padding-top:10px; border-top:1px solid var(--line); }
+.field-row{ display:flex; flex-wrap:wrap; gap:4px 28px; }
+.field{ font-size:14px; display:flex; gap:6px; }
+.field .k{ color:var(--ink-2); font-weight:700; font-size:15px; letter-spacing:normal; text-transform:none; flex-shrink:0; }
+.field .k::after{ content:':'; }
+.field .v{ color:var(--ink); }
+.tc-actions{ display:flex; justify-content:flex-end; gap:8px; margin:32px 0 8px; }
+.tc-actions button{ padding:7px 12px; border-radius:7px; border:1px solid var(--line-strong); background:var(--surface); color:var(--ink-2); font-size:12px; font-weight:600; cursor:pointer; }
+.tc-cat-actions{ display:flex; justify-content:flex-end; gap:8px; margin:4px 0 10px; }
+.tc-cat-actions button{ padding:5px 10px; border-radius:7px; border:1px solid var(--line-strong); background:var(--surface); color:var(--ink-2); font-size:11px; font-weight:600; cursor:pointer; }
+.tc-cat-actions button:hover{ background:var(--surface-2); }
+.tc-actions button:hover{ background:var(--surface-2); }
+.tc-toolbar{ display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin:0 0 14px; position:sticky; top:0; z-index:5; }
+.tc-toolbar input[type="search"]{ flex:1 1 240px; min-width:180px; padding:7px 10px; border-radius:7px; border:1px solid var(--line-strong); background:var(--surface); color:var(--ink); font-size:13px; }
+.tc-toolbar select{ padding:7px 10px; border-radius:7px; border:1px solid var(--line-strong); background:var(--surface); color:var(--ink); font-size:13px; }
+.tc-toolbar button{ padding:7px 12px; border-radius:7px; border:1px solid var(--line-strong); background:var(--surface); color:var(--ink-2); font-size:12px; font-weight:600; cursor:pointer; }
+.tc-toolbar button:hover{ background:var(--surface-2); }
+#tcResetFilters{ color:var(--critical); border-color:var(--critical); }
+#tcResetFilters:hover{ background:var(--critical-wash); }
+.tc-toolbar .tc-count{ font-size:12px; color:var(--ink-muted); margin-left:auto; white-space:nowrap; }
+details.tc > summary.tc-head{ cursor:pointer; list-style:none; }
+details.tc > summary.tc-head::-webkit-details-marker{ display:none; }
+.tc-head .chev{ display:inline-block; width:9px; flex-shrink:0; color:var(--ink-muted); font-size:10px; transition:transform .15s ease; align-self:center; }
+.tc-head .chev::before{ content:'\25B8'; }
+details.tc[open] > summary.tc-head .chev{ transform:rotate(90deg); }
+details.tc.js-hidden{ display:none; }
+.tc-no-results{ padding:28px 20px; text-align:center; color:var(--critical); font-size:18px; font-weight:700; background:var(--critical-wash); border:1px solid var(--critical); border-radius:12px; margin-bottom:10px; }
+.tc-no-results.js-hidden{ display:none; }
+</style>
+</head><body><div class="wrap">
+<div class="header"><div class="header-main">
+<h1>My Info &mdash; QA Execution Report</h1>
+</div><span class="pill pill-complete">COMPLETE</span></div>
+<div class="meta-card dashboard-card">
+<div class="fields">
+<div class="field"><span class="k">Scope</span><span class="v">MyInfo_Test_Cases.xlsx (Output/Test_Design/MyInfo_Test_Cases.xlsx), reviewed test design &mdash; 53 rows, 52 marked Valid in Scope = 1</span></div>
+<div class="field-row">
+<div class="field"><span class="k">Coverage</span><span class="v">52 test cases executed (47 passed, 3 failed, 2 blocked) across Navigation, Personal Details, Contact Details, Emergency Contacts, Dependents, Immigration, Qualifications, Memberships, Job, Salary, and Report-to.</span></div>
+<div class="field"><span class="k">Description</span><span class="v">Full reviewed My Info suite run end-to-end against the live public OrangeHRM demo; surfaced 1 confirmed application defect, 2 environment-driven test-design issues, and 2 blockers caused by shared-instance interference.</span></div>
+</div>
+</div>
+<div class="fields run-meta">
+<div class="field-row">
+<div class="field"><span class="k">Project</span><span class="v">OrangeHRM (Open Source Demo, OrangeHRM OS 5.9)</span></div>
+<div class="field"><span class="k">Module</span><span class="v">My Info</span></div>
+<div class="field"><span class="k">Environment</span><span class="v">Shared public demo (not isolated) &mdash; https://opensource-demo.orangehrmlive.com/</span></div>
+</div>
+<div class="field"><span class="k">Authentication Status</span><span class="v">Successful (session expired once mid-run and was re-authenticated)</span></div>
+<div class="field"><span class="k">Execution Date</span><span class="v">2026-09-16</span></div>
+<div class="field"><span class="k">Status</span><span class="v">COMPLETE</span></div>
+</div>
+</div>
+<h2 class="section-num">1. Executive Summary</h2>
+<div class="summary-layout">
+<div class="donut-block">
+<div class="donut" style="background:conic-gradient(var(--good) 0% 90.3846%, var(--critical) 90.3846% 96.1538%, var(--serious) 96.1538% 100%)">
+<div class="donut-hole"><div class="donut-pct">94.0%</div><div class="donut-sub">pass rate</div></div>
+</div>
+<div class="donut-legend">
+<div class="litem"><span class="swatch pass"></span>Passed <span class="lcount">47 / 52</span></div>
+<div class="litem"><span class="swatch fail"></span>Failed <span class="lcount">3 / 52</span></div>
+<div class="litem"><span class="swatch blocked"></span>Blocked <span class="lcount">2 / 52</span></div>
+</div>
+</div>
+<div class="stats-block">
+<div class="scard scard-total dashboard-card"><div class="val">52</div><div class="lbl">Total Executed Test Cases</div></div>
+<div class="summary-cards">
+<div class="scard dashboard-card"><div class="val pass">47</div><div class="lbl">Passed</div></div>
+<div class="scard dashboard-card"><div class="val fail">3</div><div class="lbl">Failed</div></div>
+<div class="scard dashboard-card"><div class="val blocked">2</div><div class="lbl">Blocked</div></div>
+</div>
+<div class="scard scard-total dashboard-card"><div class="val accent">100.0%</div><div class="lbl">Execution Rate</div></div>
+</div>
+</div>
+<div class="tc-actions">
+<button type="button" id="tcExpandAll">Expand all</button>
+<button type="button" id="tcCollapseAll">Collapse all</button>
+</div>
+<details class="section-collapse tc-section" open>
+<summary>Test case results</summary>
+<div class="tc-toolbar dashboard-card">
+<input type="search" id="tcSearch" placeholder="Search by ID, feature, scenario...">
+<select id="tcStatusFilter">
+<option value="">All statuses</option>
+<option value="PASS">PASS</option>
+<option value="FAIL">FAIL</option>
+<option value="BLOCKED">BLOCKED</option>
+</select>
+<select id="tcCategoryFilter">
+<option value="">All categories</option>
+<option value="navigation">Navigation &amp; General UI</option><option value="personal">Personal Details</option><option value="contact">Contact Details</option><option value="emergency">Emergency Contacts</option><option value="dependents">Dependents</option><option value="immigration">Immigration</option><option value="qualifications">Qualifications</option><option value="memberships">Memberships</option><option value="job">Job (Read-only)</option><option value="salary">Salary (Read-only)</option><option value="reportto">Report-to (Read-only)</option>
+</select>
+<button type="button" id="tcResetFilters">Reset</button>
+<span id="tcCount" class="tc-count"></span>
+</div>
+<div id="tcNoResults" class="tc-no-results js-hidden">No test cases match your search. Try a different keyword, or clear the search/filters above.</div>
+<details class="tc-category" data-cat="navigation" open>
+<summary><span class="cat-icon">🧭</span><span class="cat-name">Navigation &amp; General UI</span><span class="cat-counts"><span class="cc pass">10 passed</span><span class="cc fail">1 failed</span><span class="cc blocked">0 blocked</span></span><span class="cat-chev"></span></summary>
+<div class="tc-category-body">
+<div class="tc-cat-actions"><button type="button" class="tc-cat-expand">Expand all</button><button type="button" class="tc-cat-collapse">Collapse all</button></div>
+<details class="tc PASS">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-001</span> - Navigate to My Info module from the left sidebar</span><span class="badge PASS">PASS</span></summary>
+<div class="row"><b>Feature:</b> Navigation</div>
+<div class="row"><b>Expected:</b> User is navigated to the My Info module, landing on the Personal Details tab with the employee card (name, photo) and tab strip visible; My Info is highlighted as the active sidebar item.</div>
+<div class="row"><b>Actual:</b> My Info opened on Personal Details tab; employee card, tab strip, and highlighted sidebar item all rendered as expected.</div>
+
+<div class="row tc-status-row"><b>Status:</b> <span class="badge PASS">PASS</span></div>
+<details class="evidence"><summary>Evidence</summary><div class="ev-body"><a href="Evidence/exec_tc001_personal_details.png" target="_blank" rel="noopener">exec_tc001_personal_details.png</a></div></details>
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User has a valid authenticated session.</div><div class="vtc-h">Test Data</div><div class="vtc-p">N/A</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Log in with a valid authenticated session.</li><li>Click 'My Info' in the left sidebar.</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">User is navigated to the My Info module, landing on the Personal Details tab with the employee card (name, photo) and tab strip visible; My Info is highlighted as the active sidebar item.</div></div></details></div>
+</details><details class="tc PASS">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-002</span> - Verify all 10 My Info tabs are visible and clickable</span><span class="badge PASS">PASS</span></summary>
+<div class="row"><b>Feature:</b> Navigation - Tabs</div>
+<div class="row"><b>Expected:</b> All 10 tabs are present in that order, each is clickable, and clicking a tab navigates to its own route (e.g. /pim/contactDetails/empNumber/7) while the active tab is visually highlighted.</div>
+<div class="row"><b>Actual:</b> All 10 tabs present in the documented order; each routed correctly when clicked.</div>
+
+<div class="row tc-status-row"><b>Status:</b> <span class="badge PASS">PASS</span></div>
+
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User is on the My Info module.</div><div class="vtc-h">Test Data</div><div class="vtc-p">N/A</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Observe the tab strip under the employee name/photo.</li><li>Click each tab in turn: Personal Details, Contact Details, Emergency Contacts, Dependents, Immigration, Job, Salary, Report-to, Qualifications, Memberships.</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">All 10 tabs are present in that order, each is clickable, and clicking a tab navigates to its own route (e.g. /pim/contactDetails/empNumber/7) while the active tab is visually highlighted.</div></div></details></div>
+</details><details class="tc PASS">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-003</span> - Verify the employee identity card persists when switching between tabs</span><span class="badge PASS">PASS</span></summary>
+<div class="row"><b>Feature:</b> Navigation - Tabs</div>
+<div class="row"><b>Expected:</b> The left employee-identity card (name heading, photo, tab list) remains visible and unchanged; only the right-hand content panel changes per tab.</div>
+<div class="row"><b>Actual:</b> Employee card structure remained correctly rendered across every tab switch during the run.</div>
+<div class="row"><b>Note:</b> The card's displayed *name value* changed several times during this run (John Doe → abcd Doe → Sumit Yupp → manda user) due to another concurrent user editing this shared demo record — not a structural defect. See Environment Notes.</div>
+<div class="row tc-status-row"><b>Status:</b> <span class="badge PASS">PASS</span></div>
+
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User is on the My Info module.</div><div class="vtc-h">Test Data</div><div class="vtc-p">N/A</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Note the employee name and photo shown in the left card on Personal Details.</li><li>Click through several other tabs (e.g. Contact Details, Qualifications).</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">The left employee-identity card (name heading, photo, tab list) remains visible and unchanged; only the right-hand content panel changes per tab.</div></div></details></div>
+</details><details class="tc PASS">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-004</span> - Verify the top banner heading on My Info sub-tabs</span><span class="badge PASS">PASS</span></summary>
+<div class="row"><b>Feature:</b> Navigation - Breadcrumb</div>
+<div class="row"><b>Expected:</b> The top banner heading reads 'PIM' (not 'My Info') on every My Info sub-tab, since My Info routes are served under the underlying PIM module.</div>
+<div class="row"><b>Actual:</b> Banner heading read “PIM” on every My Info sub-tab visited.</div>
+
+<div class="row tc-status-row"><b>Status:</b> <span class="badge PASS">PASS</span></div>
+
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User is on any My Info sub-tab.</div><div class="vtc-h">Test Data</div><div class="vtc-p">N/A</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Navigate to any My Info sub-tab (e.g. Personal Details).</li><li>Observe the top banner heading text.</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">The top banner heading reads 'PIM' (not 'My Info') on every My Info sub-tab, since My Info routes are served under the underlying PIM module.</div></div></details></div>
+</details><details class="tc PASS">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-005</span> - Verify no 'unsaved changes' warning appears when switching tabs</span><span class="badge PASS">PASS</span></summary>
+<div class="row"><b>Feature:</b> Navigation - Unsaved Changes</div>
+<div class="row"><b>Expected:</b> No 'unsaved changes' confirmation dialog appears; the application navigates directly to the newly selected tab.</div>
+<div class="row"><b>Actual:</b> Edited Driver's License Number on Personal Details without saving, then switched to Contact Details; no confirmation dialog appeared.</div>
+
+<div class="row tc-status-row"><b>Status:</b> <span class="badge PASS">PASS</span></div>
+
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User is on a My Info tab with an editable form (e.g. Personal Details).</div><div class="vtc-h">Test Data</div><div class="vtc-p">N/A</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Open an editable tab such as Personal Details.</li><li>Modify a field without saving.</li><li>Click a different tab in the tab strip.</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">No 'unsaved changes' confirmation dialog appears; the application navigates directly to the newly selected tab.</div></div></details></div>
+</details><details class="tc PASS">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-006</span> - Verify no search or filter controls exist anywhere in My Info</span><span class="badge PASS">PASS</span></summary>
+<div class="row"><b>Feature:</b> Search / Filter Absence</div>
+<div class="row"><b>Expected:</b> No search box or filter control is present on any My Info tab or list section.</div>
+<div class="row"><b>Actual:</b> No search or filter control found on any of the 10 tabs.</div>
+
+<div class="row tc-status-row"><b>Status:</b> <span class="badge PASS">PASS</span></div>
+
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User is on the My Info module.</div><div class="vtc-h">Test Data</div><div class="vtc-p">N/A</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Visit each of the 10 My Info tabs.</li><li>Check each tab and its list sections for any search box or filter control.</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">No search box or filter control is present on any My Info tab or list section.</div></div></details></div>
+</details><details class="tc PASS">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-007</span> - Verify no sortable column headers exist on My Info tables</span><span class="badge PASS">PASS</span></summary>
+<div class="row"><b>Feature:</b> Sorting Absence</div>
+<div class="row"><b>Expected:</b> No sort icons or sortable column-header behavior are present on any My Info list table.</div>
+<div class="row"><b>Actual:</b> No sortable column headers found on any list table.</div>
+
+<div class="row tc-status-row"><b>Status:</b> <span class="badge PASS">PASS</span></div>
+
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User is on a My Info tab containing a list table (e.g. Qualifications &gt; Work Experience).</div><div class="vtc-h">Test Data</div><div class="vtc-p">N/A</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Open a tab containing a list table.</li><li>Inspect the column headers for sort icons or clickable sort behavior.</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">No sort icons or sortable column-header behavior are present on any My Info list table.</div></div></details></div>
+</details><details class="tc PASS">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-008</span> - Verify no pagination controls appear on My Info list tables</span><span class="badge PASS">PASS</span></summary>
+<div class="row"><b>Feature:</b> Pagination Absence</div>
+<div class="row"><b>Expected:</b> No pagination controls are shown, consistent with the low per-list record counts observed (maximum 2 records per list in this account).</div>
+<div class="row"><b>Actual:</b> No pagination controls found; all lists fit within a single page (max 2 records).</div>
+
+<div class="row tc-status-row"><b>Status:</b> <span class="badge PASS">PASS</span></div>
+
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User is on a My Info tab containing a list table.</div><div class="vtc-h">Test Data</div><div class="vtc-p">N/A</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Open a tab containing a list table with existing records (e.g. Qualifications &gt; Languages).</li><li>Check below the table for pagination controls.</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">No pagination controls are shown, consistent with the low per-list record counts observed (maximum 2 records per list in this account).</div></div></details></div>
+</details><details class="tc PASS">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-009</span> - Verify the '* Required' legend appears on forms containing mandatory fields</span><span class="badge PASS">PASS</span></summary>
+<div class="row"><b>Feature:</b> Forms - Required Legend</div>
+<div class="row"><b>Expected:</b> A '* Required' legend footnote is shown near the Save/Cancel buttons whenever the form has at least one field marked with a trailing asterisk.</div>
+<div class="row"><b>Actual:</b> “* Required” legend present on every form containing at least one mandatory field.</div>
+
+<div class="row tc-status-row"><b>Status:</b> <span class="badge PASS">PASS</span></div>
+
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User is on a My Info tab with an editable form (e.g. Personal Details, or an Add form under Qualifications).</div><div class="vtc-h">Test Data</div><div class="vtc-p">N/A</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Open a form containing at least one required field, such as Personal Details or the Emergency Contacts Add form.</li><li>Locate the field(s) marked with a trailing asterisk.</li><li>Locate the footnote near the Save button.</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">A '* Required' legend footnote is shown near the Save/Cancel buttons whenever the form has at least one field marked with a trailing asterisk.</div></div></details></div>
+</details><details class="tc FAIL">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-010</span> - Verify all date fields display the yyyy-dd-mm format placeholder</span><span class="badge FAIL">FAIL</span></summary>
+<div class="row"><b>Feature:</b> Date Fields - Format</div>
+<div class="row"><b>Expected:</b> Every date field across the module (License Expiry Date, Date of Birth, Immigration Issued/Expiry/Eligible Review Date, Education Start/End Date, Membership Subscription Commence/Renewal Date, etc.) consistently uses a yyyy-dd-mm formatted text input with a calendar icon.</div>
+<div class="row"><b>Actual:</b> Date fields displayed as `D, dd M yyyy` (e.g. “Fri, 11 Oct 2030”) for most of the run, then reverted to `yyyy-dd-mm` later in the same session with no action taken by this execution.</div>
+<div class="row"><b>Note:</b> Traced to a shared, system-wide date-format preference being toggled by a concurrent user on this public demo — not a My Info defect. See Environment Notes.</div>
+<div class="row tc-status-row"><b>Status:</b> <span class="badge FAIL">FAIL</span></div>
+<details class="evidence"><summary>Evidence</summary><div class="ev-body"><a href="Evidence/exec_tc001_personal_details.png" target="_blank" rel="noopener">exec_tc001_personal_details.png</a></div></details>
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User is on a My Info tab containing a date field (e.g. Personal Details &gt; License Expiry Date).</div><div class="vtc-h">Test Data</div><div class="vtc-p">N/A</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Open a tab with a date field, e.g. Personal Details.</li><li>Observe the empty-state placeholder text and the format of any populated date value.</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">Every date field across the module (License Expiry Date, Date of Birth, Immigration Issued/Expiry/Eligible Review Date, Education Start/End Date, Membership Subscription Commence/Renewal Date, etc.) consistently uses a yyyy-dd-mm formatted text input with a calendar icon.</div></div></details></div>
+</details><details class="tc PASS">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-052</span> - Verify Attachments empty state text is consistent across tabs with no attachments</span><span class="badge PASS">PASS</span></summary>
+<div class="row"><b>Feature:</b> Attachments (General)</div>
+<div class="row"><b>Expected:</b> The Attachments table consistently shows the inline text 'No Records Found' (not a separate dialog) with column headers (File Name, Description, Size, Type, Date Added, Added By, Actions) still visible.</div>
+<div class="row"><b>Actual:</b> Attachments empty state text was consistent (“No Records Found”, inline, headers intact) across Contact Details, Job, Report-to, and Qualifications &gt; Skills.</div>
+
+<div class="row tc-status-row"><b>Status:</b> <span class="badge PASS">PASS</span></div>
+
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User is on a My Info tab whose Attachments section has no files (e.g. Contact Details, Job, or Qualifications &gt; Skills' sibling Attachments block).</div><div class="vtc-h">Test Data</div><div class="vtc-p">N/A</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Navigate to a My Info tab with an empty Attachments section.</li><li>Observe the Attachments table content.</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">The Attachments table consistently shows the inline text 'No Records Found' (not a separate dialog) with column headers (File Name, Description, Size, Type, Date Added, Added By, Actions) still visible.</div></div></details></div>
+</details>
+</div>
+</details><details class="tc-category" data-cat="personal" open>
+<summary><span class="cat-icon">🪪</span><span class="cat-name">Personal Details</span><span class="cat-counts"><span class="cc pass">8 passed</span><span class="cc fail">1 failed</span><span class="cc blocked">0 blocked</span></span><span class="cat-chev"></span></summary>
+<div class="tc-category-body">
+<div class="tc-cat-actions"><button type="button" class="tc-cat-expand">Expand all</button><button type="button" class="tc-cat-collapse">Collapse all</button></div>
+<details class="tc PASS">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-011</span> - Verify Personal Details tab displays the employee's existing populated data</span><span class="badge PASS">PASS</span></summary>
+<div class="row"><b>Feature:</b> Personal Details</div>
+<div class="row"><b>Expected:</b> All fields are pre-populated with the employee's existing data, and a Save button is present and enabled.</div>
+<div class="row"><b>Actual:</b> All Personal Details fields pre-populated; Save button present and enabled.</div>
+
+<div class="row tc-status-row"><b>Status:</b> <span class="badge PASS">PASS</span></div>
+<details class="evidence"><summary>Evidence</summary><div class="ev-body"><a href="Evidence/exec_tc001_personal_details.png" target="_blank" rel="noopener">exec_tc001_personal_details.png</a></div></details>
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User is on the My Info &gt; Personal Details tab.</div><div class="vtc-h">Test Data</div><div class="vtc-p">N/A</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Navigate to My Info &gt; Personal Details.</li><li>Observe the Employee Full Name, Employee Id, Other Id, Driver's License Number, License Expiry Date, Nationality, Marital Status, Date of Birth, Gender, and Custom Fields (Blood Type, Test_Field).</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">All fields are pre-populated with the employee's existing data, and a Save button is present and enabled.</div></div></details></div>
+</details><details class="tc PASS">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-012</span> - Submit Personal Details with an empty Employee Full Name (First Name)</span><span class="badge PASS">PASS</span></summary>
+<div class="row"><b>Feature:</b> Personal Details - Validation</div>
+<div class="row"><b>Expected:</b> An inline 'Required' message appears under the First Name field; the form is not saved and the field remains empty on screen.</div>
+<div class="row"><b>Actual:</b> “Required” message appeared under First Name; form was not saved.</div>
+
+<div class="row tc-status-row"><b>Status:</b> <span class="badge PASS">PASS</span></div>
+
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User is on the My Info &gt; Personal Details tab.</div><div class="vtc-h">Test Data</div><div class="vtc-p">Empty First Name field</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Navigate to My Info &gt; Personal Details.</li><li>Clear the First Name field.</li><li>Click Save.</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">An inline 'Required' message appears under the First Name field; the form is not saved and the field remains empty on screen.</div></div></details></div>
+</details><details class="tc PASS">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-013</span> - Enter an invalid License Expiry Date value</span><span class="badge PASS">PASS</span></summary>
+<div class="row"><b>Feature:</b> Personal Details - Validation</div>
+<div class="row"><b>Expected:</b> An inline 'Should be a valid date in yyyy-dd-mm format' message appears under the License Expiry Date field; the form is not saved.</div>
+<div class="row"><b>Actual:</b> “Should be a valid date in yyyy-dd-mm format” shown; form was not saved.</div>
+
+<div class="row tc-status-row"><b>Status:</b> <span class="badge PASS">PASS</span></div>
+
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User is on the My Info &gt; Personal Details tab.</div><div class="vtc-h">Test Data</div><div class="vtc-p">2099-99-99 (invalid date value)</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Navigate to My Info &gt; Personal Details.</li><li>Enter '2099-99-99' into the License Expiry Date field.</li><li>Click Save.</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">An inline 'Should be a valid date in yyyy-dd-mm format' message appears under the License Expiry Date field; the form is not saved.</div></div></details></div>
+</details><details class="tc PASS">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-014</span> - Enter an Employee Id value exceeding the 10-character limit</span><span class="badge PASS">PASS</span></summary>
+<div class="row"><b>Feature:</b> Personal Details - Validation</div>
+<div class="row"><b>Expected:</b> An inline 'Should not exceed 10 characters' message appears under the Employee Id field; the form is not saved.</div>
+<div class="row"><b>Actual:</b> “Should not exceed 10 characters” shown; form was not saved.</div>
+
+<div class="row tc-status-row"><b>Status:</b> <span class="badge PASS">PASS</span></div>
+
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User is on the My Info &gt; Personal Details tab.</div><div class="vtc-h">Test Data</div><div class="vtc-p">85-character alphanumeric string (exceeds 10-character limit)</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Navigate to My Info &gt; Personal Details.</li><li>Enter an 85-character alphanumeric string into the Employee Id field.</li><li>Click Save.</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">An inline 'Should not exceed 10 characters' message appears under the Employee Id field; the form is not saved.</div></div></details></div>
+</details><details class="tc PASS">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-015</span> - Enter an Employee Id value at exactly the 10-character boundary</span><span class="badge PASS">PASS</span></summary>
+<div class="row"><b>Feature:</b> Personal Details - Validation</div>
+<div class="row"><b>Expected:</b> No 'Should not exceed 10 characters' error appears for a value at exactly the 10-character limit; the form proceeds to save.</div>
+<div class="row"><b>Actual:</b> 10-character value “MUSER12345” saved with no validation error; original value restored immediately after confirming.</div>
+
+<div class="row tc-status-row"><b>Status:</b> <span class="badge PASS">PASS</span></div>
+<details class="evidence"><summary>Evidence</summary><div class="ev-body"><a href="Evidence/exec_tc015_boundary10.png" target="_blank" rel="noopener">exec_tc015_boundary10.png</a> &middot; <a href="Evidence/exec_restore_confirm.png" target="_blank" rel="noopener">exec_restore_confirm.png</a></div></details>
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User is on the My Info &gt; Personal Details tab.</div><div class="vtc-h">Test Data</div><div class="vtc-p">Valid 10-character alphanumeric Employee Id value</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Navigate to My Info &gt; Personal Details.</li><li>Enter a 10-character alphanumeric string into the Employee Id field.</li><li>Click Save.</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">No 'Should not exceed 10 characters' error appears for a value at exactly the 10-character limit; the form proceeds to save.</div></div></details></div>
+</details><details class="tc PASS">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-016</span> - Verify Nationality dropdown default value and full option list</span><span class="badge PASS">PASS</span></summary>
+<div class="row"><b>Feature:</b> Personal Details - Dropdowns</div>
+<div class="row"><b>Expected:</b> Nationality dropdown defaults to '-- Select --' when unset and displays an alphabetical list of approximately 195 nationality options from Afghan to Zimbabwean.</div>
+<div class="row"><b>Actual:</b> Nationality defaulted to “-- Select --” when unset; full alphabetical list (~195 options, Afghan…Zimbabwean) confirmed.</div>
+
+<div class="row tc-status-row"><b>Status:</b> <span class="badge PASS">PASS</span></div>
+
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User is on the My Info &gt; Personal Details tab.</div><div class="vtc-h">Test Data</div><div class="vtc-p">N/A</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Navigate to My Info &gt; Personal Details.</li><li>Clear/observe the Nationality field default.</li><li>Open the Nationality dropdown and scroll through its option list.</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">Nationality dropdown defaults to '-- Select --' when unset and displays an alphabetical list of approximately 195 nationality options from Afghan to Zimbabwean.</div></div></details></div>
+</details><details class="tc PASS">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-017</span> - Verify Marital Status dropdown options</span><span class="badge PASS">PASS</span></summary>
+<div class="row"><b>Feature:</b> Personal Details - Dropdowns</div>
+<div class="row"><b>Expected:</b> Marital Status dropdown shows exactly 4 options: '-- Select --', Single, Married, Other.</div>
+<div class="row"><b>Actual:</b> Marital Status showed exactly 4 options: -- Select --, Single, Married, Other.</div>
+
+<div class="row tc-status-row"><b>Status:</b> <span class="badge PASS">PASS</span></div>
+
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User is on the My Info &gt; Personal Details tab.</div><div class="vtc-h">Test Data</div><div class="vtc-p">N/A</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Navigate to My Info &gt; Personal Details.</li><li>Open the Marital Status dropdown.</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">Marital Status dropdown shows exactly 4 options: '-- Select --', Single, Married, Other.</div></div></details></div>
+</details><details class="tc PASS">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-018</span> - Verify Blood Type custom field dropdown options</span><span class="badge PASS">PASS</span></summary>
+<div class="row"><b>Feature:</b> Personal Details - Custom Fields</div>
+<div class="row"><b>Expected:</b> Blood Type dropdown shows exactly 9 options: '-- Select --', A+, A-, B+, B-, O+, O-, AB+, AB-.</div>
+<div class="row"><b>Actual:</b> Blood Type showed exactly 9 options: -- Select --, A+, A-, B+, B-, O+, O-, AB+, AB-.</div>
+
+<div class="row tc-status-row"><b>Status:</b> <span class="badge PASS">PASS</span></div>
+
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User is on the My Info &gt; Personal Details tab.</div><div class="vtc-h">Test Data</div><div class="vtc-p">N/A</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Navigate to My Info &gt; Personal Details.</li><li>Scroll to the Custom Fields section.</li><li>Open the Blood Type dropdown.</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">Blood Type dropdown shows exactly 9 options: '-- Select --', A+, A-, B+, B-, O+, O-, AB+, AB-.</div></div></details></div>
+</details><details class="tc FAIL">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-019</span> - Enter a future Date of Birth value and save</span><span class="badge FAIL">FAIL</span></summary>
+<div class="row"><b>Feature:</b> Personal Details - Validation</div>
+<div class="row"><b>Expected:</b> No validation error is shown for the future date, and the value is accepted and persisted to the record on reload - indicating an absent business-rule validation for future Date of Birth values. This is a data-integrity defect that should be flagged for a fix; testers must restore the original Date of Birth value after running this case.</div>
+<div class="row"><b>Actual:</b> No validation error was shown for the future date `2050-01-01`; the value was accepted and persisted to the record after reload. Reverted to the original Date of Birth immediately after confirming.</div>
+<div class="row"><b>Note:</b> Confirmed application defect — see BUG-001. Independently reproduced in the original UI Exploration session.</div>
+<div class="row tc-status-row"><b>Status:</b> <span class="badge FAIL">FAIL</span></div>
+
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User is on the My Info &gt; Personal Details tab.</div><div class="vtc-h">Test Data</div><div class="vtc-p">2050-01-01 (future date)</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Navigate to My Info &gt; Personal Details.</li><li>Enter '2050-01-01' into the Date of Birth field.</li><li>Click Save.</li><li>Reload the page and re-check the Date of Birth field.</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">No validation error is shown for the future date, and the value is accepted and persisted to the record on reload - indicating an absent business-rule validation for future Date of Birth values. This is a data-integrity defect that should be flagged for a fix; testers must restore the original Date of Birth value after running this case.</div></div></details></div>
+</details>
+</div>
+</details><details class="tc-category" data-cat="contact" open>
+<summary><span class="cat-icon">📇</span><span class="cat-name">Contact Details</span><span class="cat-counts"><span class="cc pass">4 passed</span><span class="cc fail">0 failed</span><span class="cc blocked">0 blocked</span></span><span class="cat-chev"></span></summary>
+<div class="tc-category-body">
+<div class="tc-cat-actions"><button type="button" class="tc-cat-expand">Expand all</button><button type="button" class="tc-cat-collapse">Collapse all</button></div>
+<details class="tc PASS">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-020</span> - Verify Contact Details tab displays the employee's existing populated data</span><span class="badge PASS">PASS</span></summary>
+<div class="row"><b>Feature:</b> Contact Details</div>
+<div class="row"><b>Expected:</b> All Contact Details fields are pre-populated with existing data, and a Save button is present with no fields marked as required.</div>
+<div class="row"><b>Actual:</b> All Contact Details fields pre-populated; no fields marked required; Save present.</div>
+
+<div class="row tc-status-row"><b>Status:</b> <span class="badge PASS">PASS</span></div>
+<details class="evidence"><summary>Evidence</summary><div class="ev-body"><a href="Evidence/exec_tc020_contact_details.png" target="_blank" rel="noopener">exec_tc020_contact_details.png</a></div></details>
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User is on the My Info &gt; Contact Details tab.</div><div class="vtc-h">Test Data</div><div class="vtc-p">N/A</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Navigate to My Info &gt; Contact Details.</li><li>Observe Street 1/2, City, State/Province, Zip/Postal Code, Country, Home/Mobile/Work Telephone, Work Email, and Other Email fields.</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">All Contact Details fields are pre-populated with existing data, and a Save button is present with no fields marked as required.</div></div></details></div>
+</details><details class="tc PASS">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-021</span> - Enter an invalid Work Email format</span><span class="badge PASS">PASS</span></summary>
+<div class="row"><b>Feature:</b> Contact Details - Validation</div>
+<div class="row"><b>Expected:</b> An inline 'Expected format: admin@example.com' message appears under the Work Email field; the form is not saved.</div>
+<div class="row"><b>Actual:</b> “Expected format: admin@example.com” shown under Work Email; form was not saved.</div>
+
+<div class="row tc-status-row"><b>Status:</b> <span class="badge PASS">PASS</span></div>
+<details class="evidence"><summary>Evidence</summary><div class="ev-body"><a href="Evidence/exec_tc021_invalid_email.png" target="_blank" rel="noopener">exec_tc021_invalid_email.png</a></div></details>
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User is on the My Info &gt; Contact Details tab.</div><div class="vtc-h">Test Data</div><div class="vtc-p">not-an-email (invalid email format)</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Navigate to My Info &gt; Contact Details.</li><li>Enter 'not-an-email' into the Work Email field.</li><li>Click Save.</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">An inline 'Expected format: admin@example.com' message appears under the Work Email field; the form is not saved.</div></div></details></div>
+</details><details class="tc PASS">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-022</span> - Verify Country dropdown default value and full option list</span><span class="badge PASS">PASS</span></summary>
+<div class="row"><b>Feature:</b> Contact Details - Dropdowns</div>
+<div class="row"><b>Expected:</b> Country dropdown defaults to '-- Select --' when unset and displays an alphabetical list of approximately 239 countries from Afghanistan to Zimbabwe.</div>
+<div class="row"><b>Actual:</b> Country defaulted to “-- Select --” when unset; full alphabetical list (~239 options, Afghanistan…Zimbabwe) confirmed.</div>
+
+<div class="row tc-status-row"><b>Status:</b> <span class="badge PASS">PASS</span></div>
+
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User is on the My Info &gt; Contact Details tab.</div><div class="vtc-h">Test Data</div><div class="vtc-p">N/A</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Navigate to My Info &gt; Contact Details.</li><li>Open the Country dropdown and scroll through its option list.</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">Country dropdown defaults to '-- Select --' when unset and displays an alphabetical list of approximately 239 countries from Afghanistan to Zimbabwe.</div></div></details></div>
+</details><details class="tc PASS">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-023</span> - Verify Contact Details Attachments section shows an empty state</span><span class="badge PASS">PASS</span></summary>
+<div class="row"><b>Feature:</b> Contact Details - Attachments</div>
+<div class="row"><b>Expected:</b> The Attachments table shows the inline text 'No Records Found' (not a separate dialog), with column headers still visible.</div>
+<div class="row"><b>Actual:</b> Attachments table showed inline “No Records Found” with column headers intact.</div>
+
+<div class="row tc-status-row"><b>Status:</b> <span class="badge PASS">PASS</span></div>
+<details class="evidence"><summary>Evidence</summary><div class="ev-body"><a href="Evidence/exec_tc020_contact_details.png" target="_blank" rel="noopener">exec_tc020_contact_details.png</a></div></details>
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User is on the My Info &gt; Contact Details tab, and no attachments exist for this employee.</div><div class="vtc-h">Test Data</div><div class="vtc-p">N/A</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Navigate to My Info &gt; Contact Details.</li><li>Scroll to the Attachments section.</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">The Attachments table shows the inline text 'No Records Found' (not a separate dialog), with column headers still visible.</div></div></details></div>
+</details>
+</div>
+</details><details class="tc-category" data-cat="emergency" open>
+<summary><span class="cat-icon">🚨</span><span class="cat-name">Emergency Contacts</span><span class="cat-counts"><span class="cc pass">5 passed</span><span class="cc fail">0 failed</span><span class="cc blocked">0 blocked</span></span><span class="cat-chev"></span></summary>
+<div class="tc-category-body">
+<div class="tc-cat-actions"><button type="button" class="tc-cat-expand">Expand all</button><button type="button" class="tc-cat-collapse">Collapse all</button></div>
+<details class="tc PASS">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-024</span> - Verify Emergency Contacts list displays existing records</span><span class="badge PASS">PASS</span></summary>
+<div class="row"><b>Feature:</b> Emergency Contacts</div>
+<div class="row"><b>Expected:</b> The table lists existing emergency contact records with Name, Relationship, Home Telephone, Mobile, Work Telephone columns, a '(N) Records Found' label, and per-row edit/delete action icons.</div>
+<div class="row"><b>Actual:</b> Table listed 2 existing records with the documented columns and per-row actions.</div>
+
+<div class="row tc-status-row"><b>Status:</b> <span class="badge PASS">PASS</span></div>
+<details class="evidence"><summary>Evidence</summary><div class="ev-body"><a href="Evidence/exec_tc024_emergency.png" target="_blank" rel="noopener">exec_tc024_emergency.png</a></div></details>
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User is on the My Info &gt; Emergency Contacts tab, and existing emergency contact records are present.</div><div class="vtc-h">Test Data</div><div class="vtc-p">N/A</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Navigate to My Info &gt; Emergency Contacts.</li><li>Observe the Assigned Emergency Contacts table.</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">The table lists existing emergency contact records with Name, Relationship, Home Telephone, Mobile, Work Telephone columns, a '(N) Records Found' label, and per-row edit/delete action icons.</div></div></details></div>
+</details><details class="tc PASS">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-025</span> - Open the Add Emergency Contact form and verify its required field markers</span><span class="badge PASS">PASS</span></summary>
+<div class="row"><b>Feature:</b> Emergency Contacts - Add Form</div>
+<div class="row"><b>Expected:</b> An inline 'Save Emergency Contact' form opens above the list with Name* and Relationship* marked required, and Home/Mobile/Work Telephone shown without individual required markers, plus a '* Required' legend and Cancel/Save buttons.</div>
+<div class="row"><b>Actual:</b> Name* and Relationship* shown as required; Home/Mobile/Work Telephone unmarked; legend and Cancel/Save present.</div>
+
+<div class="row tc-status-row"><b>Status:</b> <span class="badge PASS">PASS</span></div>
+
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User is on the My Info &gt; Emergency Contacts tab.</div><div class="vtc-h">Test Data</div><div class="vtc-p">N/A</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Navigate to My Info &gt; Emergency Contacts.</li><li>Click the 'Add' button.</li><li>Observe the Name, Relationship, Home Telephone, Mobile, and Work Telephone fields.</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">An inline 'Save Emergency Contact' form opens above the list with Name* and Relationship* marked required, and Home/Mobile/Work Telephone shown without individual required markers, plus a '* Required' legend and Cancel/Save buttons.</div></div></details></div>
+</details><details class="tc PASS">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-026</span> - Submit the Add Emergency Contact form with Name and Relationship left empty</span><span class="badge PASS">PASS</span></summary>
+<div class="row"><b>Feature:</b> Emergency Contacts - Add Form Validation</div>
+<div class="row"><b>Expected:</b> An inline 'Required' message appears under both the Name and Relationship fields; the form is not saved.</div>
+<div class="row"><b>Actual:</b> “Required” shown under both Name and Relationship; form was not saved.</div>
+
+<div class="row tc-status-row"><b>Status:</b> <span class="badge PASS">PASS</span></div>
+<details class="evidence"><summary>Evidence</summary><div class="ev-body"><a href="Evidence/exec_tc026_empty_validation.png" target="_blank" rel="noopener">exec_tc026_empty_validation.png</a></div></details>
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User has opened the Add Emergency Contact form.</div><div class="vtc-h">Test Data</div><div class="vtc-p">Empty Name and Relationship fields</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Navigate to My Info &gt; Emergency Contacts and click Add.</li><li>Leave Name and Relationship empty.</li><li>Click Save.</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">An inline 'Required' message appears under both the Name and Relationship fields; the form is not saved.</div></div></details></div>
+</details><details class="tc PASS">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-027</span> - Submit the Add Emergency Contact form with Name and Relationship filled but all phone fields empty</span><span class="badge PASS">PASS</span></summary>
+<div class="row"><b>Feature:</b> Emergency Contacts - Add Form Validation</div>
+<div class="row"><b>Expected:</b> An inline 'At least one phone number is required' message appears under the Home Telephone field even though no individual phone field is marked with an asterisk; the form is not saved.</div>
+<div class="row"><b>Actual:</b> With valid Name/Relationship and all phone fields empty, “At least one phone number is required” appeared under Home Telephone; form was not saved.</div>
+
+<div class="row tc-status-row"><b>Status:</b> <span class="badge PASS">PASS</span></div>
+<details class="evidence"><summary>Evidence</summary><div class="ev-body"><a href="Evidence/exec_tc027_phone_rule.png" target="_blank" rel="noopener">exec_tc027_phone_rule.png</a></div></details>
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User has opened the Add Emergency Contact form and entered a valid Name and Relationship.</div><div class="vtc-h">Test Data</div><div class="vtc-p">Valid Name and Relationship values; Home/Mobile/Work Telephone left empty</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Navigate to My Info &gt; Emergency Contacts and click Add.</li><li>Enter a valid Name and Relationship.</li><li>Leave Home Telephone, Mobile, and Work Telephone all empty.</li><li>Click Save.</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">An inline 'At least one phone number is required' message appears under the Home Telephone field even though no individual phone field is marked with an asterisk; the form is not saved.</div></div></details></div>
+</details><details class="tc PASS">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-028</span> - Cancel the Add Emergency Contact form discards entered data</span><span class="badge PASS">PASS</span></summary>
+<div class="row"><b>Feature:</b> Emergency Contacts - Add Form</div>
+<div class="row"><b>Expected:</b> The inline Add form closes without saving; the Assigned Emergency Contacts list is unchanged from before the Add action.</div>
+<div class="row"><b>Actual:</b> Form closed on Cancel; Assigned Emergency Contacts list remained unchanged (still 2 records).</div>
+
+<div class="row tc-status-row"><b>Status:</b> <span class="badge PASS">PASS</span></div>
+
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User has opened the Add Emergency Contact form and entered some data.</div><div class="vtc-h">Test Data</div><div class="vtc-p">Any partial form data</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Navigate to My Info &gt; Emergency Contacts and click Add.</li><li>Enter data into one or more fields.</li><li>Click Cancel.</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">The inline Add form closes without saving; the Assigned Emergency Contacts list is unchanged from before the Add action.</div></div></details></div>
+</details>
+</div>
+</details><details class="tc-category" data-cat="dependents" open>
+<summary><span class="cat-icon">👪</span><span class="cat-name">Dependents</span><span class="cat-counts"><span class="cc pass">3 passed</span><span class="cc fail">0 failed</span><span class="cc blocked">0 blocked</span></span><span class="cat-chev"></span></summary>
+<div class="tc-category-body">
+<div class="tc-cat-actions"><button type="button" class="tc-cat-expand">Expand all</button><button type="button" class="tc-cat-collapse">Collapse all</button></div>
+<details class="tc PASS">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-029</span> - Verify Dependents list displays an existing record</span><span class="badge PASS">PASS</span></summary>
+<div class="row"><b>Feature:</b> Dependents</div>
+<div class="row"><b>Expected:</b> The table lists the existing dependent record with Name, Relationship, and Date of Birth columns (in yyyy-dd-mm format), a record count label, and per-row edit/delete icons.</div>
+<div class="row"><b>Actual:</b> Table listed 1 existing dependent record with correct columns.</div>
+
+<div class="row tc-status-row"><b>Status:</b> <span class="badge PASS">PASS</span></div>
+
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User is on the My Info &gt; Dependents tab, and an existing dependent record is present.</div><div class="vtc-h">Test Data</div><div class="vtc-p">N/A</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Navigate to My Info &gt; Dependents.</li><li>Observe the Assigned Dependents table.</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">The table lists the existing dependent record with Name, Relationship, and Date of Birth columns (in yyyy-dd-mm format), a record count label, and per-row edit/delete icons.</div></div></details></div>
+</details><details class="tc PASS">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-030</span> - Verify the Add Dependent form's Relationship dropdown options</span><span class="badge PASS">PASS</span></summary>
+<div class="row"><b>Feature:</b> Dependents - Add Form</div>
+<div class="row"><b>Expected:</b> Relationship dropdown shows exactly 3 options: '-- Select --', Child, Other.</div>
+<div class="row"><b>Actual:</b> Relationship dropdown showed exactly 3 options: -- Select --, Child, Other.</div>
+
+<div class="row tc-status-row"><b>Status:</b> <span class="badge PASS">PASS</span></div>
+
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User is on the My Info &gt; Dependents tab.</div><div class="vtc-h">Test Data</div><div class="vtc-p">N/A</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Navigate to My Info &gt; Dependents.</li><li>Click Add.</li><li>Open the Relationship dropdown.</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">Relationship dropdown shows exactly 3 options: '-- Select --', Child, Other.</div></div></details></div>
+</details><details class="tc PASS">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-031</span> - Verify the Add Dependent form marks Name and Relationship as required while Date of Birth is optional</span><span class="badge PASS">PASS</span></summary>
+<div class="row"><b>Feature:</b> Dependents - Add Form</div>
+<div class="row"><b>Expected:</b> Name and Relationship are shown with a trailing asterisk (required); Date of Birth has no asterisk (optional).</div>
+<div class="row"><b>Actual:</b> Name and Relationship shown with a trailing asterisk; Date of Birth had none.</div>
+
+<div class="row tc-status-row"><b>Status:</b> <span class="badge PASS">PASS</span></div>
+
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User is on the My Info &gt; Dependents tab.</div><div class="vtc-h">Test Data</div><div class="vtc-p">N/A</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Navigate to My Info &gt; Dependents.</li><li>Click Add.</li><li>Observe the Name, Relationship, and Date of Birth field labels.</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">Name and Relationship are shown with a trailing asterisk (required); Date of Birth has no asterisk (optional).</div></div></details></div>
+</details>
+</div>
+</details><details class="tc-category" data-cat="immigration" open>
+<summary><span class="cat-icon">🛂</span><span class="cat-name">Immigration</span><span class="cat-counts"><span class="cc pass">2 passed</span><span class="cc fail">0 failed</span><span class="cc blocked">1 blocked</span></span><span class="cat-chev"></span></summary>
+<div class="tc-category-body">
+<div class="tc-cat-actions"><button type="button" class="tc-cat-expand">Expand all</button><button type="button" class="tc-cat-collapse">Collapse all</button></div>
+<details class="tc PASS">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-032</span> - Verify Immigration list displays existing passport records</span><span class="badge PASS">PASS</span></summary>
+<div class="row"><b>Feature:</b> Immigration</div>
+<div class="row"><b>Expected:</b> The table lists existing records with Document, Number, Issued By, Issued Date, and Expiry Date columns, a record count label, and per-row edit/delete icons.</div>
+<div class="row"><b>Actual:</b> Table listed 2 existing immigration records with correct columns.</div>
+
+<div class="row tc-status-row"><b>Status:</b> <span class="badge PASS">PASS</span></div>
+
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User is on the My Info &gt; Immigration tab, and existing immigration records are present.</div><div class="vtc-h">Test Data</div><div class="vtc-p">N/A</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Navigate to My Info &gt; Immigration.</li><li>Observe the Assigned Immigration Records table.</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">The table lists existing records with Document, Number, Issued By, Issued Date, and Expiry Date columns, a record count label, and per-row edit/delete icons.</div></div></details></div>
+</details><details class="tc PASS">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-033</span> - Verify the Add Immigration form marks Number as required and defaults Document to Passport</span><span class="badge PASS">PASS</span></summary>
+<div class="row"><b>Feature:</b> Immigration - Add Form</div>
+<div class="row"><b>Expected:</b> The Document radio group shows Passport pre-selected by default (with Visa as the other option), and the Number field is marked with a trailing asterisk (required); Issued Date, Expiry Date, Eligible Status, Issued By, Eligible Review Date, and Comments show no required marker.</div>
+<div class="row"><b>Actual:</b> Document radio defaulted to Passport; Number field marked required; other fields unmarked.</div>
+
+<div class="row tc-status-row"><b>Status:</b> <span class="badge PASS">PASS</span></div>
+<details class="evidence"><summary>Evidence</summary><div class="ev-body"><a href="Evidence/exec_tc033_immigration_add.png" target="_blank" rel="noopener">exec_tc033_immigration_add.png</a></div></details>
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User is on the My Info &gt; Immigration tab.</div><div class="vtc-h">Test Data</div><div class="vtc-p">N/A</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Navigate to My Info &gt; Immigration.</li><li>Click Add.</li><li>Observe the Document radio group and the Number field label.</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">The Document radio group shows Passport pre-selected by default (with Visa as the other option), and the Number field is marked with a trailing asterisk (required); Issued Date, Expiry Date, Eligible Status, Issued By, Eligible Review Date, and Comments show no required marker.</div></div></details></div>
+</details><details class="tc BLOCKED">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-034</span> - Select the 'Visa' Document radio option on the Add Immigration form</span><span class="badge BLOCKED">BLOCKED</span></summary>
+<div class="row"><b>Feature:</b> Immigration - Add Form</div>
+<div class="row"><b>Expected:</b> Not verified in the source exploration - selecting 'Visa' was blocked by a UI element interception issue during testing (documented as a Blocker). This case should be re-attempted manually or with an updated automation approach to confirm actual behavior; do not assume it currently works.</div>
+<div class="row"><b>Actual:</b> The “Visa” radio option could not be clicked — the click was repeatedly intercepted by an overlapping element across multiple retry attempts.</div>
+<div class="row"><b>Note:</b> Reproduced identically in the original UI Exploration session — environment/tool interaction issue, not confirmed as a product defect.</div>
+<div class="row tc-status-row"><b>Status:</b> <span class="badge BLOCKED">BLOCKED</span></div>
+<details class="evidence"><summary>Evidence</summary><div class="ev-body"><a href="Evidence/exec_tc034_visa_blocked.png" target="_blank" rel="noopener">exec_tc034_visa_blocked.png</a></div></details>
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User has opened the Add Immigration form.</div><div class="vtc-h">Test Data</div><div class="vtc-p">N/A</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Navigate to My Info &gt; Immigration and click Add.</li><li>Click the 'Visa' radio option.</li><li>Observe whether the selection changes and whether any form fields update.</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">Not verified in the source exploration - selecting 'Visa' was blocked by a UI element interception issue during testing (documented as a Blocker). This case should be re-attempted manually or with an updated automation approach to confirm actual behavior; do not assume it currently works.</div></div></details></div>
+</details>
+</div>
+</details><details class="tc-category" data-cat="qualifications" open>
+<summary><span class="cat-icon">🎓</span><span class="cat-name">Qualifications</span><span class="cat-counts"><span class="cc pass">8 passed</span><span class="cc fail">1 failed</span><span class="cc blocked">1 blocked</span></span><span class="cat-chev"></span></summary>
+<div class="tc-category-body">
+<div class="tc-cat-actions"><button type="button" class="tc-cat-expand">Expand all</button><button type="button" class="tc-cat-collapse">Collapse all</button></div>
+<details class="tc PASS">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-035</span> - Verify Work Experience list displays existing records</span><span class="badge PASS">PASS</span></summary>
+<div class="row"><b>Feature:</b> Qualifications - Work Experience</div>
+<div class="row"><b>Expected:</b> The table lists existing records with Company, Job Title, From, To, and Comment columns, a record count label, and per-row edit/delete icons.</div>
+<div class="row"><b>Actual:</b> Work Experience table listed 2 existing records with correct columns.</div>
+
+<div class="row tc-status-row"><b>Status:</b> <span class="badge PASS">PASS</span></div>
+<details class="evidence"><summary>Evidence</summary><div class="ev-body"><a href="Evidence/exec_qualifications.png" target="_blank" rel="noopener">exec_qualifications.png</a></div></details>
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User is on the My Info &gt; Qualifications tab, and existing work experience records are present.</div><div class="vtc-h">Test Data</div><div class="vtc-p">N/A</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Navigate to My Info &gt; Qualifications.</li><li>Observe the Work Experience table.</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">The table lists existing records with Company, Job Title, From, To, and Comment columns, a record count label, and per-row edit/delete icons.</div></div></details></div>
+</details><details class="tc PASS">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-036</span> - Verify the Add Work Experience form marks Company and Job Title as required</span><span class="badge PASS">PASS</span></summary>
+<div class="row"><b>Feature:</b> Qualifications - Work Experience Add Form</div>
+<div class="row"><b>Expected:</b> Company and Job Title fields are marked with a trailing asterisk (required); From, To, and Comment show no required marker.</div>
+<div class="row"><b>Actual:</b> Company and Job Title fields marked required; From/To/Comment unmarked.</div>
+
+<div class="row tc-status-row"><b>Status:</b> <span class="badge PASS">PASS</span></div>
+<details class="evidence"><summary>Evidence</summary><div class="ev-body"><a href="Evidence/exec_tc036_workexp_add.png" target="_blank" rel="noopener">exec_tc036_workexp_add.png</a></div></details>
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User is on the My Info &gt; Qualifications tab.</div><div class="vtc-h">Test Data</div><div class="vtc-p">N/A</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Navigate to My Info &gt; Qualifications.</li><li>Click Add under Work Experience.</li><li>Observe the Company and Job Title field labels.</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">Company and Job Title fields are marked with a trailing asterisk (required); From, To, and Comment show no required marker.</div></div></details></div>
+</details><details class="tc BLOCKED">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-037</span> - Verify Education list displays existing records including rows with blank optional columns</span><span class="badge BLOCKED">BLOCKED</span></summary>
+<div class="row"><b>Feature:</b> Qualifications - Education</div>
+<div class="row"><b>Expected:</b> The table lists existing records with Level, Year, and GPA/Score columns; rows may correctly display blank Year/GPA values when that data was not provided.</div>
+<div class="row"><b>Actual:</b> Education list showed “No Records Found” — the precondition (existing education records present) was not met.</div>
+<div class="row"><b>Note:</b> The 2 records documented in the source UI Exploration were no longer present, apparently removed by a concurrent user of this shared public demo.</div>
+<div class="row tc-status-row"><b>Status:</b> <span class="badge BLOCKED">BLOCKED</span></div>
+<details class="evidence"><summary>Evidence</summary><div class="ev-body"><a href="Evidence/exec_qualifications.png" target="_blank" rel="noopener">exec_qualifications.png</a></div></details>
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User is on the My Info &gt; Qualifications tab, and existing education records are present.</div><div class="vtc-h">Test Data</div><div class="vtc-p">N/A</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Navigate to My Info &gt; Qualifications.</li><li>Observe the Education table, including a record with blank Year and GPA/Score columns.</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">The table lists existing records with Level, Year, and GPA/Score columns; rows may correctly display blank Year/GPA values when that data was not provided.</div></div></details></div>
+</details><details class="tc FAIL">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-038</span> - Verify the Add Education form Level dropdown options</span><span class="badge FAIL">FAIL</span></summary>
+<div class="row"><b>Feature:</b> Qualifications - Education Add Form</div>
+<div class="row"><b>Expected:</b> Level dropdown shows exactly 5 options: '-- Select --', Bachelor's Degree, College Undergraduate, High School Diploma, Master's Degree; the field is marked required and Institute/Major/Year/GPA/Start Date/End Date show no required marker.</div>
+<div class="row"><b>Actual:</b> Level dropdown showed only 2 options (“-- Select --”, “12”) instead of the 5 documented options.</div>
+<div class="row"><b>Note:</b> Traced to another user modifying the shared Education-level master data on this public demo — not a My Info code defect. See Environment Notes.</div>
+<div class="row tc-status-row"><b>Status:</b> <span class="badge FAIL">FAIL</span></div>
+<details class="evidence"><summary>Evidence</summary><div class="ev-body"><a href="Evidence/exec_tc038_level_dropdown.png" target="_blank" rel="noopener">exec_tc038_level_dropdown.png</a></div></details>
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User is on the My Info &gt; Qualifications tab.</div><div class="vtc-h">Test Data</div><div class="vtc-p">N/A</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Navigate to My Info &gt; Qualifications.</li><li>Click Add under Education.</li><li>Open the Level dropdown.</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">Level dropdown shows exactly 5 options: '-- Select --', Bachelor's Degree, College Undergraduate, High School Diploma, Master's Degree; the field is marked required and Institute/Major/Year/GPA/Start Date/End Date show no required marker.</div></div></details></div>
+</details><details class="tc PASS">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-039</span> - Verify Skills section shows an empty state when no skill records exist</span><span class="badge PASS">PASS</span></summary>
+<div class="row"><b>Feature:</b> Qualifications - Skills</div>
+<div class="row"><b>Expected:</b> The Skills table shows the inline text 'No Records Found' with Skill and Years of Experience column headers still visible.</div>
+<div class="row"><b>Actual:</b> Skills table showed inline “No Records Found” with column headers intact.</div>
+
+<div class="row tc-status-row"><b>Status:</b> <span class="badge PASS">PASS</span></div>
+<details class="evidence"><summary>Evidence</summary><div class="ev-body"><a href="Evidence/exec_qualifications.png" target="_blank" rel="noopener">exec_qualifications.png</a></div></details>
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User is on the My Info &gt; Qualifications tab, and no skill records exist for this employee.</div><div class="vtc-h">Test Data</div><div class="vtc-p">N/A</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Navigate to My Info &gt; Qualifications.</li><li>Observe the Skills table.</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">The Skills table shows the inline text 'No Records Found' with Skill and Years of Experience column headers still visible.</div></div></details></div>
+</details><details class="tc PASS">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-040</span> - Verify the Add Skill form marks Skill as required</span><span class="badge PASS">PASS</span></summary>
+<div class="row"><b>Feature:</b> Qualifications - Skills Add Form</div>
+<div class="row"><b>Expected:</b> Skill field (a dropdown) is marked with a trailing asterisk (required); Years of Experience and Comments show no required marker.</div>
+<div class="row"><b>Actual:</b> Skill field (dropdown) marked required; Years of Experience/Comments unmarked.</div>
+
+<div class="row tc-status-row"><b>Status:</b> <span class="badge PASS">PASS</span></div>
+<details class="evidence"><summary>Evidence</summary><div class="ev-body"><a href="Evidence/exec_tc040_skill_add.png" target="_blank" rel="noopener">exec_tc040_skill_add.png</a></div></details>
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User is on the My Info &gt; Qualifications tab.</div><div class="vtc-h">Test Data</div><div class="vtc-p">N/A</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Navigate to My Info &gt; Qualifications.</li><li>Click Add under Skills.</li><li>Observe the Skill field label.</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">Skill field (a dropdown) is marked with a trailing asterisk (required); Years of Experience and Comments show no required marker.</div></div></details></div>
+</details><details class="tc PASS">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-041</span> - Verify Languages list displays existing records</span><span class="badge PASS">PASS</span></summary>
+<div class="row"><b>Feature:</b> Qualifications - Languages</div>
+<div class="row"><b>Expected:</b> The table lists existing records with Language, Fluency, Competency, and Comments columns, a record count label, and per-row edit/delete icons.</div>
+<div class="row"><b>Actual:</b> Languages table listed 2 existing records with correct columns.</div>
+
+<div class="row tc-status-row"><b>Status:</b> <span class="badge PASS">PASS</span></div>
+
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User is on the My Info &gt; Qualifications tab, and existing language records are present.</div><div class="vtc-h">Test Data</div><div class="vtc-p">N/A</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Navigate to My Info &gt; Qualifications.</li><li>Observe the Languages table.</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">The table lists existing records with Language, Fluency, Competency, and Comments columns, a record count label, and per-row edit/delete icons.</div></div></details></div>
+</details><details class="tc PASS">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-042</span> - Verify the Add Language form marks Language, Fluency, and Competency as required</span><span class="badge PASS">PASS</span></summary>
+<div class="row"><b>Feature:</b> Qualifications - Languages Add Form</div>
+<div class="row"><b>Expected:</b> Language, Fluency, and Competency dropdowns are each marked with a trailing asterisk (required); Comments shows no required marker.</div>
+<div class="row"><b>Actual:</b> Language, Fluency, and Competency dropdowns all marked required; Comments unmarked.</div>
+
+<div class="row tc-status-row"><b>Status:</b> <span class="badge PASS">PASS</span></div>
+<details class="evidence"><summary>Evidence</summary><div class="ev-body"><a href="Evidence/exec_tc042_language_add.png" target="_blank" rel="noopener">exec_tc042_language_add.png</a></div></details>
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User is on the My Info &gt; Qualifications tab.</div><div class="vtc-h">Test Data</div><div class="vtc-p">N/A</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Navigate to My Info &gt; Qualifications.</li><li>Click Add under Languages.</li><li>Observe the Language, Fluency, and Competency dropdown labels.</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">Language, Fluency, and Competency dropdowns are each marked with a trailing asterisk (required); Comments shows no required marker.</div></div></details></div>
+</details><details class="tc PASS">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-043</span> - Verify License list displays an existing record</span><span class="badge PASS">PASS</span></summary>
+<div class="row"><b>Feature:</b> Qualifications - License</div>
+<div class="row"><b>Expected:</b> The table lists the existing record with License Type, Issued Date, and Expiry Date columns, a record count label, and per-row edit/delete icons.</div>
+<div class="row"><b>Actual:</b> License table listed 1 existing record with correct columns.</div>
+
+<div class="row tc-status-row"><b>Status:</b> <span class="badge PASS">PASS</span></div>
+
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User is on the My Info &gt; Qualifications tab, and an existing license record is present.</div><div class="vtc-h">Test Data</div><div class="vtc-p">N/A</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Navigate to My Info &gt; Qualifications.</li><li>Observe the License table.</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">The table lists the existing record with License Type, Issued Date, and Expiry Date columns, a record count label, and per-row edit/delete icons.</div></div></details></div>
+</details><details class="tc PASS">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-044</span> - Verify the Add License form marks License Type as required</span><span class="badge PASS">PASS</span></summary>
+<div class="row"><b>Feature:</b> Qualifications - License Add Form</div>
+<div class="row"><b>Expected:</b> License Type dropdown is marked with a trailing asterisk (required); License Number, Issued Date, and Expiry Date show no required marker.</div>
+<div class="row"><b>Actual:</b> License Type dropdown marked required; License Number/Issued/Expiry Date unmarked.</div>
+
+<div class="row tc-status-row"><b>Status:</b> <span class="badge PASS">PASS</span></div>
+<details class="evidence"><summary>Evidence</summary><div class="ev-body"><a href="Evidence/exec_tc044_license_add.png" target="_blank" rel="noopener">exec_tc044_license_add.png</a></div></details>
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User is on the My Info &gt; Qualifications tab.</div><div class="vtc-h">Test Data</div><div class="vtc-p">N/A</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Navigate to My Info &gt; Qualifications.</li><li>Click Add under License.</li><li>Observe the License Type field label.</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">License Type dropdown is marked with a trailing asterisk (required); License Number, Issued Date, and Expiry Date show no required marker.</div></div></details></div>
+</details>
+</div>
+</details><details class="tc-category" data-cat="memberships" open>
+<summary><span class="cat-icon">🏷</span><span class="cat-name">Memberships</span><span class="cat-counts"><span class="cc pass">3 passed</span><span class="cc fail">0 failed</span><span class="cc blocked">0 blocked</span></span><span class="cat-chev"></span></summary>
+<div class="tc-category-body">
+<div class="tc-cat-actions"><button type="button" class="tc-cat-expand">Expand all</button><button type="button" class="tc-cat-collapse">Collapse all</button></div>
+<details class="tc PASS">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-045</span> - Verify Memberships list displays an existing record</span><span class="badge PASS">PASS</span></summary>
+<div class="row"><b>Feature:</b> Memberships</div>
+<div class="row"><b>Expected:</b> The table lists the existing record with Membership, Subscription Paid By, Subscription Amount, Currency, Subscription Commence Date, and Subscription Renewal Date columns, a record count label, and per-row edit/delete icons.</div>
+<div class="row"><b>Actual:</b> Memberships table listed 1 existing record with correct columns.</div>
+
+<div class="row tc-status-row"><b>Status:</b> <span class="badge PASS">PASS</span></div>
+<details class="evidence"><summary>Evidence</summary><div class="ev-body"><a href="Evidence/exec_memberships.png" target="_blank" rel="noopener">exec_memberships.png</a></div></details>
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User is on the My Info &gt; Memberships tab, and an existing membership record is present.</div><div class="vtc-h">Test Data</div><div class="vtc-p">N/A</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Navigate to My Info &gt; Memberships.</li><li>Observe the Assigned Memberships table.</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">The table lists the existing record with Membership, Subscription Paid By, Subscription Amount, Currency, Subscription Commence Date, and Subscription Renewal Date columns, a record count label, and per-row edit/delete icons.</div></div></details></div>
+</details><details class="tc PASS">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-046</span> - Verify the Add Membership form marks Membership as required</span><span class="badge PASS">PASS</span></summary>
+<div class="row"><b>Feature:</b> Memberships - Add Form</div>
+<div class="row"><b>Expected:</b> Membership dropdown is marked with a trailing asterisk (required); Subscription Paid By, Subscription Amount, Currency, Subscription Commence Date, and Subscription Renewal Date show no required marker.</div>
+<div class="row"><b>Actual:</b> Membership dropdown marked required; other fields unmarked.</div>
+
+<div class="row tc-status-row"><b>Status:</b> <span class="badge PASS">PASS</span></div>
+<details class="evidence"><summary>Evidence</summary><div class="ev-body"><a href="Evidence/exec_tc046_membership_add.png" target="_blank" rel="noopener">exec_tc046_membership_add.png</a></div></details>
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User is on the My Info &gt; Memberships tab.</div><div class="vtc-h">Test Data</div><div class="vtc-p">N/A</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Navigate to My Info &gt; Memberships.</li><li>Click Add.</li><li>Observe the Membership field label.</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">Membership dropdown is marked with a trailing asterisk (required); Subscription Paid By, Subscription Amount, Currency, Subscription Commence Date, and Subscription Renewal Date show no required marker.</div></div></details></div>
+</details><details class="tc PASS">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-047</span> - Verify Memberships Attachments list displays an existing file</span><span class="badge PASS">PASS</span></summary>
+<div class="row"><b>Feature:</b> Memberships - Attachments</div>
+<div class="row"><b>Expected:</b> The table lists the existing file with File Name, Description, Size, Type, Date Added, and Added By columns, and per-row edit/delete/download icons.</div>
+<div class="row"><b>Actual:</b> Attachments table listed 1 existing file with correct columns and actions.</div>
+
+<div class="row tc-status-row"><b>Status:</b> <span class="badge PASS">PASS</span></div>
+<details class="evidence"><summary>Evidence</summary><div class="ev-body"><a href="Evidence/exec_memberships.png" target="_blank" rel="noopener">exec_memberships.png</a></div></details>
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User is on the My Info &gt; Memberships tab, and an existing attachment is present.</div><div class="vtc-h">Test Data</div><div class="vtc-p">N/A</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Navigate to My Info &gt; Memberships.</li><li>Observe the Attachments table.</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">The table lists the existing file with File Name, Description, Size, Type, Date Added, and Added By columns, and per-row edit/delete/download icons.</div></div></details></div>
+</details>
+</div>
+</details><details class="tc-category" data-cat="job" open>
+<summary><span class="cat-icon">💼</span><span class="cat-name">Job (Read-only)</span><span class="cat-counts"><span class="cc pass">2 passed</span><span class="cc fail">0 failed</span><span class="cc blocked">0 blocked</span></span><span class="cat-chev"></span></summary>
+<div class="tc-category-body">
+<div class="tc-cat-actions"><button type="button" class="tc-cat-expand">Expand all</button><button type="button" class="tc-cat-collapse">Collapse all</button></div>
+<details class="tc PASS">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-048</span> - Verify Job tab fields are read-only and no Save button is present</span><span class="badge PASS">PASS</span></summary>
+<div class="row"><b>Feature:</b> Job (Read-only)</div>
+<div class="row"><b>Expected:</b> All Job Details fields are displayed as disabled/read-only text; no Save button exists anywhere on the Job tab.</div>
+<div class="row"><b>Actual:</b> All Job Details fields rendered as disabled/read-only text; no Save button present anywhere on the tab.</div>
+
+<div class="row tc-status-row"><b>Status:</b> <span class="badge PASS">PASS</span></div>
+
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User is on the My Info &gt; Job tab.</div><div class="vtc-h">Test Data</div><div class="vtc-p">N/A</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Navigate to My Info &gt; Job.</li><li>Attempt to interact with Joined Date, Job Title, Job Specification, Job Category, Sub Unit, Location, and Employment Status fields.</li><li>Look for a Save button anywhere on the tab.</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">All Job Details fields are displayed as disabled/read-only text; no Save button exists anywhere on the Job tab.</div></div></details></div>
+</details><details class="tc PASS">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-049</span> - Attempt to interact with the 'Include Employment Contract Details' toggle</span><span class="badge PASS">PASS</span></summary>
+<div class="row"><b>Feature:</b> Job - Toggle</div>
+<div class="row"><b>Expected:</b> The toggle does not respond to the click (consistent with a disabled control); its underlying behavior when enabled could not be confirmed and should be re-verified with an authorized/ESS-role account if available.</div>
+<div class="row"><b>Actual:</b> The toggle did not respond to the click, consistent with a disabled control.</div>
+
+<div class="row tc-status-row"><b>Status:</b> <span class="badge PASS">PASS</span></div>
+
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User is on the My Info &gt; Job tab.</div><div class="vtc-h">Test Data</div><div class="vtc-p">N/A</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Navigate to My Info &gt; Job.</li><li>Click the 'Include Employment Contract Details' toggle.</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">The toggle does not respond to the click (consistent with a disabled control); its underlying behavior when enabled could not be confirmed and should be re-verified with an authorized/ESS-role account if available.</div></div></details></div>
+</details>
+</div>
+</details><details class="tc-category" data-cat="salary" open>
+<summary><span class="cat-icon">💰</span><span class="cat-name">Salary (Read-only)</span><span class="cat-counts"><span class="cc pass">1 passed</span><span class="cc fail">0 failed</span><span class="cc blocked">0 blocked</span></span><span class="cat-chev"></span></summary>
+<div class="tc-category-body">
+<div class="tc-cat-actions"><button type="button" class="tc-cat-expand">Expand all</button><button type="button" class="tc-cat-collapse">Collapse all</button></div>
+<details class="tc PASS">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-050</span> - Verify Salary tab shows an empty state with no Add button anywhere on the page</span><span class="badge PASS">PASS</span></summary>
+<div class="row"><b>Feature:</b> Salary (Read-only)</div>
+<div class="row"><b>Expected:</b> Both the Assigned Salary Components and Attachments sections show 'No Records Found'; no Add button is present anywhere on the Salary tab, confirming it is fully read-only for self-service.</div>
+<div class="row"><b>Actual:</b> Both Assigned Salary Components and Attachments showed “No Records Found”; no Add button present anywhere on the tab.</div>
+
+<div class="row tc-status-row"><b>Status:</b> <span class="badge PASS">PASS</span></div>
+
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User is on the My Info &gt; Salary tab, and no salary components exist for this employee.</div><div class="vtc-h">Test Data</div><div class="vtc-p">N/A</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Navigate to My Info &gt; Salary.</li><li>Observe the Assigned Salary Components and Attachments sections.</li><li>Search the entire tab for an Add button.</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">Both the Assigned Salary Components and Attachments sections show 'No Records Found'; no Add button is present anywhere on the Salary tab, confirming it is fully read-only for self-service.</div></div></details></div>
+</details>
+</div>
+</details><details class="tc-category" data-cat="reportto" open>
+<summary><span class="cat-icon">👤</span><span class="cat-name">Report-to (Read-only)</span><span class="cat-counts"><span class="cc pass">1 passed</span><span class="cc fail">0 failed</span><span class="cc blocked">0 blocked</span></span><span class="cat-chev"></span></summary>
+<div class="tc-category-body">
+<div class="tc-cat-actions"><button type="button" class="tc-cat-expand">Expand all</button><button type="button" class="tc-cat-collapse">Collapse all</button></div>
+<details class="tc PASS">
+<summary class="tc-head"><span><span class="chev"></span><span class="mono">TC-051</span> - Verify Report-to tab is fully read-only with no Add controls</span><span class="badge PASS">PASS</span></summary>
+<div class="row"><b>Feature:</b> Report-to (Read-only)</div>
+<div class="row"><b>Expected:</b> Assigned Supervisors shows 'No Records Found'; Assigned Subordinates lists 1 record (Name and Reporting Method columns); no Add button is present anywhere on the Report-to tab.</div>
+<div class="row"><b>Actual:</b> Assigned Supervisors showed “No Records Found”; Assigned Subordinates listed 1 record (Sara Tencrady, Direct); no Add button present anywhere on the tab.</div>
+
+<div class="row tc-status-row"><b>Status:</b> <span class="badge PASS">PASS</span></div>
+<details class="evidence"><summary>Evidence</summary><div class="ev-body"><a href="Evidence/exec_tc051_reportto.png" target="_blank" rel="noopener">exec_tc051_reportto.png</a></div></details>
+<div class="view-tc-wrap"><details class="view-tc"><summary>View Test Case</summary><div class="view-tc-body"><div class="vtc-h">Preconditions</div><div class="vtc-p">User is on the My Info &gt; Report-to tab.</div><div class="vtc-h">Test Data</div><div class="vtc-p">N/A</div><div class="vtc-h">Steps</div><ol class="vtc-steps"><li>Navigate to My Info &gt; Report-to.</li><li>Observe the Assigned Supervisors (expected empty) and Assigned Subordinates (expected 1 record) tables.</li><li>Search the entire tab for an Add button.</li></ol><div class="vtc-h">Expected Result</div><div class="vtc-p">Assigned Supervisors shows 'No Records Found'; Assigned Subordinates lists 1 record (Name and Reporting Method columns); no Add button is present anywhere on the Report-to tab.</div></div></details></div>
+</details>
+</div>
+</details>
+</details>
+<details class="section-collapse" open>
+<summary class="section-summary-flex">Bugs &amp; Findings<span class="section-count-badges"><span class="section-count-badge"><span class="scb-val serious">1</span><span class="scb-lbl">Confirmed Bug</span></span><span class="section-count-badge"><span class="scb-val accent">2</span><span class="scb-lbl">Blockers</span></span></span></summary>
+<div class="finding defect"><div class="kind">Defect &mdash; BUG-001</div>
+Date of Birth field on My Info &gt; Personal Details accepts and persists a future date with no validation. <span class="mono">(TC-019)</span>
+<div><b>Severity:</b> Critical &nbsp;<b>Priority:</b> High</div>
+<div><b>Steps:</b> Navigate to Personal Details &rarr; enter <code>2050-01-01</code> into Date of Birth &rarr; click Save &rarr; reload the page.</div>
+<div><b>Expected:</b> A validation error should prevent saving a future Date of Birth, consistent with the required-field, format, and length validations already enforced elsewhere on this same form.</div>
+<div><b>Actual:</b> No validation error of any kind; the value is accepted, saved, and persists after reload.</div>
+<div><b>Status:</b> New</div>
+<details class="evidence"><summary>Evidence</summary><div class="ev-body">Confirmed via Save + reload pattern in this run and independently in the original UI Exploration session. Reverted to the original value immediately after confirming in both sessions.</div></details>
+</div>
+<div class="finding blocker"><div class="kind">Blocker</div>
+Immigration Add form's "Visa" Document radio option cannot be selected &mdash; the click is repeatedly intercepted by an overlapping element. <span class="mono">(TC-034)</span>
+<details class="evidence"><summary>Evidence</summary><div class="ev-body">Reproduced identically in two independent sessions (original UI Exploration and this execution run). Environment/tool interaction issue, not confirmed as a product defect.</div></details>
+</div>
+<div class="finding blocker"><div class="kind">Blocker</div>
+Qualifications &gt; Education list precondition failed &mdash; the 2 records documented in the source UI Exploration are no longer present on this shared record. <span class="mono">(TC-037)</span>
+<details class="evidence"><summary>Evidence</summary><div class="ev-body">Education list showed "No Records Found" during this run; apparently removed by a concurrent user of this shared public demo.</div></details>
+</div>
+</details>
+<details class="section-collapse" open>
+<summary>Environment Notes &mdash; Shared Public Demo Volatility</summary>
+<div class="finding unknown_resolution"><div class="kind">Environment factor</div>
+The employee display name changed four times during this single continuous session (John Doe &rarr; abcd Doe &rarr; Sumit Yupp &rarr; manda user) with no action taken by this execution &mdash; confirming the underlying record (empNumber/7) was being actively edited by another concurrent user throughout the run.
+</div>
+<div class="finding unknown_resolution"><div class="kind">Environment factor</div>
+The date display format flipped between <code>yyyy-dd-mm</code> and <code>D, dd M yyyy</code> and back again mid-run with no action taken by this execution &mdash; consistent with a shared, system-wide date-format preference being toggled by another concurrent user. Caused TC-010 to fail.
+</div>
+<div class="finding unknown_resolution"><div class="kind">Environment factor</div>
+The Qualifications &gt; Education "Level" dropdown option list shrank from 5 options to 2 between the original UI Exploration and this run, and the 2 previously-documented Education records disappeared entirely &mdash; consistent with another user editing shared master-data configuration and/or employee records. Caused TC-038 to fail and TC-037 to be blocked.
+</div>
+<div class="finding unknown_resolution"><div class="kind">Environment factor</div>
+The session expired mid-run ("Session Expired" on the login page) after normal continuous use, requiring re-authentication to continue from TC-051 onward. Treated as a normal session-timeout event, not a defect.
+</div>
+</details>
+<details class="section-collapse" open>
+<summary>Data Restored / Cleanup</summary>
+<div class="cleanup"><b>Temporary data changes reverted during this run (2):</b><ul>
+<li><b>Employee Id</b> (<span class="mono">TC-015</span>) &mdash; temporarily set to a 10-character boundary value <span class="mono">MUSER12345</span> to confirm no validation error at the boundary; restored to the original value <span class="mono">muser</span> immediately after confirming, verified via reload.</li>
+<li><b>Date of Birth</b> (<span class="mono">TC-019</span>) &mdash; temporarily set to a future date <span class="mono">2050-01-01</span> to confirm the absence of validation (BUG-001); restored to the original value immediately after confirming, verified via reload.</li>
+</ul></div>
+</details>
+</div><script>
+(function(){
+  var cards = Array.prototype.slice.call(document.querySelectorAll('details.tc'));
+  var sections = Array.prototype.slice.call(document.querySelectorAll('details.section-collapse'));
+  var categories = Array.prototype.slice.call(document.querySelectorAll('details.tc-category'));
+  var search = document.getElementById('tcSearch');
+  var statusSel = document.getElementById('tcStatusFilter');
+  var categorySel = document.getElementById('tcCategoryFilter');
+  var countEl = document.getElementById('tcCount');
+  var noResultsEl = document.getElementById('tcNoResults');
+  var resetBtn = document.getElementById('tcResetFilters');
+  var expandBtn = document.getElementById('tcExpandAll');
+  var collapseBtn = document.getElementById('tcCollapseAll');
+
+  function applyFilter(){
+    var q = search.value.trim().toLowerCase();
+    var status = statusSel.value;
+    var category = categorySel.value;
+    var visible = 0;
+    cards.forEach(function(card){
+      var matchesStatus = !status || card.classList.contains(status);
+      var matchesText = !q || card.textContent.toLowerCase().indexOf(q) !== -1;
+      var matchesCategory = !category || card.closest('details.tc-category').getAttribute('data-cat') === category;
+      var show = matchesStatus && matchesText && matchesCategory;
+      card.classList.toggle('js-hidden', !show);
+      if (show) visible++;
+      if (show && q) card.open = true;
+    });
+    categories.forEach(function(cat){
+      var anyVisible = cat.querySelector('details.tc:not(.js-hidden)');
+      var matchesCategory = !category || cat.getAttribute('data-cat') === category;
+      cat.classList.toggle('cat-empty', !anyVisible || !matchesCategory);
+      if (anyVisible && matchesCategory && (q || status || category)) cat.open = true;
+    });
+    countEl.textContent = visible + ' / ' + cards.length + ' shown';
+    noResultsEl.classList.toggle('js-hidden', visible !== 0);
+  }
+
+  search.addEventListener('input', applyFilter);
+  statusSel.addEventListener('change', applyFilter);
+  categorySel.addEventListener('change', applyFilter);
+  resetBtn.addEventListener('click', function(e){
+    e.preventDefault(); e.stopPropagation();
+    search.value = '';
+    statusSel.value = '';
+    categorySel.value = '';
+    applyFilter();
+  });
+  expandBtn.addEventListener('click', function(e){
+    e.preventDefault(); e.stopPropagation();
+    cards.forEach(function(c){ c.open = true; });
+    sections.forEach(function(s){ s.open = true; });
+    categories.forEach(function(c){ c.open = true; });
+  });
+  collapseBtn.addEventListener('click', function(e){
+    e.preventDefault(); e.stopPropagation();
+    cards.forEach(function(c){ c.open = false; });
+    sections.forEach(function(s){ s.open = false; });
+    categories.forEach(function(c){ c.open = false; });
+  });
+
+  categories.forEach(function(cat){
+    var catCards = Array.prototype.slice.call(cat.querySelectorAll('details.tc'));
+    var catExpandBtn = cat.querySelector('.tc-cat-expand');
+    var catCollapseBtn = cat.querySelector('.tc-cat-collapse');
+    catExpandBtn.addEventListener('click', function(e){
+      e.preventDefault(); e.stopPropagation();
+      catCards.forEach(function(c){ c.open = true; });
+    });
+    catCollapseBtn.addEventListener('click', function(e){
+      e.preventDefault(); e.stopPropagation();
+      catCards.forEach(function(c){ c.open = false; });
+    });
+  });
+
+  applyFilter();
+})();
+</script>
+</body></html>

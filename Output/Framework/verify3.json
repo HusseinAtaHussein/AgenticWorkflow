@@ -1,0 +1,1418 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "src/features/my-info",
+      "--workers=1",
+      "--grep",
+      "TC-052 Attachments empty state shows No Records Found with headers visible|TC-020 Contact Details fields are pre-populated with a Save button present|TC-021 invalid Work Email format shows error and blocks save|TC-022 Country dropdown includes the full alphabetical option list|TC-023 Contact Details Attachments shows No Records Found|TC-029 Dependents table lists the existing record|TC-030 Add Dependent Relationship dropdown shows exactly 3 options|TC-031 Add Dependent form marks Name/Relationship required, Date of Birth optional|TC-024 Emergency Contacts table lists existing records with record count|TC-025 Add form shows Name\\*/Relationship\\* required and Save/Cancel/legend|TC-026 empty Name and Relationship show Required errors and block save|TC-027 all phone fields empty shows at-least-one-phone-required error|TC-028 Cancel discards the Add form without saving|TC-032 Immigration table lists existing records|TC-048 Job fields are read-only and no Save button exists|TC-045 Memberships table lists the existing record|TC-047 Memberships Attachments table lists the existing file|TC-005 no unsaved-changes dialog appears when switching tabs after an edit|TC-010 License Expiry Date field uses yyyy-dd-mm format|TC-011 Personal Details fields are pre-populated and Save is enabled|TC-012 empty First Name shows inline Required error and blocks save|TC-013 invalid License Expiry Date shows format error and blocks save|TC-014 Employee Id exceeding 10 characters shows length error and blocks save|TC-016 Nationality dropdown includes the full alphabetical option list|TC-035 Work Experience table lists existing records|TC-037 Education table lists existing records|TC-038 Add Education Level dropdown shows exactly 5 options|TC-039 Skills table shows No Records Found|TC-041 Languages table lists existing records|TC-043 License table lists the existing record|TC-051 Supervisors empty, 1 Subordinate listed, no Add button anywhere",
+      "--reporter=json"
+    ],
+    "configFile": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\playwright.config.ts",
+    "rootDir": "C:/Users/SH/Downloads/AI Task 4/AI Task 4/Output/Framework/src",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/SH/Downloads/AI Task 4/AI Task 4/Output/Framework/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Users/SH/Downloads/AI Task 4/AI Task 4/Output/Framework/src",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "features\\my-info\\attachments-common.spec.ts",
+      "file": "features/my-info/attachments-common.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "My Info — Attachments (General)",
+          "file": "features/my-info/attachments-common.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-052 Attachments empty state shows No Records Found with headers visible",
+              "ok": true,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 14726,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-17T05:42:51.745Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0d97acd4fb02f81e7458-6b8ea655a3017dd6da3e",
+              "file": "features/my-info/attachments-common.spec.ts",
+              "line": 7,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "features\\my-info\\contact-details.spec.ts",
+      "file": "features/my-info/contact-details.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "My Info — Contact Details",
+          "file": "features/my-info/contact-details.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-020 Contact Details fields are pre-populated with a Save button present",
+              "ok": true,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 10931,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-17T05:43:14.118Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "bda91fdab40bdffb242f-1d8c882f2de4adac2cb1",
+              "file": "features/my-info/contact-details.spec.ts",
+              "line": 14,
+              "column": 7
+            },
+            {
+              "title": "TC-021 invalid Work Email format shows error and blocks save",
+              "ok": true,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 9750,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-17T05:43:25.067Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "bda91fdab40bdffb242f-60dcfa11fd70b4f357ae",
+              "file": "features/my-info/contact-details.spec.ts",
+              "line": 21,
+              "column": 7
+            },
+            {
+              "title": "TC-022 Country dropdown includes the full alphabetical option list",
+              "ok": true,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 11146,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-17T05:43:34.830Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "bda91fdab40bdffb242f-713d42c7361c9b8d72ee",
+              "file": "features/my-info/contact-details.spec.ts",
+              "line": 29,
+              "column": 7
+            },
+            {
+              "title": "TC-023 Contact Details Attachments shows No Records Found",
+              "ok": true,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 10388,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-17T05:43:45.991Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "bda91fdab40bdffb242f-a73376396443ee01b417",
+              "file": "features/my-info/contact-details.spec.ts",
+              "line": 39,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "features\\my-info\\dependents.spec.ts",
+      "file": "features/my-info/dependents.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "My Info — Dependents",
+          "file": "features/my-info/dependents.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-029 Dependents table lists the existing record",
+              "ok": true,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 39085,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-17T05:43:56.406Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "9b1481252a03fbfbf6e8-1b4a6dec091d01f1d786",
+              "file": "features/my-info/dependents.spec.ts",
+              "line": 14,
+              "column": 7
+            },
+            {
+              "title": "TC-030 Add Dependent Relationship dropdown shows exactly 3 options",
+              "ok": true,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 10675,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-17T05:44:35.509Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "9b1481252a03fbfbf6e8-5e0dd5a9c796859ccacc",
+              "file": "features/my-info/dependents.spec.ts",
+              "line": 20,
+              "column": 7
+            },
+            {
+              "title": "TC-031 Add Dependent form marks Name/Relationship required, Date of Birth optional",
+              "ok": true,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 10685,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-17T05:44:46.206Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "9b1481252a03fbfbf6e8-fbe0c4182c73b0b85bef",
+              "file": "features/my-info/dependents.spec.ts",
+              "line": 28,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "features\\my-info\\emergency-contacts.spec.ts",
+      "file": "features/my-info/emergency-contacts.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "My Info — Emergency Contacts",
+          "file": "features/my-info/emergency-contacts.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-024 Emergency Contacts table lists existing records with record count",
+              "ok": true,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 8604,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-17T05:44:56.913Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "99165a4e8c8dbdde6b6a-1fa2ef6275a18522f230",
+              "file": "features/my-info/emergency-contacts.spec.ts",
+              "line": 14,
+              "column": 7
+            },
+            {
+              "title": "TC-025 Add form shows Name*/Relationship* required and Save/Cancel/legend",
+              "ok": true,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 8319,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-17T05:45:05.532Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "99165a4e8c8dbdde6b6a-db6b245c4d9603a425ef",
+              "file": "features/my-info/emergency-contacts.spec.ts",
+              "line": 21,
+              "column": 7
+            },
+            {
+              "title": "TC-026 empty Name and Relationship show Required errors and block save",
+              "ok": true,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 12759,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-17T05:45:13.868Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "99165a4e8c8dbdde6b6a-8e25838a4cf95b5477ba",
+              "file": "features/my-info/emergency-contacts.spec.ts",
+              "line": 32,
+              "column": 7
+            },
+            {
+              "title": "TC-027 all phone fields empty shows at-least-one-phone-required error",
+              "ok": true,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 9322,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-17T05:45:26.640Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "99165a4e8c8dbdde6b6a-054951b1aad1f01fb5ae",
+              "file": "features/my-info/emergency-contacts.spec.ts",
+              "line": 41,
+              "column": 7
+            },
+            {
+              "title": "TC-028 Cancel discards the Add form without saving",
+              "ok": true,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 8157,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-17T05:45:35.974Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "99165a4e8c8dbdde6b6a-3e397a1a96d7f65d43cf",
+              "file": "features/my-info/emergency-contacts.spec.ts",
+              "line": 51,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "features\\my-info\\immigration.spec.ts",
+      "file": "features/my-info/immigration.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "My Info — Immigration",
+          "file": "features/my-info/immigration.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-032 Immigration table lists existing records",
+              "ok": true,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 8367,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-17T05:45:44.153Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "98ce883df2484e7f01d6-1b4e4300e278812ec543",
+              "file": "features/my-info/immigration.spec.ts",
+              "line": 14,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "features\\my-info\\job.spec.ts",
+      "file": "features/my-info/job.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "My Info — Job (Read-only)",
+          "file": "features/my-info/job.spec.ts",
+          "line": 14,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-048 Job fields are read-only and no Save button exists",
+              "ok": true,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 8056,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-17T05:45:52.536Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "413d607b43d9550068ed-12bf2f051c36b9736b38",
+              "file": "features/my-info/job.spec.ts",
+              "line": 23,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "features\\my-info\\memberships.spec.ts",
+      "file": "features/my-info/memberships.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "My Info — Memberships",
+          "file": "features/my-info/memberships.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-045 Memberships table lists the existing record",
+              "ok": true,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 9581,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-17T05:46:00.609Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "60c27e40eddce63b0830-362b06569f5f05ad0978",
+              "file": "features/my-info/memberships.spec.ts",
+              "line": 13,
+              "column": 7
+            },
+            {
+              "title": "TC-047 Memberships Attachments table lists the existing file",
+              "ok": true,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 12842,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-17T05:46:10.204Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "60c27e40eddce63b0830-45deb353cd38b9993b85",
+              "file": "features/my-info/memberships.spec.ts",
+              "line": 26,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "features\\my-info\\navigation.spec.ts",
+      "file": "features/my-info/navigation.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "My Info — Navigation",
+          "file": "features/my-info/navigation.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-005 no unsaved-changes dialog appears when switching tabs after an edit",
+              "ok": true,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 19967,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-17T05:46:23.069Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616d0fa6e406e30b1137-c38e153334b68e69ce08",
+              "file": "features/my-info/navigation.spec.ts",
+              "line": 48,
+              "column": 7
+            },
+            {
+              "title": "TC-010 License Expiry Date field uses yyyy-dd-mm format",
+              "ok": true,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 12290,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-17T05:46:43.058Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "616d0fa6e406e30b1137-7c911201c30f0ce1b38a",
+              "file": "features/my-info/navigation.spec.ts",
+              "line": 88,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "features\\my-info\\personal-details.spec.ts",
+      "file": "features/my-info/personal-details.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "My Info — Personal Details",
+          "file": "features/my-info/personal-details.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-011 Personal Details fields are pre-populated and Save is enabled",
+              "ok": true,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7174,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-17T05:46:55.367Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8fc9bd3854a8b7220f6a-a3cdb3336563cfcf8095",
+              "file": "features/my-info/personal-details.spec.ts",
+              "line": 13,
+              "column": 7
+            },
+            {
+              "title": "TC-012 empty First Name shows inline Required error and blocks save",
+              "ok": false,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 14246,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('First Name').locator('xpath=ancestor::div[contains(concat(\\' \\', normalize-space(@class), \\' \\'), \\' oxd-input-group \\')][1]').getByText('Required')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText('First Name').locator('xpath=ancestor::div[contains(concat(\\' \\', normalize-space(@class), \\' \\'), \\' oxd-input-group \\')][1]').getByText('Required') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('First Name').locator('xpath=ancestor::div[contains(concat(\\' \\', normalize-space(@class), \\' \\'), \\' oxd-input-group \\')][1]').getByText('Required')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('First Name').locator('xpath=ancestor::div[contains(concat(\\' \\', normalize-space(@class), \\' \\'), \\' oxd-input-group \\')][1]').getByText('Required')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText('First Name').locator('xpath=ancestor::div[contains(concat(\\' \\', normalize-space(@class), \\' \\'), \\' oxd-input-group \\')][1]').getByText('Required') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('First Name').locator('xpath=ancestor::div[contains(concat(\\' \\', normalize-space(@class), \\' \\'), \\' oxd-input-group \\')][1]').getByText('Required')\u001b[22m\n\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\personal-details.spec.ts:24:72",
+                        "location": {
+                          "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\personal-details.spec.ts",
+                          "column": 72,
+                          "line": 24
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 22 |\u001b[39m     \u001b[36mawait\u001b[39m personalDetails\u001b[33m.\u001b[39mfirstNameInput()\u001b[33m.\u001b[39mfill(\u001b[32m''\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 23 |\u001b[39m     \u001b[36mawait\u001b[39m personalDetails\u001b[33m.\u001b[39msaveButton()\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 24 |\u001b[39m     \u001b[36mawait\u001b[39m expect(personalDetails\u001b[33m.\u001b[39mfieldError(\u001b[32m'First Name'\u001b[39m\u001b[33m,\u001b[39m \u001b[32m'Required'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 25 |\u001b[39m     \u001b[36mawait\u001b[39m expect(personalDetails\u001b[33m.\u001b[39mfirstNameInput())\u001b[33m.\u001b[39mtoHaveValue(\u001b[32m''\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 26 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 27 |\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\personal-details.spec.ts",
+                            "column": 72,
+                            "line": 24
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('First Name').locator('xpath=ancestor::div[contains(concat(\\' \\', normalize-space(@class), \\' \\'), \\' oxd-input-group \\')][1]').getByText('Required')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText('First Name').locator('xpath=ancestor::div[contains(concat(\\' \\', normalize-space(@class), \\' \\'), \\' oxd-input-group \\')][1]').getByText('Required') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('First Name').locator('xpath=ancestor::div[contains(concat(\\' \\', normalize-space(@class), \\' \\'), \\' oxd-input-group \\')][1]').getByText('Required')\u001b[22m\n\n\n  22 |     await personalDetails.firstNameInput().fill('');\n  23 |     await personalDetails.saveButton().click();\n> 24 |     await expect(personalDetails.fieldError('First Name', 'Required')).toBeVisible();\n     |                                                                        ^\n  25 |     await expect(personalDetails.firstNameInput()).toHaveValue('');\n  26 |   });\n  27 |\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\personal-details.spec.ts:24:72"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-17T05:47:02.553Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-personal--95a6d-uired-error-and-blocks-save-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-personal--95a6d-uired-error-and-blocks-save-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-personal--95a6d-uired-error-and-blocks-save-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\personal-details.spec.ts",
+                        "column": 72,
+                        "line": 24
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "8fc9bd3854a8b7220f6a-0ea8a69d025b91cf4bf6",
+              "file": "features/my-info/personal-details.spec.ts",
+              "line": 20,
+              "column": 7
+            },
+            {
+              "title": "TC-013 invalid License Expiry Date shows format error and blocks save",
+              "ok": true,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 10079,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-17T05:47:17.507Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8fc9bd3854a8b7220f6a-149e924f3923c5af3533",
+              "file": "features/my-info/personal-details.spec.ts",
+              "line": 29,
+              "column": 7
+            },
+            {
+              "title": "TC-014 Employee Id exceeding 10 characters shows length error and blocks save",
+              "ok": true,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7725,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-17T05:47:27.817Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8fc9bd3854a8b7220f6a-0abf32247263ad906bf8",
+              "file": "features/my-info/personal-details.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "TC-016 Nationality dropdown includes the full alphabetical option list",
+              "ok": true,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7693,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-17T05:47:35.559Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8fc9bd3854a8b7220f6a-9ce7297b74e4fe4db7bb",
+              "file": "features/my-info/personal-details.spec.ts",
+              "line": 48,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "features\\my-info\\qualifications.spec.ts",
+      "file": "features/my-info/qualifications.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "My Info — Qualifications",
+          "file": "features/my-info/qualifications.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-035 Work Experience table lists existing records",
+              "ok": true,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 11833,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-17T05:47:43.273Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c0bf2dd25d0604a0b116-3e2ceac1615aec23f076",
+              "file": "features/my-info/qualifications.spec.ts",
+              "line": 13,
+              "column": 7
+            },
+            {
+              "title": "TC-037 Education table lists existing records",
+              "ok": true,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 9920,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-17T05:47:55.122Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c0bf2dd25d0604a0b116-65c98d2b97e228cb90a3",
+              "file": "features/my-info/qualifications.spec.ts",
+              "line": 27,
+              "column": 7
+            },
+            {
+              "title": "TC-038 Add Education Level dropdown shows exactly 5 options",
+              "ok": true,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 23380,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-17T05:48:05.056Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c0bf2dd25d0604a0b116-794a2e8d51feb8e851b5",
+              "file": "features/my-info/qualifications.spec.ts",
+              "line": 33,
+              "column": 7
+            },
+            {
+              "title": "TC-039 Skills table shows No Records Found",
+              "ok": true,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 17470,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-17T05:48:28.457Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c0bf2dd25d0604a0b116-4d48f8cf034f57e891d8",
+              "file": "features/my-info/qualifications.spec.ts",
+              "line": 47,
+              "column": 7
+            },
+            {
+              "title": "TC-041 Languages table lists existing records",
+              "ok": true,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 24288,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-17T05:48:45.963Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c0bf2dd25d0604a0b116-b0534ece3997394c5ed9",
+              "file": "features/my-info/qualifications.spec.ts",
+              "line": 60,
+              "column": 7
+            },
+            {
+              "title": "TC-043 License table lists the existing record",
+              "ok": true,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 26903,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-17T05:49:10.269Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c0bf2dd25d0604a0b116-62054938e3297d7022e3",
+              "file": "features/my-info/qualifications.spec.ts",
+              "line": 75,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "features\\my-info\\report-to.spec.ts",
+      "file": "features/my-info/report-to.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "My Info — Report-to (Read-only)",
+          "file": "features/my-info/report-to.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-051 Supervisors empty, 1 Subordinate listed, no Add button anywhere",
+              "ok": true,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 12886,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-17T05:49:37.193Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0716ca9bfeb930d57693-07931cd524253bc261c9",
+              "file": "features/my-info/report-to.spec.ts",
+              "line": 13,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-17T05:42:50.556Z",
+    "duration": 419630.174,
+    "expected": 30,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

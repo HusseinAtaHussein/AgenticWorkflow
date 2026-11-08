@@ -1,0 +1,2558 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--last-failed",
+      "--reporter=json"
+    ],
+    "configFile": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\playwright.config.ts",
+    "rootDir": "C:/Users/SH/Downloads/AI Task 4/AI Task 4/Output/Framework/src",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 3
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/SH/Downloads/AI Task 4/AI Task 4/Output/Framework/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Users/SH/Downloads/AI Task 4/AI Task 4/Output/Framework/src",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 3,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "features\\my-info\\attachments-common.spec.ts",
+      "file": "features/my-info/attachments-common.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "My Info — Attachments (General)",
+          "file": "features/my-info/attachments-common.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-052 Attachments empty state shows No Records Found with headers visible",
+              "ok": false,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 18017,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Attachments', exact: true }).locator('xpath=following::*[contains(text(),\"No Records Found\")][1]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Attachments', exact: true }).locator('xpath=following::*[contains(text(),\"No Records Found\")][1]') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Attachments', exact: true }).locator('xpath=following::*[contains(text(),\"No Records Found\")][1]')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Attachments', exact: true }).locator('xpath=following::*[contains(text(),\"No Records Found\")][1]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Attachments', exact: true }).locator('xpath=following::*[contains(text(),\"No Records Found\")][1]') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Attachments', exact: true }).locator('xpath=following::*[contains(text(),\"No Records Found\")][1]')\u001b[22m\n\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\attachments-common.spec.ts:14:90",
+                        "location": {
+                          "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\attachments-common.spec.ts",
+                          "column": 90,
+                          "line": 14
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 12 |\u001b[39m     \u001b[36mconst\u001b[39m attachmentsHeading \u001b[33m=\u001b[39m authenticatedPage\u001b[33m.\u001b[39mgetByRole(\u001b[32m'heading'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m'Attachments'\u001b[39m\u001b[33m,\u001b[39m exact\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 13 |\u001b[39m     \u001b[36mawait\u001b[39m expect(attachmentsHeading)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 14 |\u001b[39m     \u001b[36mawait\u001b[39m expect(textAfterHeading(authenticatedPage\u001b[33m,\u001b[39m \u001b[32m'Attachments'\u001b[39m\u001b[33m,\u001b[39m \u001b[32m'No Records Found'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 15 |\u001b[39m     \u001b[36mawait\u001b[39m expect(tableAfterHeading(authenticatedPage\u001b[33m,\u001b[39m \u001b[32m'Attachments'\u001b[39m)\u001b[33m.\u001b[39mgetByText(\u001b[32m'File Name'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 16 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 17 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\attachments-common.spec.ts",
+                            "column": 90,
+                            "line": 14
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Attachments', exact: true }).locator('xpath=following::*[contains(text(),\"No Records Found\")][1]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Attachments', exact: true }).locator('xpath=following::*[contains(text(),\"No Records Found\")][1]') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Attachments', exact: true }).locator('xpath=following::*[contains(text(),\"No Records Found\")][1]')\u001b[22m\n\n\n  12 |     const attachmentsHeading = authenticatedPage.getByRole('heading', { name: 'Attachments', exact: true });\n  13 |     await expect(attachmentsHeading).toBeVisible();\n> 14 |     await expect(textAfterHeading(authenticatedPage, 'Attachments', 'No Records Found')).toBeVisible();\n     |                                                                                          ^\n  15 |     await expect(tableAfterHeading(authenticatedPage, 'Attachments').getByText('File Name')).toBeVisible();\n  16 |   });\n  17 | });\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\attachments-common.spec.ts:14:90"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-16T12:37:22.886Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-attachmen-25f40--Found-with-headers-visible-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-attachmen-25f40--Found-with-headers-visible-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-attachmen-25f40--Found-with-headers-visible-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\attachments-common.spec.ts",
+                        "column": 90,
+                        "line": 14
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "0d97acd4fb02f81e7458-6b8ea655a3017dd6da3e",
+              "file": "features/my-info/attachments-common.spec.ts",
+              "line": 7,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "features\\my-info\\contact-details.spec.ts",
+      "file": "features/my-info/contact-details.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "My Info — Contact Details",
+          "file": "features/my-info/contact-details.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-020 Contact Details fields are pre-populated with a Save button present",
+              "ok": false,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "timedOut",
+                      "duration": 30280,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\contact-details.spec.ts",
+                            "column": 46,
+                            "line": 16
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByLabel('City')\nExpected: visible\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByLabel('City') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('City')\u001b[22m\n\u001b[2m  - Test timeout of 30000ms exceeded.\u001b[22m\n\n\n  14 |     const contactDetails = new ContactDetailsPage(authenticatedPage);\n  15 |     await expect(contactDetails.saveButton()).toBeVisible();\n> 16 |     await expect(contactDetails.cityInput()).toBeVisible();\n     |                                              ^\n  17 |   });\n  18 |\n  19 |   // Source: Test Design CSV — TC-021 — \"Enter an invalid Work Email format\"\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\contact-details.spec.ts:16:46"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-16T12:37:22.675Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-contact-d-dc97b--with-a-Save-button-present-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-contact-d-dc97b--with-a-Save-button-present-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-contact-d-dc97b--with-a-Save-button-present-chromium\\error-context.md"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "bda91fdab40bdffb242f-1d8c882f2de4adac2cb1",
+              "file": "features/my-info/contact-details.spec.ts",
+              "line": 13,
+              "column": 7
+            },
+            {
+              "title": "TC-021 invalid Work Email format shows error and blocks save",
+              "ok": false,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "timedOut",
+                      "duration": 30804,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\contact-details.spec.ts",
+                            "column": 43,
+                            "line": 22
+                          },
+                          "message": "Error: locator.fill: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('Work Email')\u001b[22m\n\n\n  20 |   test('TC-021 invalid Work Email format shows error and blocks save', async ({ authenticatedPage }) => {\n  21 |     const contactDetails = new ContactDetailsPage(authenticatedPage);\n> 22 |     await contactDetails.workEmailInput().fill('not-an-email');\n     |                                           ^\n  23 |     await contactDetails.saveButton().click();\n  24 |     await expect(contactDetails.workEmailError('Expected format: admin@example.com')).toBeVisible();\n  25 |   });\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\contact-details.spec.ts:22:43"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-16T12:37:22.719Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-contact-d-9f0c8-shows-error-and-blocks-save-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-contact-d-9f0c8-shows-error-and-blocks-save-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-contact-d-9f0c8-shows-error-and-blocks-save-chromium\\error-context.md"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "bda91fdab40bdffb242f-60dcfa11fd70b4f357ae",
+              "file": "features/my-info/contact-details.spec.ts",
+              "line": 20,
+              "column": 7
+            },
+            {
+              "title": "TC-022 Country dropdown includes the full alphabetical option list",
+              "ok": false,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 31241,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded while running \"beforeEach\" hook.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded while running \"beforeEach\" hook.\u001b[39m\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\contact-details.spec.ts:6:8",
+                        "location": {
+                          "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\contact-details.spec.ts",
+                          "column": 8,
+                          "line": 6
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 4 |\u001b[39m\n \u001b[90m 5 |\u001b[39m test\u001b[33m.\u001b[39mdescribe(\u001b[32m'My Info — Contact Details'\u001b[39m\u001b[33m,\u001b[39m { tag\u001b[33m:\u001b[39m \u001b[32m'@automated'\u001b[39m }\u001b[33m,\u001b[39m () \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 6 |\u001b[39m   test\u001b[33m.\u001b[39mbeforeEach(\u001b[36masync\u001b[39m ({ authenticatedPage }) \u001b[33m=>\u001b[39m {\n \u001b[90m   |\u001b[39m        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 7 |\u001b[39m     \u001b[36mconst\u001b[39m myInfo \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mMyInfoPage\u001b[39m(authenticatedPage)\u001b[33m;\u001b[39m\n \u001b[90m 8 |\u001b[39m     \u001b[36mawait\u001b[39m myInfo\u001b[33m.\u001b[39mopen()\u001b[33m;\u001b[39m\n \u001b[90m 9 |\u001b[39m     \u001b[36mawait\u001b[39m myInfo\u001b[33m.\u001b[39mopenTab(\u001b[32m'Contact Details'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\contact-details.spec.ts",
+                            "column": 8,
+                            "line": 6
+                          },
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded while running \"beforeEach\" hook.\u001b[39m\n\n  4 |\n  5 | test.describe('My Info — Contact Details', { tag: '@automated' }, () => {\n> 6 |   test.beforeEach(async ({ authenticatedPage }) => {\n    |        ^\n  7 |     const myInfo = new MyInfoPage(authenticatedPage);\n  8 |     await myInfo.open();\n  9 |     await myInfo.openTab('Contact Details');\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\contact-details.spec.ts:6:8"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\my-info.page.ts",
+                            "column": 26,
+                            "line": 41
+                          },
+                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('link', { name: 'Contact Details', exact: true })\u001b[22m\n\n\n   at features\\my-info\\my-info.page.ts:41\n\n  39 |\n  40 |   async openTab(name: MyInfoTab) {\n> 41 |     await this.tab(name).click();\n     |                          ^\n  42 |   }\n  43 |\n  44 |   activeTabLocator() {\n    at MyInfoPage.openTab (C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\my-info.page.ts:41:26)\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\contact-details.spec.ts:9:18"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-16T12:37:43.116Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-contact-d-6ede8-ll-alphabetical-option-list-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-contact-d-6ede8-ll-alphabetical-option-list-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\contact-details.spec.ts",
+                        "column": 8,
+                        "line": 6
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "bda91fdab40bdffb242f-713d42c7361c9b8d72ee",
+              "file": "features/my-info/contact-details.spec.ts",
+              "line": 28,
+              "column": 7
+            },
+            {
+              "title": "TC-023 Contact Details Attachments shows No Records Found",
+              "ok": false,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 21654,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Attachments', exact: true }).locator('xpath=following::*[contains(text(),\"No Records Found\")][1]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Attachments', exact: true }).locator('xpath=following::*[contains(text(),\"No Records Found\")][1]') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Attachments', exact: true }).locator('xpath=following::*[contains(text(),\"No Records Found\")][1]')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Attachments', exact: true }).locator('xpath=following::*[contains(text(),\"No Records Found\")][1]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Attachments', exact: true }).locator('xpath=following::*[contains(text(),\"No Records Found\")][1]') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Attachments', exact: true }).locator('xpath=following::*[contains(text(),\"No Records Found\")][1]')\u001b[22m\n\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\contact-details.spec.ts:40:62",
+                        "location": {
+                          "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\contact-details.spec.ts",
+                          "column": 62,
+                          "line": 40
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 38 |\u001b[39m   test(\u001b[32m'TC-023 Contact Details Attachments shows No Records Found'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ authenticatedPage }) \u001b[33m=>\u001b[39m {\n \u001b[90m 39 |\u001b[39m     \u001b[36mconst\u001b[39m contactDetails \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mContactDetailsPage\u001b[39m(authenticatedPage)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 40 |\u001b[39m     \u001b[36mawait\u001b[39m expect(contactDetails\u001b[33m.\u001b[39mattachmentsNoRecordsFound())\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 41 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 42 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 43 |\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\contact-details.spec.ts",
+                            "column": 62,
+                            "line": 40
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Attachments', exact: true }).locator('xpath=following::*[contains(text(),\"No Records Found\")][1]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Attachments', exact: true }).locator('xpath=following::*[contains(text(),\"No Records Found\")][1]') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Attachments', exact: true }).locator('xpath=following::*[contains(text(),\"No Records Found\")][1]')\u001b[22m\n\n\n  38 |   test('TC-023 Contact Details Attachments shows No Records Found', async ({ authenticatedPage }) => {\n  39 |     const contactDetails = new ContactDetailsPage(authenticatedPage);\n> 40 |     await expect(contactDetails.attachmentsNoRecordsFound()).toBeVisible();\n     |                                                              ^\n  41 |   });\n  42 | });\n  43 |\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\contact-details.spec.ts:40:62"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-16T12:37:54.759Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-contact-d-27a40-ents-shows-No-Records-Found-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-contact-d-27a40-ents-shows-No-Records-Found-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-contact-d-27a40-ents-shows-No-Records-Found-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\contact-details.spec.ts",
+                        "column": 62,
+                        "line": 40
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "bda91fdab40bdffb242f-a73376396443ee01b417",
+              "file": "features/my-info/contact-details.spec.ts",
+              "line": 38,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "features\\my-info\\dependents.spec.ts",
+      "file": "features/my-info/dependents.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "My Info — Dependents",
+          "file": "features/my-info/dependents.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-029 Dependents table lists the existing record",
+              "ok": false,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 2,
+                      "status": "failed",
+                      "duration": 26017,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Assigned Dependents', exact: true }).locator('xpath=following::table[1]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Assigned Dependents', exact: true }).locator('xpath=following::table[1]') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Assigned Dependents', exact: true }).locator('xpath=following::table[1]')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Assigned Dependents', exact: true }).locator('xpath=following::table[1]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Assigned Dependents', exact: true }).locator('xpath=following::table[1]') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Assigned Dependents', exact: true }).locator('xpath=following::table[1]')\u001b[22m\n\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\dependents.spec.ts:15:38",
+                        "location": {
+                          "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\dependents.spec.ts",
+                          "column": 38,
+                          "line": 15
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 13 |\u001b[39m   test(\u001b[32m'TC-029 Dependents table lists the existing record'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ authenticatedPage }) \u001b[33m=>\u001b[39m {\n \u001b[90m 14 |\u001b[39m     \u001b[36mconst\u001b[39m dependents \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mDependentsPage\u001b[39m(authenticatedPage)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 15 |\u001b[39m     \u001b[36mawait\u001b[39m expect(dependents\u001b[33m.\u001b[39mtable())\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 16 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 17 |\u001b[39m\n \u001b[90m 18 |\u001b[39m   \u001b[90m// Source: Test Design CSV — TC-030 — \"Verify the Add Dependent form's Relationship dropdown options\"\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\dependents.spec.ts",
+                            "column": 38,
+                            "line": 15
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Assigned Dependents', exact: true }).locator('xpath=following::table[1]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Assigned Dependents', exact: true }).locator('xpath=following::table[1]') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Assigned Dependents', exact: true }).locator('xpath=following::table[1]')\u001b[22m\n\n\n  13 |   test('TC-029 Dependents table lists the existing record', async ({ authenticatedPage }) => {\n  14 |     const dependents = new DependentsPage(authenticatedPage);\n> 15 |     await expect(dependents.table()).toBeVisible();\n     |                                      ^\n  16 |   });\n  17 |\n  18 |   // Source: Test Design CSV — TC-030 — \"Verify the Add Dependent form's Relationship dropdown options\"\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\dependents.spec.ts:15:38"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-16T12:37:55.394Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-dependent-a5eb6-e-lists-the-existing-record-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-dependent-a5eb6-e-lists-the-existing-record-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-dependent-a5eb6-e-lists-the-existing-record-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\dependents.spec.ts",
+                        "column": 38,
+                        "line": 15
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "9b1481252a03fbfbf6e8-1b4a6dec091d01f1d786",
+              "file": "features/my-info/dependents.spec.ts",
+              "line": 13,
+              "column": 7
+            },
+            {
+              "title": "TC-030 Add Dependent Relationship dropdown shows exactly 3 options",
+              "ok": false,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 33654,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded while running \"beforeEach\" hook.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded while running \"beforeEach\" hook.\u001b[39m\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\dependents.spec.ts:6:8",
+                        "location": {
+                          "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\dependents.spec.ts",
+                          "column": 8,
+                          "line": 6
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 4 |\u001b[39m\n \u001b[90m 5 |\u001b[39m test\u001b[33m.\u001b[39mdescribe(\u001b[32m'My Info — Dependents'\u001b[39m\u001b[33m,\u001b[39m { tag\u001b[33m:\u001b[39m \u001b[32m'@automated'\u001b[39m }\u001b[33m,\u001b[39m () \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 6 |\u001b[39m   test\u001b[33m.\u001b[39mbeforeEach(\u001b[36masync\u001b[39m ({ authenticatedPage }) \u001b[33m=>\u001b[39m {\n \u001b[90m   |\u001b[39m        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 7 |\u001b[39m     \u001b[36mconst\u001b[39m myInfo \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mMyInfoPage\u001b[39m(authenticatedPage)\u001b[33m;\u001b[39m\n \u001b[90m 8 |\u001b[39m     \u001b[36mawait\u001b[39m myInfo\u001b[33m.\u001b[39mopen()\u001b[33m;\u001b[39m\n \u001b[90m 9 |\u001b[39m     \u001b[36mawait\u001b[39m myInfo\u001b[33m.\u001b[39mopenTab(\u001b[32m'Dependents'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\dependents.spec.ts",
+                            "column": 8,
+                            "line": 6
+                          },
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded while running \"beforeEach\" hook.\u001b[39m\n\n  4 |\n  5 | test.describe('My Info — Dependents', { tag: '@automated' }, () => {\n> 6 |   test.beforeEach(async ({ authenticatedPage }) => {\n    |        ^\n  7 |     const myInfo = new MyInfoPage(authenticatedPage);\n  8 |     await myInfo.open();\n  9 |     await myInfo.openTab('Dependents');\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\dependents.spec.ts:6:8"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\fixtures\\auth.fixture.ts",
+                            "column": 55,
+                            "line": 23
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByText('Dashboard').first()\nExpected: visible\nReceived: undefined\n\n\n   at fixtures\\auth.fixture.ts:23\n\n  21 |     const loginPage = new LoginPage(page);\n  22 |     await loginPage.login(username, password);\n> 23 |     await expect(page.getByText('Dashboard').first()).toBeVisible({ timeout: 15000 });\n     |                                                       ^\n  24 |\n  25 |     await use(page);\n  26 |   },\n    at Object.authenticatedPage (C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\fixtures\\auth.fixture.ts:23:55)"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-16T12:38:15.982Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-dependent-5a554-own-shows-exactly-3-options-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-dependent-5a554-own-shows-exactly-3-options-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-dependent-5a554-own-shows-exactly-3-options-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\dependents.spec.ts",
+                        "column": 8,
+                        "line": 6
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "9b1481252a03fbfbf6e8-5e0dd5a9c796859ccacc",
+              "file": "features/my-info/dependents.spec.ts",
+              "line": 19,
+              "column": 7
+            },
+            {
+              "title": "TC-031 Add Dependent form marks Name/Relationship required, Date of Birth optional",
+              "ok": false,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 1,
+                      "status": "timedOut",
+                      "duration": 30800,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded while running \"beforeEach\" hook.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded while running \"beforeEach\" hook.\u001b[39m\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\dependents.spec.ts:6:8",
+                        "location": {
+                          "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\dependents.spec.ts",
+                          "column": 8,
+                          "line": 6
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 4 |\u001b[39m\n \u001b[90m 5 |\u001b[39m test\u001b[33m.\u001b[39mdescribe(\u001b[32m'My Info — Dependents'\u001b[39m\u001b[33m,\u001b[39m { tag\u001b[33m:\u001b[39m \u001b[32m'@automated'\u001b[39m }\u001b[33m,\u001b[39m () \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 6 |\u001b[39m   test\u001b[33m.\u001b[39mbeforeEach(\u001b[36masync\u001b[39m ({ authenticatedPage }) \u001b[33m=>\u001b[39m {\n \u001b[90m   |\u001b[39m        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 7 |\u001b[39m     \u001b[36mconst\u001b[39m myInfo \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mMyInfoPage\u001b[39m(authenticatedPage)\u001b[33m;\u001b[39m\n \u001b[90m 8 |\u001b[39m     \u001b[36mawait\u001b[39m myInfo\u001b[33m.\u001b[39mopen()\u001b[33m;\u001b[39m\n \u001b[90m 9 |\u001b[39m     \u001b[36mawait\u001b[39m myInfo\u001b[33m.\u001b[39mopenTab(\u001b[32m'Dependents'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\dependents.spec.ts",
+                            "column": 8,
+                            "line": 6
+                          },
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded while running \"beforeEach\" hook.\u001b[39m\n\n  4 |\n  5 | test.describe('My Info — Dependents', { tag: '@automated' }, () => {\n> 6 |   test.beforeEach(async ({ authenticatedPage }) => {\n    |        ^\n  7 |     const myInfo = new MyInfoPage(authenticatedPage);\n  8 |     await myInfo.open();\n  9 |     await myInfo.openTab('Dependents');\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\dependents.spec.ts:6:8"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\fixtures\\auth.fixture.ts",
+                            "column": 55,
+                            "line": 23
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Dashboard').first()\nExpected: visible\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText('Dashboard').first() with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Dashboard').first()\u001b[22m\n\u001b[2m  - Test timeout of 30000ms exceeded.\u001b[22m\n\n\n   at fixtures\\auth.fixture.ts:23\n\n  21 |     const loginPage = new LoginPage(page);\n  22 |     await loginPage.login(username, password);\n> 23 |     await expect(page.getByText('Dashboard').first()).toBeVisible({ timeout: 15000 });\n     |                                                       ^\n  24 |\n  25 |     await use(page);\n  26 |   },\n    at Object.authenticatedPage (C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\fixtures\\auth.fixture.ts:23:55)"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-16T12:38:17.992Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-dependent-8889e-ired-Date-of-Birth-optional-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-dependent-8889e-ired-Date-of-Birth-optional-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\dependents.spec.ts",
+                        "column": 8,
+                        "line": 6
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "9b1481252a03fbfbf6e8-fbe0c4182c73b0b85bef",
+              "file": "features/my-info/dependents.spec.ts",
+              "line": 27,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "features\\my-info\\emergency-contacts.spec.ts",
+      "file": "features/my-info/emergency-contacts.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "My Info — Emergency Contacts",
+          "file": "features/my-info/emergency-contacts.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-024 Emergency Contacts table lists existing records with record count",
+              "ok": false,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 2,
+                      "status": "failed",
+                      "duration": 27043,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/\\(\\d+\\)\\s*Record(s)?\\s*Found/i)\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText(/\\(\\d+\\)\\s*Record(s)?\\s*Found/i) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/\\(\\d+\\)\\s*Record(s)?\\s*Found/i)\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/\\(\\d+\\)\\s*Record(s)?\\s*Found/i)\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText(/\\(\\d+\\)\\s*Record(s)?\\s*Found/i) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/\\(\\d+\\)\\s*Record(s)?\\s*Found/i)\u001b[22m\n\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\emergency-contacts.spec.ts:15:56",
+                        "location": {
+                          "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\emergency-contacts.spec.ts",
+                          "column": 56,
+                          "line": 15
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 13 |\u001b[39m   test(\u001b[32m'TC-024 Emergency Contacts table lists existing records with record count'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ authenticatedPage }) \u001b[33m=>\u001b[39m {\n \u001b[90m 14 |\u001b[39m     \u001b[36mconst\u001b[39m emergencyContacts \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mEmergencyContactsPage\u001b[39m(authenticatedPage)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 15 |\u001b[39m     \u001b[36mawait\u001b[39m expect(emergencyContacts\u001b[33m.\u001b[39mrecordCountLabel())\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 16 |\u001b[39m     \u001b[36mawait\u001b[39m expect(emergencyContacts\u001b[33m.\u001b[39mtable())\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 17 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 18 |\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\emergency-contacts.spec.ts",
+                            "column": 56,
+                            "line": 15
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/\\(\\d+\\)\\s*Record(s)?\\s*Found/i)\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText(/\\(\\d+\\)\\s*Record(s)?\\s*Found/i) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/\\(\\d+\\)\\s*Record(s)?\\s*Found/i)\u001b[22m\n\n\n  13 |   test('TC-024 Emergency Contacts table lists existing records with record count', async ({ authenticatedPage }) => {\n  14 |     const emergencyContacts = new EmergencyContactsPage(authenticatedPage);\n> 15 |     await expect(emergencyContacts.recordCountLabel()).toBeVisible();\n     |                                                        ^\n  16 |     await expect(emergencyContacts.table()).toBeVisible();\n  17 |   });\n  18 |\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\emergency-contacts.spec.ts:15:56"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-16T12:38:22.351Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-emergency-1fe2f-g-records-with-record-count-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-emergency-1fe2f-g-records-with-record-count-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-emergency-1fe2f-g-records-with-record-count-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\emergency-contacts.spec.ts",
+                        "column": 56,
+                        "line": 15
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "99165a4e8c8dbdde6b6a-1fa2ef6275a18522f230",
+              "file": "features/my-info/emergency-contacts.spec.ts",
+              "line": 13,
+              "column": 7
+            },
+            {
+              "title": "TC-025 Add form shows Name*/Relationship* required and Save/Cancel/legend",
+              "ok": false,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 1,
+                      "status": "timedOut",
+                      "duration": 31119,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded while running \"beforeEach\" hook.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded while running \"beforeEach\" hook.\u001b[39m\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\emergency-contacts.spec.ts:6:8",
+                        "location": {
+                          "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\emergency-contacts.spec.ts",
+                          "column": 8,
+                          "line": 6
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 4 |\u001b[39m\n \u001b[90m 5 |\u001b[39m test\u001b[33m.\u001b[39mdescribe(\u001b[32m'My Info — Emergency Contacts'\u001b[39m\u001b[33m,\u001b[39m { tag\u001b[33m:\u001b[39m \u001b[32m'@automated'\u001b[39m }\u001b[33m,\u001b[39m () \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 6 |\u001b[39m   test\u001b[33m.\u001b[39mbeforeEach(\u001b[36masync\u001b[39m ({ authenticatedPage }) \u001b[33m=>\u001b[39m {\n \u001b[90m   |\u001b[39m        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 7 |\u001b[39m     \u001b[36mconst\u001b[39m myInfo \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mMyInfoPage\u001b[39m(authenticatedPage)\u001b[33m;\u001b[39m\n \u001b[90m 8 |\u001b[39m     \u001b[36mawait\u001b[39m myInfo\u001b[33m.\u001b[39mopen()\u001b[33m;\u001b[39m\n \u001b[90m 9 |\u001b[39m     \u001b[36mawait\u001b[39m myInfo\u001b[33m.\u001b[39mopenTab(\u001b[32m'Emergency Contacts'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\emergency-contacts.spec.ts",
+                            "column": 8,
+                            "line": 6
+                          },
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded while running \"beforeEach\" hook.\u001b[39m\n\n  4 |\n  5 | test.describe('My Info — Emergency Contacts', { tag: '@automated' }, () => {\n> 6 |   test.beforeEach(async ({ authenticatedPage }) => {\n    |        ^\n  7 |     const myInfo = new MyInfoPage(authenticatedPage);\n  8 |     await myInfo.open();\n  9 |     await myInfo.openTab('Emergency Contacts');\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\emergency-contacts.spec.ts:6:8"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-16T12:38:50.154Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-emergency-989f0-ired-and-Save-Cancel-legend-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-emergency-989f0-ired-and-Save-Cancel-legend-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-emergency-989f0-ired-and-Save-Cancel-legend-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\emergency-contacts.spec.ts",
+                        "column": 8,
+                        "line": 6
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "99165a4e8c8dbdde6b6a-db6b245c4d9603a425ef",
+              "file": "features/my-info/emergency-contacts.spec.ts",
+              "line": 20,
+              "column": 7
+            },
+            {
+              "title": "TC-026 empty Name and Relationship show Required errors and block save",
+              "ok": false,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 10,
+                      "parallelIndex": 2,
+                      "status": "timedOut",
+                      "duration": 33558,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded while running \"beforeEach\" hook.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded while running \"beforeEach\" hook.\u001b[39m\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\emergency-contacts.spec.ts:6:8",
+                        "location": {
+                          "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\emergency-contacts.spec.ts",
+                          "column": 8,
+                          "line": 6
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 4 |\u001b[39m\n \u001b[90m 5 |\u001b[39m test\u001b[33m.\u001b[39mdescribe(\u001b[32m'My Info — Emergency Contacts'\u001b[39m\u001b[33m,\u001b[39m { tag\u001b[33m:\u001b[39m \u001b[32m'@automated'\u001b[39m }\u001b[33m,\u001b[39m () \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 6 |\u001b[39m   test\u001b[33m.\u001b[39mbeforeEach(\u001b[36masync\u001b[39m ({ authenticatedPage }) \u001b[33m=>\u001b[39m {\n \u001b[90m   |\u001b[39m        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 7 |\u001b[39m     \u001b[36mconst\u001b[39m myInfo \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mMyInfoPage\u001b[39m(authenticatedPage)\u001b[33m;\u001b[39m\n \u001b[90m 8 |\u001b[39m     \u001b[36mawait\u001b[39m myInfo\u001b[33m.\u001b[39mopen()\u001b[33m;\u001b[39m\n \u001b[90m 9 |\u001b[39m     \u001b[36mawait\u001b[39m myInfo\u001b[33m.\u001b[39mopenTab(\u001b[32m'Emergency Contacts'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\emergency-contacts.spec.ts",
+                            "column": 8,
+                            "line": 6
+                          },
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded while running \"beforeEach\" hook.\u001b[39m\n\n  4 |\n  5 | test.describe('My Info — Emergency Contacts', { tag: '@automated' }, () => {\n> 6 |   test.beforeEach(async ({ authenticatedPage }) => {\n    |        ^\n  7 |     const myInfo = new MyInfoPage(authenticatedPage);\n  8 |     await myInfo.open();\n  9 |     await myInfo.openTab('Emergency Contacts');\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\emergency-contacts.spec.ts:6:8"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\auth\\login.page.ts",
+                            "column": 21,
+                            "line": 18
+                          },
+                          "message": "Error: page.goto: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://opensource-demo.orangehrmlive.com/web/index.php/auth/login\", waiting until \"load\"\u001b[22m\n\n\n   at features\\auth\\login.page.ts:18\n\n  16 |\n  17 |   async login(username: string, password: string) {\n> 18 |     await this.page.goto('/web/index.php/auth/login', { timeout: 60000 });\n     |                     ^\n  19 |     await this.usernameInput().fill(username);\n  20 |     await this.passwordInput().fill(password);\n  21 |     await this.loginButton().click();\n    at LoginPage.login (C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\auth\\login.page.ts:18:21)\n    at Object.authenticatedPage (C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\fixtures\\auth.fixture.ts:22:21)"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-16T12:38:50.958Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-emergency-fcaad-uired-errors-and-block-save-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-emergency-fcaad-uired-errors-and-block-save-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-emergency-fcaad-uired-errors-and-block-save-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\emergency-contacts.spec.ts",
+                        "column": 8,
+                        "line": 6
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "99165a4e8c8dbdde6b6a-8e25838a4cf95b5477ba",
+              "file": "features/my-info/emergency-contacts.spec.ts",
+              "line": 31,
+              "column": 7
+            },
+            {
+              "title": "TC-027 all phone fields empty shows at-least-one-phone-required error",
+              "ok": false,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 11,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 33523,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded while running \"beforeEach\" hook.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded while running \"beforeEach\" hook.\u001b[39m\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\emergency-contacts.spec.ts:6:8",
+                        "location": {
+                          "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\emergency-contacts.spec.ts",
+                          "column": 8,
+                          "line": 6
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 4 |\u001b[39m\n \u001b[90m 5 |\u001b[39m test\u001b[33m.\u001b[39mdescribe(\u001b[32m'My Info — Emergency Contacts'\u001b[39m\u001b[33m,\u001b[39m { tag\u001b[33m:\u001b[39m \u001b[32m'@automated'\u001b[39m }\u001b[33m,\u001b[39m () \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 6 |\u001b[39m   test\u001b[33m.\u001b[39mbeforeEach(\u001b[36masync\u001b[39m ({ authenticatedPage }) \u001b[33m=>\u001b[39m {\n \u001b[90m   |\u001b[39m        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 7 |\u001b[39m     \u001b[36mconst\u001b[39m myInfo \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mMyInfoPage\u001b[39m(authenticatedPage)\u001b[33m;\u001b[39m\n \u001b[90m 8 |\u001b[39m     \u001b[36mawait\u001b[39m myInfo\u001b[33m.\u001b[39mopen()\u001b[33m;\u001b[39m\n \u001b[90m 9 |\u001b[39m     \u001b[36mawait\u001b[39m myInfo\u001b[33m.\u001b[39mopenTab(\u001b[32m'Emergency Contacts'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\emergency-contacts.spec.ts",
+                            "column": 8,
+                            "line": 6
+                          },
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded while running \"beforeEach\" hook.\u001b[39m\n\n  4 |\n  5 | test.describe('My Info — Emergency Contacts', { tag: '@automated' }, () => {\n> 6 |   test.beforeEach(async ({ authenticatedPage }) => {\n    |        ^\n  7 |     const myInfo = new MyInfoPage(authenticatedPage);\n  8 |     await myInfo.open();\n  9 |     await myInfo.openTab('Emergency Contacts');\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\emergency-contacts.spec.ts:6:8"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\auth\\login.page.ts",
+                            "column": 21,
+                            "line": 18
+                          },
+                          "message": "Error: page.goto: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://opensource-demo.orangehrmlive.com/web/index.php/auth/login\", waiting until \"load\"\u001b[22m\n\n\n   at features\\auth\\login.page.ts:18\n\n  16 |\n  17 |   async login(username: string, password: string) {\n> 18 |     await this.page.goto('/web/index.php/auth/login', { timeout: 60000 });\n     |                     ^\n  19 |     await this.usernameInput().fill(username);\n  20 |     await this.passwordInput().fill(password);\n  21 |     await this.loginButton().click();\n    at LoginPage.login (C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\auth\\login.page.ts:18:21)\n    at Object.authenticatedPage (C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\fixtures\\auth.fixture.ts:22:21)"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-16T12:38:51.376Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-emergency-dcc5d-st-one-phone-required-error-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-emergency-dcc5d-st-one-phone-required-error-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-emergency-dcc5d-st-one-phone-required-error-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\emergency-contacts.spec.ts",
+                        "column": 8,
+                        "line": 6
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "99165a4e8c8dbdde6b6a-054951b1aad1f01fb5ae",
+              "file": "features/my-info/emergency-contacts.spec.ts",
+              "line": 40,
+              "column": 7
+            },
+            {
+              "title": "TC-028 Cancel discards the Add form without saving",
+              "ok": false,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 12,
+                      "parallelIndex": 1,
+                      "status": "timedOut",
+                      "duration": 31088,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded while running \"beforeEach\" hook.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded while running \"beforeEach\" hook.\u001b[39m\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\emergency-contacts.spec.ts:6:8",
+                        "location": {
+                          "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\emergency-contacts.spec.ts",
+                          "column": 8,
+                          "line": 6
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 4 |\u001b[39m\n \u001b[90m 5 |\u001b[39m test\u001b[33m.\u001b[39mdescribe(\u001b[32m'My Info — Emergency Contacts'\u001b[39m\u001b[33m,\u001b[39m { tag\u001b[33m:\u001b[39m \u001b[32m'@automated'\u001b[39m }\u001b[33m,\u001b[39m () \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 6 |\u001b[39m   test\u001b[33m.\u001b[39mbeforeEach(\u001b[36masync\u001b[39m ({ authenticatedPage }) \u001b[33m=>\u001b[39m {\n \u001b[90m   |\u001b[39m        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 7 |\u001b[39m     \u001b[36mconst\u001b[39m myInfo \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mMyInfoPage\u001b[39m(authenticatedPage)\u001b[33m;\u001b[39m\n \u001b[90m 8 |\u001b[39m     \u001b[36mawait\u001b[39m myInfo\u001b[33m.\u001b[39mopen()\u001b[33m;\u001b[39m\n \u001b[90m 9 |\u001b[39m     \u001b[36mawait\u001b[39m myInfo\u001b[33m.\u001b[39mopenTab(\u001b[32m'Emergency Contacts'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\emergency-contacts.spec.ts",
+                            "column": 8,
+                            "line": 6
+                          },
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded while running \"beforeEach\" hook.\u001b[39m\n\n  4 |\n  5 | test.describe('My Info — Emergency Contacts', { tag: '@automated' }, () => {\n> 6 |   test.beforeEach(async ({ authenticatedPage }) => {\n    |        ^\n  7 |     const myInfo = new MyInfoPage(authenticatedPage);\n  8 |     await myInfo.open();\n  9 |     await myInfo.openTab('Emergency Contacts');\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\emergency-contacts.spec.ts:6:8"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\my-info.page.ts",
+                            "column": 26,
+                            "line": 41
+                          },
+                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('link', { name: 'Emergency Contacts', exact: true })\u001b[22m\n\n\n   at features\\my-info\\my-info.page.ts:41\n\n  39 |\n  40 |   async openTab(name: MyInfoTab) {\n> 41 |     await this.tab(name).click();\n     |                          ^\n  42 |   }\n  43 |\n  44 |   activeTabLocator() {\n    at MyInfoPage.openTab (C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\my-info.page.ts:41:26)\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\emergency-contacts.spec.ts:9:18"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-16T12:39:22.814Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-emergency-20edd-the-Add-form-without-saving-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-emergency-20edd-the-Add-form-without-saving-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\emergency-contacts.spec.ts",
+                        "column": 8,
+                        "line": 6
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "99165a4e8c8dbdde6b6a-3e397a1a96d7f65d43cf",
+              "file": "features/my-info/emergency-contacts.spec.ts",
+              "line": 50,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "features\\my-info\\immigration.spec.ts",
+      "file": "features/my-info/immigration.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "My Info — Immigration",
+          "file": "features/my-info/immigration.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-032 Immigration table lists existing records",
+              "ok": false,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 13,
+                      "parallelIndex": 2,
+                      "status": "timedOut",
+                      "duration": 36374,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded while running \"beforeEach\" hook.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded while running \"beforeEach\" hook.\u001b[39m\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\immigration.spec.ts:6:8",
+                        "location": {
+                          "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\immigration.spec.ts",
+                          "column": 8,
+                          "line": 6
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 4 |\u001b[39m\n \u001b[90m 5 |\u001b[39m test\u001b[33m.\u001b[39mdescribe(\u001b[32m'My Info — Immigration'\u001b[39m\u001b[33m,\u001b[39m { tag\u001b[33m:\u001b[39m \u001b[32m'@automated'\u001b[39m }\u001b[33m,\u001b[39m () \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 6 |\u001b[39m   test\u001b[33m.\u001b[39mbeforeEach(\u001b[36masync\u001b[39m ({ authenticatedPage }) \u001b[33m=>\u001b[39m {\n \u001b[90m   |\u001b[39m        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 7 |\u001b[39m     \u001b[36mconst\u001b[39m myInfo \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mMyInfoPage\u001b[39m(authenticatedPage)\u001b[33m;\u001b[39m\n \u001b[90m 8 |\u001b[39m     \u001b[36mawait\u001b[39m myInfo\u001b[33m.\u001b[39mopen()\u001b[33m;\u001b[39m\n \u001b[90m 9 |\u001b[39m     \u001b[36mawait\u001b[39m myInfo\u001b[33m.\u001b[39mopenTab(\u001b[32m'Immigration'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\immigration.spec.ts",
+                            "column": 8,
+                            "line": 6
+                          },
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded while running \"beforeEach\" hook.\u001b[39m\n\n  4 |\n  5 | test.describe('My Info — Immigration', { tag: '@automated' }, () => {\n> 6 |   test.beforeEach(async ({ authenticatedPage }) => {\n    |        ^\n  7 |     const myInfo = new MyInfoPage(authenticatedPage);\n  8 |     await myInfo.open();\n  9 |     await myInfo.openTab('Immigration');\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\immigration.spec.ts:6:8"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\my-info.page.ts",
+                            "column": 26,
+                            "line": 41
+                          },
+                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('link', { name: 'Immigration', exact: true })\u001b[22m\n\n\n   at features\\my-info\\my-info.page.ts:41\n\n  39 |\n  40 |   async openTab(name: MyInfoTab) {\n> 41 |     await this.tab(name).click();\n     |                          ^\n  42 |   }\n  43 |\n  44 |   activeTabLocator() {\n    at MyInfoPage.openTab (C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\my-info.page.ts:41:26)\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\immigration.spec.ts:9:18"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-16T12:39:25.817Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-immigrati-4dc0d-able-lists-existing-records-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-immigrati-4dc0d-able-lists-existing-records-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\immigration.spec.ts",
+                        "column": 8,
+                        "line": 6
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "98ce883df2484e7f01d6-1b4e4300e278812ec543",
+              "file": "features/my-info/immigration.spec.ts",
+              "line": 13,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "features\\my-info\\job.spec.ts",
+      "file": "features/my-info/job.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "My Info — Job (Read-only)",
+          "file": "features/my-info/job.spec.ts",
+          "line": 14,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-048 Job fields are read-only and no Save button exists",
+              "ok": false,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 14,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 31742,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded while running \"beforeEach\" hook.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded while running \"beforeEach\" hook.\u001b[39m\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\job.spec.ts:15:8",
+                        "location": {
+                          "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\job.spec.ts",
+                          "column": 8,
+                          "line": 15
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 13 |\u001b[39m\n \u001b[90m 14 |\u001b[39m test\u001b[33m.\u001b[39mdescribe(\u001b[32m'My Info — Job (Read-only)'\u001b[39m\u001b[33m,\u001b[39m { tag\u001b[33m:\u001b[39m \u001b[32m'@automated'\u001b[39m }\u001b[33m,\u001b[39m () \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 15 |\u001b[39m   test\u001b[33m.\u001b[39mbeforeEach(\u001b[36masync\u001b[39m ({ authenticatedPage }) \u001b[33m=>\u001b[39m {\n \u001b[90m    |\u001b[39m        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 16 |\u001b[39m     \u001b[36mconst\u001b[39m myInfo \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mMyInfoPage\u001b[39m(authenticatedPage)\u001b[33m;\u001b[39m\n \u001b[90m 17 |\u001b[39m     \u001b[36mawait\u001b[39m myInfo\u001b[33m.\u001b[39mopen()\u001b[33m;\u001b[39m\n \u001b[90m 18 |\u001b[39m     \u001b[36mawait\u001b[39m myInfo\u001b[33m.\u001b[39mopenTab(\u001b[32m'Job'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\job.spec.ts",
+                            "column": 8,
+                            "line": 15
+                          },
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded while running \"beforeEach\" hook.\u001b[39m\n\n  13 |\n  14 | test.describe('My Info — Job (Read-only)', { tag: '@automated' }, () => {\n> 15 |   test.beforeEach(async ({ authenticatedPage }) => {\n     |        ^\n  16 |     const myInfo = new MyInfoPage(authenticatedPage);\n  17 |     await myInfo.open();\n  18 |     await myInfo.openTab('Job');\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\job.spec.ts:15:8"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\fixtures\\auth.fixture.ts",
+                            "column": 55,
+                            "line": 23
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Dashboard').first()\nExpected: visible\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText('Dashboard').first() with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Dashboard').first()\u001b[22m\n\u001b[2m  - Test timeout of 30000ms exceeded.\u001b[22m\n\n\n   at fixtures\\auth.fixture.ts:23\n\n  21 |     const loginPage = new LoginPage(page);\n  22 |     await loginPage.login(username, password);\n> 23 |     await expect(page.getByText('Dashboard').first()).toBeVisible({ timeout: 15000 });\n     |                                                       ^\n  24 |\n  25 |     await use(page);\n  26 |   },\n    at Object.authenticatedPage (C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\fixtures\\auth.fixture.ts:23:55)"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-16T12:39:26.381Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-job-My-In-69880-y-and-no-Save-button-exists-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-job-My-In-69880-y-and-no-Save-button-exists-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\job.spec.ts",
+                        "column": 8,
+                        "line": 15
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "413d607b43d9550068ed-12bf2f051c36b9736b38",
+              "file": "features/my-info/job.spec.ts",
+              "line": 22,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "features\\my-info\\memberships.spec.ts",
+      "file": "features/my-info/memberships.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "My Info — Memberships",
+          "file": "features/my-info/memberships.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-045 Memberships table lists the existing record",
+              "ok": false,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 27368,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Assigned Memberships', exact: true }).locator('xpath=following::table[1]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Assigned Memberships', exact: true }).locator('xpath=following::table[1]') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Assigned Memberships', exact: true }).locator('xpath=following::table[1]')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Assigned Memberships', exact: true }).locator('xpath=following::table[1]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Assigned Memberships', exact: true }).locator('xpath=following::table[1]') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Assigned Memberships', exact: true }).locator('xpath=following::table[1]')\u001b[22m\n\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\memberships.spec.ts:15:39",
+                        "location": {
+                          "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\memberships.spec.ts",
+                          "column": 39,
+                          "line": 15
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 13 |\u001b[39m   test(\u001b[32m'TC-045 Memberships table lists the existing record'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ authenticatedPage }) \u001b[33m=>\u001b[39m {\n \u001b[90m 14 |\u001b[39m     \u001b[36mconst\u001b[39m memberships \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mMembershipsPage\u001b[39m(authenticatedPage)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 15 |\u001b[39m     \u001b[36mawait\u001b[39m expect(memberships\u001b[33m.\u001b[39mtable())\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 16 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 17 |\u001b[39m\n \u001b[90m 18 |\u001b[39m   \u001b[90m// Source: Test Design CSV — TC-046 — \"Verify the Add Membership form marks Membership as required\"\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\memberships.spec.ts",
+                            "column": 39,
+                            "line": 15
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Assigned Memberships', exact: true }).locator('xpath=following::table[1]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Assigned Memberships', exact: true }).locator('xpath=following::table[1]') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Assigned Memberships', exact: true }).locator('xpath=following::table[1]')\u001b[22m\n\n\n  13 |   test('TC-045 Memberships table lists the existing record', async ({ authenticatedPage }) => {\n  14 |     const memberships = new MembershipsPage(authenticatedPage);\n> 15 |     await expect(memberships.table()).toBeVisible();\n     |                                       ^\n  16 |   });\n  17 |\n  18 |   // Source: Test Design CSV — TC-046 — \"Verify the Add Membership form marks Membership as required\"\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\memberships.spec.ts:15:39"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-16T12:39:55.074Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-membershi-f8a00-e-lists-the-existing-record-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-membershi-f8a00-e-lists-the-existing-record-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-membershi-f8a00-e-lists-the-existing-record-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\memberships.spec.ts",
+                        "column": 39,
+                        "line": 15
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "60c27e40eddce63b0830-362b06569f5f05ad0978",
+              "file": "features/my-info/memberships.spec.ts",
+              "line": 13,
+              "column": 7
+            },
+            {
+              "title": "TC-047 Memberships Attachments table lists the existing file",
+              "ok": false,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 16,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 28501,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Attachments', exact: true }).locator('xpath=following::table[1]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Attachments', exact: true }).locator('xpath=following::table[1]') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Attachments', exact: true }).locator('xpath=following::table[1]')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Attachments', exact: true }).locator('xpath=following::table[1]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Attachments', exact: true }).locator('xpath=following::table[1]') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Attachments', exact: true }).locator('xpath=following::table[1]')\u001b[22m\n\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\memberships.spec.ts:28:50",
+                        "location": {
+                          "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\memberships.spec.ts",
+                          "column": 50,
+                          "line": 28
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 26 |\u001b[39m   test(\u001b[32m'TC-047 Memberships Attachments table lists the existing file'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ authenticatedPage }) \u001b[33m=>\u001b[39m {\n \u001b[90m 27 |\u001b[39m     \u001b[36mconst\u001b[39m memberships \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mMembershipsPage\u001b[39m(authenticatedPage)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 28 |\u001b[39m     \u001b[36mawait\u001b[39m expect(memberships\u001b[33m.\u001b[39mattachmentsTable())\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 29 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 30 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 31 |\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\memberships.spec.ts",
+                            "column": 50,
+                            "line": 28
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Attachments', exact: true }).locator('xpath=following::table[1]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Attachments', exact: true }).locator('xpath=following::table[1]') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Attachments', exact: true }).locator('xpath=following::table[1]')\u001b[22m\n\n\n  26 |   test('TC-047 Memberships Attachments table lists the existing file', async ({ authenticatedPage }) => {\n  27 |     const memberships = new MembershipsPage(authenticatedPage);\n> 28 |     await expect(memberships.attachmentsTable()).toBeVisible();\n     |                                                  ^\n  29 |   });\n  30 | });\n  31 |\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\memberships.spec.ts:28:50"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-16T12:39:59.541Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-membershi-9c8ee-ble-lists-the-existing-file-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-membershi-9c8ee-ble-lists-the-existing-file-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-membershi-9c8ee-ble-lists-the-existing-file-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\memberships.spec.ts",
+                        "column": 50,
+                        "line": 28
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "60c27e40eddce63b0830-45deb353cd38b9993b85",
+              "file": "features/my-info/memberships.spec.ts",
+              "line": 26,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "features\\my-info\\navigation.spec.ts",
+      "file": "features/my-info/navigation.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "My Info — Navigation",
+          "file": "features/my-info/navigation.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-005 no unsaved-changes dialog appears when switching tabs after an edit",
+              "ok": false,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 17,
+                      "parallelIndex": 2,
+                      "status": "timedOut",
+                      "duration": 30824,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\navigation.spec.ts",
+                            "column": 26,
+                            "line": 48
+                          },
+                          "message": "Error: locator.fill: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('First Name')\u001b[22m\n\n\n  46 |     const myInfo = new MyInfoPage(authenticatedPage);\n  47 |     const firstNameInput = authenticatedPage.getByLabel('First Name');\n> 48 |     await firstNameInput.fill('TempEdit');\n     |                          ^\n  49 |     await myInfo.openTab('Contact Details');\n  50 |     await expect(authenticatedPage.getByRole('dialog')).toHaveCount(0);\n  51 |     await expect(authenticatedPage).toHaveURL(/contactDetails/);\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\navigation.spec.ts:48:26"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-16T12:40:03.319Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-navigatio-f1c8d-witching-tabs-after-an-edit-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-navigatio-f1c8d-witching-tabs-after-an-edit-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-navigatio-f1c8d-witching-tabs-after-an-edit-chromium\\error-context.md"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "616d0fa6e406e30b1137-c38e153334b68e69ce08",
+              "file": "features/my-info/navigation.spec.ts",
+              "line": 45,
+              "column": 7
+            },
+            {
+              "title": "TC-010 License Expiry Date field uses yyyy-dd-mm format",
+              "ok": false,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 18,
+                      "parallelIndex": 1,
+                      "status": "timedOut",
+                      "duration": 31135,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\navigation.spec.ts",
+                            "column": 39,
+                            "line": 87
+                          },
+                          "message": "Error: locator.inputValue: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('License Expiry Date')\u001b[22m\n\n\n  85 |   test('TC-010 License Expiry Date field uses yyyy-dd-mm format', async ({ authenticatedPage }) => {\n  86 |     const licenseExpiry = authenticatedPage.getByLabel('License Expiry Date');\n> 87 |     const value = await licenseExpiry.inputValue();\n     |                                       ^\n  88 |     if (value) {\n  89 |       expect(value).toMatch(/^\\d{4}-\\d{2}-\\d{2}$/);\n  90 |     } else {\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\navigation.spec.ts:87:39"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-16T12:40:23.887Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-navigatio-6f87f-ield-uses-yyyy-dd-mm-format-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-navigatio-6f87f-ield-uses-yyyy-dd-mm-format-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-navigatio-6f87f-ield-uses-yyyy-dd-mm-format-chromium\\error-context.md"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "616d0fa6e406e30b1137-7c911201c30f0ce1b38a",
+              "file": "features/my-info/navigation.spec.ts",
+              "line": 85,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "features\\my-info\\personal-details.spec.ts",
+      "file": "features/my-info/personal-details.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "My Info — Personal Details",
+          "file": "features/my-info/personal-details.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-011 Personal Details fields are pre-populated and Save is enabled",
+              "ok": false,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 19,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 12980,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).not.\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByLabel('First Name')\nExpected: not \u001b[32m\"\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"not toHaveValue\" getByLabel('First Name') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('First Name')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).not.\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByLabel('First Name')\nExpected: not \u001b[32m\"\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"not toHaveValue\" getByLabel('First Name') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('First Name')\u001b[22m\n\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\personal-details.spec.ts:14:56",
+                        "location": {
+                          "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\personal-details.spec.ts",
+                          "column": 56,
+                          "line": 14
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 12 |\u001b[39m   test(\u001b[32m'TC-011 Personal Details fields are pre-populated and Save is enabled'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ authenticatedPage }) \u001b[33m=>\u001b[39m {\n \u001b[90m 13 |\u001b[39m     \u001b[36mconst\u001b[39m personalDetails \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mPersonalDetailsPage\u001b[39m(authenticatedPage)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 14 |\u001b[39m     \u001b[36mawait\u001b[39m expect(personalDetails\u001b[33m.\u001b[39mfirstNameInput())\u001b[33m.\u001b[39mnot\u001b[33m.\u001b[39mtoHaveValue(\u001b[32m''\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 15 |\u001b[39m     \u001b[36mawait\u001b[39m expect(personalDetails\u001b[33m.\u001b[39msaveButton())\u001b[33m.\u001b[39mtoBeEnabled()\u001b[33m;\u001b[39m\n \u001b[90m 16 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 17 |\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\personal-details.spec.ts",
+                            "column": 56,
+                            "line": 14
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).not.\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByLabel('First Name')\nExpected: not \u001b[32m\"\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"not toHaveValue\" getByLabel('First Name') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('First Name')\u001b[22m\n\n\n  12 |   test('TC-011 Personal Details fields are pre-populated and Save is enabled', async ({ authenticatedPage }) => {\n  13 |     const personalDetails = new PersonalDetailsPage(authenticatedPage);\n> 14 |     await expect(personalDetails.firstNameInput()).not.toHaveValue('');\n     |                                                        ^\n  15 |     await expect(personalDetails.saveButton()).toBeEnabled();\n  16 |   });\n  17 |\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\personal-details.spec.ts:14:56"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-16T12:40:29.206Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-personal--52d2a-pulated-and-Save-is-enabled-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-personal--52d2a-pulated-and-Save-is-enabled-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-personal--52d2a-pulated-and-Save-is-enabled-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\personal-details.spec.ts",
+                        "column": 56,
+                        "line": 14
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "8fc9bd3854a8b7220f6a-a3cdb3336563cfcf8095",
+              "file": "features/my-info/personal-details.spec.ts",
+              "line": 12,
+              "column": 7
+            },
+            {
+              "title": "TC-012 empty First Name shows inline Required error and blocks save",
+              "ok": false,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 20,
+                      "parallelIndex": 2,
+                      "status": "timedOut",
+                      "duration": 31437,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\personal-details.spec.ts",
+                            "column": 44,
+                            "line": 21
+                          },
+                          "message": "Error: locator.fill: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('First Name')\u001b[22m\n\n\n  19 |   test('TC-012 empty First Name shows inline Required error and blocks save', async ({ authenticatedPage }) => {\n  20 |     const personalDetails = new PersonalDetailsPage(authenticatedPage);\n> 21 |     await personalDetails.firstNameInput().fill('');\n     |                                            ^\n  22 |     await personalDetails.saveButton().click();\n  23 |     await expect(personalDetails.fieldError('First Name', 'Required')).toBeVisible();\n  24 |     await expect(personalDetails.firstNameInput()).toHaveValue('');\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\personal-details.spec.ts:21:44"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-16T12:40:35.623Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-personal--95a6d-uired-error-and-blocks-save-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-personal--95a6d-uired-error-and-blocks-save-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-personal--95a6d-uired-error-and-blocks-save-chromium\\error-context.md"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "8fc9bd3854a8b7220f6a-0ea8a69d025b91cf4bf6",
+              "file": "features/my-info/personal-details.spec.ts",
+              "line": 19,
+              "column": 7
+            },
+            {
+              "title": "TC-013 invalid License Expiry Date shows format error and blocks save",
+              "ok": false,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 21,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 30653,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\personal-details.spec.ts",
+                            "column": 52,
+                            "line": 30
+                          },
+                          "message": "Error: locator.fill: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('License Expiry Date')\u001b[22m\n\n\n  28 |   test('TC-013 invalid License Expiry Date shows format error and blocks save', async ({ authenticatedPage }) => {\n  29 |     const personalDetails = new PersonalDetailsPage(authenticatedPage);\n> 30 |     await personalDetails.licenseExpiryDateInput().fill('2099-99-99');\n     |                                                    ^\n  31 |     await personalDetails.saveButton().click();\n  32 |     await expect(\n  33 |       personalDetails.fieldError('License Expiry Date', 'Should be a valid date in yyyy-dd-mm format')\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\personal-details.spec.ts:30:52"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-16T12:40:43.243Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-personal--a95b7-ormat-error-and-blocks-save-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-personal--a95b7-ormat-error-and-blocks-save-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-personal--a95b7-ormat-error-and-blocks-save-chromium\\error-context.md"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "8fc9bd3854a8b7220f6a-149e924f3923c5af3533",
+              "file": "features/my-info/personal-details.spec.ts",
+              "line": 28,
+              "column": 7
+            },
+            {
+              "title": "TC-014 Employee Id exceeding 10 characters shows length error and blocks save",
+              "ok": false,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 22,
+                      "parallelIndex": 1,
+                      "status": "timedOut",
+                      "duration": 30938,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\personal-details.spec.ts",
+                            "column": 45,
+                            "line": 41
+                          },
+                          "message": "Error: locator.fill: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.orangehrm-edit-employee-id input, label:has-text(\"Employee Id\") + div input').first()\u001b[22m\n\n\n  39 |     const personalDetails = new PersonalDetailsPage(authenticatedPage);\n  40 |     const longValue = 'A'.repeat(85);\n> 41 |     await personalDetails.employeeIdInput().fill(longValue);\n     |                                             ^\n  42 |     await personalDetails.saveButton().click();\n  43 |     await expect(personalDetails.fieldError('Employee Id', 'Should not exceed 10 characters')).toBeVisible();\n  44 |   });\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\personal-details.spec.ts:41:45"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-16T12:40:56.454Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-personal--b3138-ength-error-and-blocks-save-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-personal--b3138-ength-error-and-blocks-save-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-personal--b3138-ength-error-and-blocks-save-chromium\\error-context.md"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "8fc9bd3854a8b7220f6a-0abf32247263ad906bf8",
+              "file": "features/my-info/personal-details.spec.ts",
+              "line": 38,
+              "column": 7
+            },
+            {
+              "title": "TC-016 Nationality dropdown includes the full alphabetical option list",
+              "ok": true,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 23,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 16048,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-16T12:41:08.826Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8fc9bd3854a8b7220f6a-9ce7297b74e4fe4db7bb",
+              "file": "features/my-info/personal-details.spec.ts",
+              "line": 47,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "features\\my-info\\qualifications.spec.ts",
+      "file": "features/my-info/qualifications.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "My Info — Qualifications",
+          "file": "features/my-info/qualifications.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-035 Work Experience table lists existing records",
+              "ok": false,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 24,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 17853,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Work Experience', exact: true }).locator('xpath=following::table[1]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Work Experience', exact: true }).locator('xpath=following::table[1]') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Work Experience', exact: true }).locator('xpath=following::table[1]')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Work Experience', exact: true }).locator('xpath=following::table[1]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Work Experience', exact: true }).locator('xpath=following::table[1]') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Work Experience', exact: true }).locator('xpath=following::table[1]')\u001b[22m\n\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\qualifications.spec.ts:15:56",
+                        "location": {
+                          "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\qualifications.spec.ts",
+                          "column": 56,
+                          "line": 15
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 13 |\u001b[39m   test(\u001b[32m'TC-035 Work Experience table lists existing records'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ authenticatedPage }) \u001b[33m=>\u001b[39m {\n \u001b[90m 14 |\u001b[39m     \u001b[36mconst\u001b[39m qualifications \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mQualificationsPage\u001b[39m(authenticatedPage)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 15 |\u001b[39m     \u001b[36mawait\u001b[39m expect(qualifications\u001b[33m.\u001b[39mworkExperienceTable())\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 16 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 17 |\u001b[39m\n \u001b[90m 18 |\u001b[39m   \u001b[90m// Source: Test Design CSV — TC-036 — \"Verify the Add Work Experience form marks Company and Job Title as required\"\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\qualifications.spec.ts",
+                            "column": 56,
+                            "line": 15
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Work Experience', exact: true }).locator('xpath=following::table[1]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Work Experience', exact: true }).locator('xpath=following::table[1]') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Work Experience', exact: true }).locator('xpath=following::table[1]')\u001b[22m\n\n\n  13 |   test('TC-035 Work Experience table lists existing records', async ({ authenticatedPage }) => {\n  14 |     const qualifications = new QualificationsPage(authenticatedPage);\n> 15 |     await expect(qualifications.workExperienceTable()).toBeVisible();\n     |                                                        ^\n  16 |   });\n  17 |\n  18 |   // Source: Test Design CSV — TC-036 — \"Verify the Add Work Experience form marks Company and Job Title as required\"\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\qualifications.spec.ts:15:56"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-16T12:41:15.256Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-qualifica-a16ed-able-lists-existing-records-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-qualifica-a16ed-able-lists-existing-records-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-qualifica-a16ed-able-lists-existing-records-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\qualifications.spec.ts",
+                        "column": 56,
+                        "line": 15
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "c0bf2dd25d0604a0b116-3e2ceac1615aec23f076",
+              "file": "features/my-info/qualifications.spec.ts",
+              "line": 13,
+              "column": 7
+            },
+            {
+              "title": "TC-037 Education table lists existing records",
+              "ok": false,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 23,
+                      "parallelIndex": 2,
+                      "status": "failed",
+                      "duration": 15530,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Education', exact: true }).locator('xpath=following::table[1]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Education', exact: true }).locator('xpath=following::table[1]') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Education', exact: true }).locator('xpath=following::table[1]')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Education', exact: true }).locator('xpath=following::table[1]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Education', exact: true }).locator('xpath=following::table[1]') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Education', exact: true }).locator('xpath=following::table[1]')\u001b[22m\n\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\qualifications.spec.ts:29:51",
+                        "location": {
+                          "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\qualifications.spec.ts",
+                          "column": 51,
+                          "line": 29
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 27 |\u001b[39m   test(\u001b[32m'TC-037 Education table lists existing records'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ authenticatedPage }) \u001b[33m=>\u001b[39m {\n \u001b[90m 28 |\u001b[39m     \u001b[36mconst\u001b[39m qualifications \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mQualificationsPage\u001b[39m(authenticatedPage)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 29 |\u001b[39m     \u001b[36mawait\u001b[39m expect(qualifications\u001b[33m.\u001b[39meducationTable())\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                   \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 30 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 31 |\u001b[39m\n \u001b[90m 32 |\u001b[39m   \u001b[90m// Source: Test Design CSV — TC-038 — \"Verify the Add Education form Level dropdown options\"\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\qualifications.spec.ts",
+                            "column": 51,
+                            "line": 29
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Education', exact: true }).locator('xpath=following::table[1]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Education', exact: true }).locator('xpath=following::table[1]') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Education', exact: true }).locator('xpath=following::table[1]')\u001b[22m\n\n\n  27 |   test('TC-037 Education table lists existing records', async ({ authenticatedPage }) => {\n  28 |     const qualifications = new QualificationsPage(authenticatedPage);\n> 29 |     await expect(qualifications.educationTable()).toBeVisible();\n     |                                                   ^\n  30 |   });\n  31 |\n  32 |   // Source: Test Design CSV — TC-038 — \"Verify the Add Education form Level dropdown options\"\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\qualifications.spec.ts:29:51"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-16T12:41:25.269Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-qualifica-2667e-able-lists-existing-records-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-qualifica-2667e-able-lists-existing-records-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-qualifica-2667e-able-lists-existing-records-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\qualifications.spec.ts",
+                        "column": 51,
+                        "line": 29
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "c0bf2dd25d0604a0b116-65c98d2b97e228cb90a3",
+              "file": "features/my-info/qualifications.spec.ts",
+              "line": 27,
+              "column": 7
+            },
+            {
+              "title": "TC-038 Add Education Level dropdown shows exactly 5 options",
+              "ok": false,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 25,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 13435,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 5\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[2m  Array [\u001b[22m\n\u001b[32m-   \"-- Select --\",\u001b[39m\n\u001b[32m-   \"Bachelor's Degree\",\u001b[39m\n\u001b[32m-   \"College Undergraduate\",\u001b[39m\n\u001b[32m-   \"High School Diploma\",\u001b[39m\n\u001b[32m-   \"Master's Degree\",\u001b[39m\n\u001b[31m+   \"No Records Found\",\u001b[39m\n\u001b[2m  ]\u001b[22m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 5\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[2m  Array [\u001b[22m\n\u001b[32m-   \"-- Select --\",\u001b[39m\n\u001b[32m-   \"Bachelor's Degree\",\u001b[39m\n\u001b[32m-   \"College Undergraduate\",\u001b[39m\n\u001b[32m-   \"High School Diploma\",\u001b[39m\n\u001b[32m-   \"Master's Degree\",\u001b[39m\n\u001b[31m+   \"No Records Found\",\u001b[39m\n\u001b[2m  ]\u001b[22m\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\qualifications.spec.ts:37:21",
+                        "location": {
+                          "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\qualifications.spec.ts",
+                          "column": 21,
+                          "line": 37
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 35 |\u001b[39m     \u001b[36mawait\u001b[39m qualifications\u001b[33m.\u001b[39maddButtonFor(\u001b[32m'Education'\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 36 |\u001b[39m     \u001b[36mconst\u001b[39m options \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m qualifications\u001b[33m.\u001b[39mlevelOptionTexts()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 37 |\u001b[39m     expect(options)\u001b[33m.\u001b[39mtoEqual([\n \u001b[90m    |\u001b[39m                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 38 |\u001b[39m       \u001b[32m'-- Select --'\u001b[39m\u001b[33m,\u001b[39m\n \u001b[90m 39 |\u001b[39m       \u001b[32m\"Bachelor's Degree\"\u001b[39m\u001b[33m,\u001b[39m\n \u001b[90m 40 |\u001b[39m       \u001b[32m'College Undergraduate'\u001b[39m\u001b[33m,\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\qualifications.spec.ts",
+                            "column": 21,
+                            "line": 37
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 5\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[2m  Array [\u001b[22m\n\u001b[32m-   \"-- Select --\",\u001b[39m\n\u001b[32m-   \"Bachelor's Degree\",\u001b[39m\n\u001b[32m-   \"College Undergraduate\",\u001b[39m\n\u001b[32m-   \"High School Diploma\",\u001b[39m\n\u001b[32m-   \"Master's Degree\",\u001b[39m\n\u001b[31m+   \"No Records Found\",\u001b[39m\n\u001b[2m  ]\u001b[22m\n\n  35 |     await qualifications.addButtonFor('Education').click();\n  36 |     const options = await qualifications.levelOptionTexts();\n> 37 |     expect(options).toEqual([\n     |                     ^\n  38 |       '-- Select --',\n  39 |       \"Bachelor's Degree\",\n  40 |       'College Undergraduate',\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\qualifications.spec.ts:37:21"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-16T12:41:28.640Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-qualifica-40c10-own-shows-exactly-5-options-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-qualifica-40c10-own-shows-exactly-5-options-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-qualifica-40c10-own-shows-exactly-5-options-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\qualifications.spec.ts",
+                        "column": 21,
+                        "line": 37
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "c0bf2dd25d0604a0b116-794a2e8d51feb8e851b5",
+              "file": "features/my-info/qualifications.spec.ts",
+              "line": 33,
+              "column": 7
+            },
+            {
+              "title": "TC-039 Skills table shows No Records Found",
+              "ok": false,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 26,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 22559,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Skills', exact: true }).locator('xpath=following::*[contains(text(),\"No Records Found\")][1]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Skills', exact: true }).locator('xpath=following::*[contains(text(),\"No Records Found\")][1]') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Skills', exact: true }).locator('xpath=following::*[contains(text(),\"No Records Found\")][1]')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Skills', exact: true }).locator('xpath=following::*[contains(text(),\"No Records Found\")][1]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Skills', exact: true }).locator('xpath=following::*[contains(text(),\"No Records Found\")][1]') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Skills', exact: true }).locator('xpath=following::*[contains(text(),\"No Records Found\")][1]')\u001b[22m\n\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\qualifications.spec.ts:49:65",
+                        "location": {
+                          "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\qualifications.spec.ts",
+                          "column": 65,
+                          "line": 49
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 47 |\u001b[39m   test(\u001b[32m'TC-039 Skills table shows No Records Found'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ authenticatedPage }) \u001b[33m=>\u001b[39m {\n \u001b[90m 48 |\u001b[39m     \u001b[36mconst\u001b[39m qualifications \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mQualificationsPage\u001b[39m(authenticatedPage)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 49 |\u001b[39m     \u001b[36mawait\u001b[39m expect(qualifications\u001b[33m.\u001b[39mnoRecordsFoundWithin(\u001b[32m'Skills'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 50 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 51 |\u001b[39m\n \u001b[90m 52 |\u001b[39m   \u001b[90m// Source: Test Design CSV — TC-040 — \"Verify the Add Skill form marks Skill as required\"\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\qualifications.spec.ts",
+                            "column": 65,
+                            "line": 49
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Skills', exact: true }).locator('xpath=following::*[contains(text(),\"No Records Found\")][1]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Skills', exact: true }).locator('xpath=following::*[contains(text(),\"No Records Found\")][1]') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Skills', exact: true }).locator('xpath=following::*[contains(text(),\"No Records Found\")][1]')\u001b[22m\n\n\n  47 |   test('TC-039 Skills table shows No Records Found', async ({ authenticatedPage }) => {\n  48 |     const qualifications = new QualificationsPage(authenticatedPage);\n> 49 |     await expect(qualifications.noRecordsFoundWithin('Skills')).toBeVisible();\n     |                                                                 ^\n  50 |   });\n  51 |\n  52 |   // Source: Test Design CSV — TC-040 — \"Verify the Add Skill form marks Skill as required\"\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\qualifications.spec.ts:49:65"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-16T12:41:34.345Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-qualifica-61753-able-shows-No-Records-Found-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-qualifica-61753-able-shows-No-Records-Found-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-qualifica-61753-able-shows-No-Records-Found-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\qualifications.spec.ts",
+                        "column": 65,
+                        "line": 49
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "c0bf2dd25d0604a0b116-4d48f8cf034f57e891d8",
+              "file": "features/my-info/qualifications.spec.ts",
+              "line": 47,
+              "column": 7
+            },
+            {
+              "title": "TC-041 Languages table lists existing records",
+              "ok": false,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 27,
+                      "parallelIndex": 2,
+                      "status": "failed",
+                      "duration": 28833,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Languages', exact: true }).locator('xpath=following::table[1]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Languages', exact: true }).locator('xpath=following::table[1]') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Languages', exact: true }).locator('xpath=following::table[1]')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Languages', exact: true }).locator('xpath=following::table[1]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Languages', exact: true }).locator('xpath=following::table[1]') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Languages', exact: true }).locator('xpath=following::table[1]')\u001b[22m\n\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\qualifications.spec.ts:62:51",
+                        "location": {
+                          "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\qualifications.spec.ts",
+                          "column": 51,
+                          "line": 62
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 60 |\u001b[39m   test(\u001b[32m'TC-041 Languages table lists existing records'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ authenticatedPage }) \u001b[33m=>\u001b[39m {\n \u001b[90m 61 |\u001b[39m     \u001b[36mconst\u001b[39m qualifications \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mQualificationsPage\u001b[39m(authenticatedPage)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 62 |\u001b[39m     \u001b[36mawait\u001b[39m expect(qualifications\u001b[33m.\u001b[39mlanguagesTable())\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                   \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 63 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 64 |\u001b[39m\n \u001b[90m 65 |\u001b[39m   \u001b[90m// Source: Test Design CSV — TC-042 — \"Verify the Add Language form marks Language, Fluency, and Competency as required\"\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\qualifications.spec.ts",
+                            "column": 51,
+                            "line": 62
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Languages', exact: true }).locator('xpath=following::table[1]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Languages', exact: true }).locator('xpath=following::table[1]') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Languages', exact: true }).locator('xpath=following::table[1]')\u001b[22m\n\n\n  60 |   test('TC-041 Languages table lists existing records', async ({ authenticatedPage }) => {\n  61 |     const qualifications = new QualificationsPage(authenticatedPage);\n> 62 |     await expect(qualifications.languagesTable()).toBeVisible();\n     |                                                   ^\n  63 |   });\n  64 |\n  65 |   // Source: Test Design CSV — TC-042 — \"Verify the Add Language form marks Language, Fluency, and Competency as required\"\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\qualifications.spec.ts:62:51"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-16T12:41:42.272Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-qualifica-08b5c-able-lists-existing-records-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-qualifica-08b5c-able-lists-existing-records-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-qualifica-08b5c-able-lists-existing-records-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\qualifications.spec.ts",
+                        "column": 51,
+                        "line": 62
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "c0bf2dd25d0604a0b116-b0534ece3997394c5ed9",
+              "file": "features/my-info/qualifications.spec.ts",
+              "line": 60,
+              "column": 7
+            },
+            {
+              "title": "TC-043 License table lists the existing record",
+              "ok": false,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 28,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 21256,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'License', exact: true }).locator('xpath=following::table[1]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'License', exact: true }).locator('xpath=following::table[1]') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'License', exact: true }).locator('xpath=following::table[1]')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'License', exact: true }).locator('xpath=following::table[1]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'License', exact: true }).locator('xpath=following::table[1]') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'License', exact: true }).locator('xpath=following::table[1]')\u001b[22m\n\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\qualifications.spec.ts:77:49",
+                        "location": {
+                          "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\qualifications.spec.ts",
+                          "column": 49,
+                          "line": 77
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 75 |\u001b[39m   test(\u001b[32m'TC-043 License table lists the existing record'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ authenticatedPage }) \u001b[33m=>\u001b[39m {\n \u001b[90m 76 |\u001b[39m     \u001b[36mconst\u001b[39m qualifications \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mQualificationsPage\u001b[39m(authenticatedPage)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 77 |\u001b[39m     \u001b[36mawait\u001b[39m expect(qualifications\u001b[33m.\u001b[39mlicenseTable())\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 78 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 79 |\u001b[39m\n \u001b[90m 80 |\u001b[39m   \u001b[90m// Source: Test Design CSV — TC-044 — \"Verify the Add License form marks License Type as required\"\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\qualifications.spec.ts",
+                            "column": 49,
+                            "line": 77
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'License', exact: true }).locator('xpath=following::table[1]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'License', exact: true }).locator('xpath=following::table[1]') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'License', exact: true }).locator('xpath=following::table[1]')\u001b[22m\n\n\n  75 |   test('TC-043 License table lists the existing record', async ({ authenticatedPage }) => {\n  76 |     const qualifications = new QualificationsPage(authenticatedPage);\n> 77 |     await expect(qualifications.licenseTable()).toBeVisible();\n     |                                                 ^\n  78 |   });\n  79 |\n  80 |   // Source: Test Design CSV — TC-044 — \"Verify the Add License form marks License Type as required\"\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\qualifications.spec.ts:77:49"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-16T12:41:43.822Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-qualifica-4a8c2-e-lists-the-existing-record-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-qualifica-4a8c2-e-lists-the-existing-record-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-qualifica-4a8c2-e-lists-the-existing-record-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\qualifications.spec.ts",
+                        "column": 49,
+                        "line": 77
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "c0bf2dd25d0604a0b116-62054938e3297d7022e3",
+              "file": "features/my-info/qualifications.spec.ts",
+              "line": 75,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "features\\my-info\\report-to.spec.ts",
+      "file": "features/my-info/report-to.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "My Info — Report-to (Read-only)",
+          "file": "features/my-info/report-to.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-051 Supervisors empty, 1 Subordinate listed, no Add button anywhere",
+              "ok": false,
+              "tags": [
+                "automated"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 29,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 16014,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Assigned Supervisors', exact: true }).locator('xpath=following::*[contains(text(),\"No Records Found\")][1]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Assigned Supervisors', exact: true }).locator('xpath=following::*[contains(text(),\"No Records Found\")][1]') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Assigned Supervisors', exact: true }).locator('xpath=following::*[contains(text(),\"No Records Found\")][1]')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Assigned Supervisors', exact: true }).locator('xpath=following::*[contains(text(),\"No Records Found\")][1]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Assigned Supervisors', exact: true }).locator('xpath=following::*[contains(text(),\"No Records Found\")][1]') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Assigned Supervisors', exact: true }).locator('xpath=following::*[contains(text(),\"No Records Found\")][1]')\u001b[22m\n\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\report-to.spec.ts:15:56",
+                        "location": {
+                          "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\report-to.spec.ts",
+                          "column": 56,
+                          "line": 15
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 13 |\u001b[39m   test(\u001b[32m'TC-051 Supervisors empty, 1 Subordinate listed, no Add button anywhere'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ authenticatedPage }) \u001b[33m=>\u001b[39m {\n \u001b[90m 14 |\u001b[39m     \u001b[36mconst\u001b[39m reportTo \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mReportToPage\u001b[39m(authenticatedPage)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 15 |\u001b[39m     \u001b[36mawait\u001b[39m expect(reportTo\u001b[33m.\u001b[39msupervisorsNoRecordsFound())\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 16 |\u001b[39m     \u001b[36mawait\u001b[39m expect(reportTo\u001b[33m.\u001b[39msubordinatesRecordCount())\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 17 |\u001b[39m     \u001b[36mawait\u001b[39m expect(authenticatedPage\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m'Add'\u001b[39m }))\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m0\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 18 |\u001b[39m   })\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\report-to.spec.ts",
+                            "column": 56,
+                            "line": 15
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Assigned Supervisors', exact: true }).locator('xpath=following::*[contains(text(),\"No Records Found\")][1]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Assigned Supervisors', exact: true }).locator('xpath=following::*[contains(text(),\"No Records Found\")][1]') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Assigned Supervisors', exact: true }).locator('xpath=following::*[contains(text(),\"No Records Found\")][1]')\u001b[22m\n\n\n  13 |   test('TC-051 Supervisors empty, 1 Subordinate listed, no Add button anywhere', async ({ authenticatedPage }) => {\n  14 |     const reportTo = new ReportToPage(authenticatedPage);\n> 15 |     await expect(reportTo.supervisorsNoRecordsFound()).toBeVisible();\n     |                                                        ^\n  16 |     await expect(reportTo.subordinatesRecordCount()).toBeVisible();\n  17 |     await expect(authenticatedPage.getByRole('button', { name: 'Add' })).toHaveCount(0);\n  18 |   });\n    at C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\report-to.spec.ts:15:56"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-16T12:41:59.188Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-report-to-b9010-sted-no-Add-button-anywhere-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-report-to-b9010-sted-no-Add-button-anywhere-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\test-results\\features-my-info-report-to-b9010-sted-no-Add-button-anywhere-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\SH\\Downloads\\AI Task 4\\AI Task 4\\Output\\Framework\\src\\features\\my-info\\report-to.spec.ts",
+                        "column": 56,
+                        "line": 15
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "0716ca9bfeb930d57693-07931cd524253bc261c9",
+              "file": "features/my-info/report-to.spec.ts",
+              "line": 13,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-16T12:37:21.646Z",
+    "duration": 294095.112,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 30,
+    "flaky": 0
+  }
+}

@@ -1,0 +1,188 @@
+[
+ {
+  "file": "features/my-info/attachments-common.spec.ts",
+  "title": "TC-052 Attachments empty state shows No Records Found with headers visible",
+  "status": "failed",
+  "error": "Error: expect(locator).toBeVisible() failed |  | Locator: getByRole('heading', { name: 'Attachments', exact: true }).locator('xpath=following::*[contains(text(),\"No Records Found\")][1]') | Expected: visible | Timeout: 5000ms | Error: element(s) not found"
+ },
+ {
+  "file": "features/my-info/contact-details.spec.ts",
+  "title": "TC-020 Contact Details fields are pre-populated with a Save button present",
+  "status": "timedOut",
+  "error": "Test timeout of 30000ms exceeded."
+ },
+ {
+  "file": "features/my-info/contact-details.spec.ts",
+  "title": "TC-021 invalid Work Email format shows error and blocks save",
+  "status": "timedOut",
+  "error": "Test timeout of 30000ms exceeded."
+ },
+ {
+  "file": "features/my-info/contact-details.spec.ts",
+  "title": "TC-022 Country dropdown includes the full alphabetical option list",
+  "status": "timedOut",
+  "error": "Test timeout of 30000ms exceeded while running \"beforeEach\" hook."
+ },
+ {
+  "file": "features/my-info/contact-details.spec.ts",
+  "title": "TC-023 Contact Details Attachments shows No Records Found",
+  "status": "failed",
+  "error": "Error: expect(locator).toBeVisible() failed |  | Locator: getByRole('heading', { name: 'Attachments', exact: true }).locator('xpath=following::*[contains(text(),\"No Records Found\")][1]') | Expected: visible | Timeout: 5000ms | Error: element(s) not found"
+ },
+ {
+  "file": "features/my-info/dependents.spec.ts",
+  "title": "TC-029 Dependents table lists the existing record",
+  "status": "failed",
+  "error": "Error: expect(locator).toBeVisible() failed |  | Locator: getByRole('heading', { name: 'Assigned Dependents', exact: true }).locator('xpath=following::table[1]') | Expected: visible | Timeout: 5000ms | Error: element(s) not found"
+ },
+ {
+  "file": "features/my-info/dependents.spec.ts",
+  "title": "TC-030 Add Dependent Relationship dropdown shows exactly 3 options",
+  "status": "timedOut",
+  "error": "Test timeout of 30000ms exceeded while running \"beforeEach\" hook."
+ },
+ {
+  "file": "features/my-info/dependents.spec.ts",
+  "title": "TC-031 Add Dependent form marks Name/Relationship required, Date of Birth optional",
+  "status": "timedOut",
+  "error": "Test timeout of 30000ms exceeded while running \"beforeEach\" hook."
+ },
+ {
+  "file": "features/my-info/emergency-contacts.spec.ts",
+  "title": "TC-024 Emergency Contacts table lists existing records with record count",
+  "status": "failed",
+  "error": "Error: expect(locator).toBeVisible() failed |  | Locator: getByText(/\\(\\d+\\)\\s*Record(s)?\\s*Found/i) | Expected: visible | Timeout: 5000ms | Error: element(s) not found"
+ },
+ {
+  "file": "features/my-info/emergency-contacts.spec.ts",
+  "title": "TC-025 Add form shows Name*/Relationship* required and Save/Cancel/legend",
+  "status": "timedOut",
+  "error": "Test timeout of 30000ms exceeded while running \"beforeEach\" hook."
+ },
+ {
+  "file": "features/my-info/emergency-contacts.spec.ts",
+  "title": "TC-026 empty Name and Relationship show Required errors and block save",
+  "status": "timedOut",
+  "error": "Test timeout of 30000ms exceeded while running \"beforeEach\" hook."
+ },
+ {
+  "file": "features/my-info/emergency-contacts.spec.ts",
+  "title": "TC-027 all phone fields empty shows at-least-one-phone-required error",
+  "status": "timedOut",
+  "error": "Test timeout of 30000ms exceeded while running \"beforeEach\" hook."
+ },
+ {
+  "file": "features/my-info/emergency-contacts.spec.ts",
+  "title": "TC-028 Cancel discards the Add form without saving",
+  "status": "timedOut",
+  "error": "Test timeout of 30000ms exceeded while running \"beforeEach\" hook."
+ },
+ {
+  "file": "features/my-info/immigration.spec.ts",
+  "title": "TC-032 Immigration table lists existing records",
+  "status": "timedOut",
+  "error": "Test timeout of 30000ms exceeded while running \"beforeEach\" hook."
+ },
+ {
+  "file": "features/my-info/job.spec.ts",
+  "title": "TC-048 Job fields are read-only and no Save button exists",
+  "status": "timedOut",
+  "error": "Test timeout of 30000ms exceeded while running \"beforeEach\" hook."
+ },
+ {
+  "file": "features/my-info/memberships.spec.ts",
+  "title": "TC-045 Memberships table lists the existing record",
+  "status": "failed",
+  "error": "Error: expect(locator).toBeVisible() failed |  | Locator: getByRole('heading', { name: 'Assigned Memberships', exact: true }).locator('xpath=following::table[1]') | Expected: visible | Timeout: 5000ms | Error: element(s) not found"
+ },
+ {
+  "file": "features/my-info/memberships.spec.ts",
+  "title": "TC-047 Memberships Attachments table lists the existing file",
+  "status": "failed",
+  "error": "Error: expect(locator).toBeVisible() failed |  | Locator: getByRole('heading', { name: 'Attachments', exact: true }).locator('xpath=following::table[1]') | Expected: visible | Timeout: 5000ms | Error: element(s) not found"
+ },
+ {
+  "file": "features/my-info/navigation.spec.ts",
+  "title": "TC-005 no unsaved-changes dialog appears when switching tabs after an edit",
+  "status": "timedOut",
+  "error": "Test timeout of 30000ms exceeded."
+ },
+ {
+  "file": "features/my-info/navigation.spec.ts",
+  "title": "TC-010 License Expiry Date field uses yyyy-dd-mm format",
+  "status": "timedOut",
+  "error": "Test timeout of 30000ms exceeded."
+ },
+ {
+  "file": "features/my-info/personal-details.spec.ts",
+  "title": "TC-011 Personal Details fields are pre-populated and Save is enabled",
+  "status": "failed",
+  "error": "Error: expect(locator).not.toHaveValue(expected) failed |  | Locator: getByLabel('First Name') | Expected: not \"\" | Timeout: 5000ms | Error: element(s) not found"
+ },
+ {
+  "file": "features/my-info/personal-details.spec.ts",
+  "title": "TC-012 empty First Name shows inline Required error and blocks save",
+  "status": "timedOut",
+  "error": "Test timeout of 30000ms exceeded."
+ },
+ {
+  "file": "features/my-info/personal-details.spec.ts",
+  "title": "TC-013 invalid License Expiry Date shows format error and blocks save",
+  "status": "timedOut",
+  "error": "Test timeout of 30000ms exceeded."
+ },
+ {
+  "file": "features/my-info/personal-details.spec.ts",
+  "title": "TC-014 Employee Id exceeding 10 characters shows length error and blocks save",
+  "status": "timedOut",
+  "error": "Test timeout of 30000ms exceeded."
+ },
+ {
+  "file": "features/my-info/personal-details.spec.ts",
+  "title": "TC-016 Nationality dropdown includes the full alphabetical option list",
+  "status": "passed",
+  "error": null
+ },
+ {
+  "file": "features/my-info/qualifications.spec.ts",
+  "title": "TC-035 Work Experience table lists existing records",
+  "status": "failed",
+  "error": "Error: expect(locator).toBeVisible() failed |  | Locator: getByRole('heading', { name: 'Work Experience', exact: true }).locator('xpath=following::table[1]') | Expected: visible | Timeout: 5000ms | Error: element(s) not found"
+ },
+ {
+  "file": "features/my-info/qualifications.spec.ts",
+  "title": "TC-037 Education table lists existing records",
+  "status": "failed",
+  "error": "Error: expect(locator).toBeVisible() failed |  | Locator: getByRole('heading', { name: 'Education', exact: true }).locator('xpath=following::table[1]') | Expected: visible | Timeout: 5000ms | Error: element(s) not found"
+ },
+ {
+  "file": "features/my-info/qualifications.spec.ts",
+  "title": "TC-038 Add Education Level dropdown shows exactly 5 options",
+  "status": "failed",
+  "error": "Error: expect(received).toEqual(expected) // deep equality |  | - Expected  - 5 | + Received  + 1 |  |   Array ["
+ },
+ {
+  "file": "features/my-info/qualifications.spec.ts",
+  "title": "TC-039 Skills table shows No Records Found",
+  "status": "failed",
+  "error": "Error: expect(locator).toBeVisible() failed |  | Locator: getByRole('heading', { name: 'Skills', exact: true }).locator('xpath=following::*[contains(text(),\"No Records Found\")][1]') | Expected: visible | Timeout: 5000ms | Error: element(s) not found"
+ },
+ {
+  "file": "features/my-info/qualifications.spec.ts",
+  "title": "TC-041 Languages table lists existing records",
+  "status": "failed",
+  "error": "Error: expect(locator).toBeVisible() failed |  | Locator: getByRole('heading', { name: 'Languages', exact: true }).locator('xpath=following::table[1]') | Expected: visible | Timeout: 5000ms | Error: element(s) not found"
+ },
+ {
+  "file": "features/my-info/qualifications.spec.ts",
+  "title": "TC-043 License table lists the existing record",
+  "status": "failed",
+  "error": "Error: expect(locator).toBeVisible() failed |  | Locator: getByRole('heading', { name: 'License', exact: true }).locator('xpath=following::table[1]') | Expected: visible | Timeout: 5000ms | Error: element(s) not found"
+ },
+ {
+  "file": "features/my-info/report-to.spec.ts",
+  "title": "TC-051 Supervisors empty, 1 Subordinate listed, no Add button anywhere",
+  "status": "failed",
+  "error": "Error: expect(locator).toBeVisible() failed |  | Locator: getByRole('heading', { name: 'Assigned Supervisors', exact: true }).locator('xpath=following::*[contains(text(),\"No Records Found\")][1]') | Expected: visible | Timeout: 5000ms | Error: element(s) not found"
+ }
+]
